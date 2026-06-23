@@ -544,7 +544,7 @@
           </div>
 
           <div class="contact-form-wrap">
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xaqgndkk" method="POST">
               <div class="form-group">
                 <label for="name">姓名</label>
                 <input type="text" id="name" name="name" placeholder="您的姓名" required />
@@ -578,7 +578,7 @@
         <p class="footer-title">iOS / Android App 程式設計工程師</p>
       </div>
       <div class="footer-right">
-        <p>© 2025 李碩祈 ｜ 版權所有</p>
+        <p>© 2026 李碩祈 ｜ 版權所有</p>
         <p><a href="https://sockylee.github.io" target="_blank" rel="noreferrer">sockylee.github.io</a></p>
         <p class="footer-stats">
           總瀏覽 <span id="vercount_value_site_pv">···</span> 次　·
@@ -631,11 +631,34 @@
       '.timeline-card, .project-card, .edu-card, .skill-group, .thesis-card'
     ).forEach(el => observer.observe(el));
 
-    // Contact form (static – just shows confirmation)
-    document.getElementById('contactForm').addEventListener('submit', e => {
+    // Contact form – send via Formspree (AJAX, no page redirect)
+    document.getElementById('contactForm').addEventListener('submit', async e => {
       e.preventDefault();
-      alert('感謝您的訊息！我會盡快與您聯絡。');
-      e.target.reset();
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = '傳送中…';
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          alert('感謝您的訊息！我會盡快與您聯絡。');
+          form.reset();
+        } else {
+          const data = await res.json().catch(() => ({}));
+          const msg = data.errors ? data.errors.map(err => err.message).join('\n') : '送出失敗，請稍後再試或直接來信 socky8237@yahoo.com.tw';
+          alert(msg);
+        }
+      } catch (err) {
+        alert('送出失敗，請檢查網路連線，或直接來信 socky8237@yahoo.com.tw');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = original;
+      }
     });
   </script>
 </body>
