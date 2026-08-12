@@ -19,6 +19,9 @@
   li { margin:6px 0; }
   .box { background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:20px 0; }
   .key { font-weight:700; color:var(--brown); }
+  .plat { display:inline-block; font-size:12px; font-weight:700; letter-spacing:.03em;
+          padding:1px 9px; border-radius:999px; background:var(--brown); color:#fff; margin-right:8px;
+          vertical-align:1px; }
   a { color:var(--brown); }
   footer { margin-top:64px; padding-top:20px; border-top:1px solid var(--line);
            color:var(--muted); font-size:14px; }
@@ -26,6 +29,7 @@
   @media (prefers-color-scheme: dark) {
     :root { --ink:#ece6df; --muted:#a89e94; --line:#3a332c; --bg:#1a1714; --brown:#d99e5f; }
     .box { background:#221e1a; }
+    .plat { color:#1a1714; }
   }
 </style>
 </head>
@@ -34,15 +38,16 @@
 
 <header>
   <h1>隱私權政策</h1>
-  <div class="sub">找間咖啡館（Find a Cafe）· 最後更新：2026 年 7 月 29 日</div>
+  <div class="sub">找間咖啡館（Find a Cafe）· iOS 與 Android 版 · 最後更新：2026 年 8 月 12 日</div>
 </header>
 
 <div class="box">
-  <p class="key" style="margin:0">簡短版本：本 App 不蒐集、不儲存、也不傳送任何個人資料。沒有廣告、沒有分析工具、沒有追蹤、不需要註冊帳號。</p>
+  <p class="key" style="margin:0">簡短版本：本 App 沒有帳號、不蒐集個人資料、沒有分析工具，也不做跨 App 追蹤。免費體驗期結束後，畫面底部會顯示由 Google AdMob 提供的橫幅廣告，而且<strong>一律是非個人化廣告</strong>；你可以一次性購買「移除廣告」永久關閉它。</p>
 </div>
 
 <h2>1. 我們蒐集哪些資料</h2>
-<p><strong>不蒐集任何資料。</strong>「找間咖啡館」沒有帳號系統、沒有登入機制，也沒有任何伺服器會接收您的資訊。我們無法辨識您是誰，也沒有能力這麼做。</p>
+<p><strong>開發者不蒐集任何資料。</strong>「找間咖啡館」沒有帳號系統、沒有登入機制，我們也沒有任何自營伺服器會接收您的資訊。我們無法辨識您是誰，也沒有能力這麼做。</p>
+<p>唯一會取得技術資料的第三方是廣告服務（Google AdMob），且僅發生在實際顯示廣告的期間、不與您的身分連結。詳見<a href="#ads">第 5 節</a>。</p>
 
 <h2>2. 定位權限</h2>
 <p>本 App 會要求「<strong>使用 App 期間</strong>」的定位權限，用途僅有兩項：</p>
@@ -50,56 +55,82 @@
   <li>在地圖上顯示您目前的位置，並將地圖置中。</li>
   <li>計算您與各咖啡廳之間的距離。</li>
 </ul>
-<p>這些計算<strong>全部在您的裝置上完成</strong>。您的位置資料<strong>不會被儲存、不會被上傳、也不會傳送給我們或任何第三方</strong>。</p>
-<p>您可以拒絕定位權限，App 仍然可以正常使用；此時地圖會以台北市中心為預設位置，距離則顯示為「無法計算距離」。您隨時可以在 iOS 的「設定 → 隱私權與安全性 → 定位服務」中變更授權。</p>
+<p>這些計算<strong>全部在您的裝置上完成</strong>。您的位置資料<strong>不會被儲存、不會被上傳，也不會傳送給我們、廣告服務或任何第三方</strong>。</p>
+<p>您可以拒絕定位權限，App 仍然可以正常使用；此時地圖會以台北市中心為預設位置，距離則顯示為「無法計算距離」。授權可隨時變更：</p>
+<ul>
+  <li><span class="plat">iOS</span>設定 → 隱私權與安全性 → 定位服務 → 找間咖啡館。</li>
+  <li><span class="plat">Android</span>設定 → 應用程式 → 找間咖啡館 → 權限 → 位置資訊。</li>
+</ul>
 
 <h2>3. 網路連線</h2>
-<p>本 App 唯一的對外連線，是向 <a href="https://cafenomad.tw" target="_blank" rel="noopener">Cafe Nomad</a> 的公開 API（<code>cafenomad.tw</code>）取得全台咖啡廳資料。</p>
-<p>這是一個單純的資料下載請求，<strong>不包含任何使用者識別資訊</strong>（沒有帳號、沒有裝置 ID、沒有位置）。我們不經營任何伺服器，也不會記錄您的使用行為。</p>
+<p>本 App 的對外連線只有以下幾種：</p>
+<ul>
+  <li><strong>咖啡廳資料</strong>：向 <a href="https://cafenomad.tw" target="_blank" rel="noopener">Cafe Nomad</a> 的公開 API（<code>cafenomad.tw</code>）下載全台咖啡廳資料。這是單純的資料下載請求，<strong>不包含任何使用者識別資訊</strong>（沒有帳號、沒有裝置 ID、沒有位置）。</li>
+  <li><strong>地圖圖資</strong>：<span class="plat">iOS</span>使用 Apple 內建的 MapKit；<span class="plat">Android</span>使用 Google Maps SDK。圖資由 Apple／Google 提供，適用其各自的隱私權政策。</li>
+  <li><strong>廣告</strong>：<strong>只有在免費體驗期已結束、且未購買「移除廣告」時</strong>，才會向 Google 的廣告伺服器請求橫幅。體驗期內或已購買移除廣告的情況下，廣告元件<strong>完全不會被初始化</strong>，也就不會有任何廣告相關的網路連線。</li>
+  <li><strong>店家網頁</strong>：您主動點開店家網站時，會以<span class="plat">iOS</span>Safari View Controller／<span class="plat">Android</span>Chrome 自訂分頁開啟；之後的瀏覽行為適用該瀏覽器的隱私權政策。</li>
+</ul>
+<p>我們不經營任何伺服器，也不會記錄您的使用行為。</p>
 
 <h2>4. 裝置上儲存的資料</h2>
 <p>為了讓您在沒有網路時也能查詢，以下資料會儲存在您的手機本機：</p>
 <ul>
-  <li>下載的咖啡廳清單（儲存於裝置的 Core Data 資料庫）。</li>
+  <li>下載的咖啡廳清單（<span class="plat">iOS</span>Core Data／<span class="plat">Android</span>Room 資料庫）。</li>
   <li>您的篩選條件與城市顯示設定。</li>
   <li>上次資料更新的時間。</li>
+  <li>「已購買移除廣告」的本機註記，讓付過費的人一開啟 App 就不會閃到廣告。</li>
+  <li>首次開啟 App 的時間，用來計算免費體驗期還剩幾天。</li>
 </ul>
-<p>這些資料<strong>只存在於您的裝置上</strong>，不會同步或上傳。刪除 App 即可完全清除。</p>
+<p><span class="plat">iOS</span>首次開啟時間另外會寫入 Keychain。Keychain 不會隨著刪除 App 而清空，因此重新安裝不會重置免費體驗期；該筆紀錄只是一個日期，不含任何個人資訊。</p>
+<p>除此之外的資料<strong>只存在於您的裝置上</strong>，不會同步或上傳，刪除 App 即可完全清除。</p>
 
-<h2>5. 第三方服務與追蹤</h2>
+<h2 id="ads">5. 廣告</h2>
+<h3>什麼時候會出現</h3>
+<p>從您第一次開啟 App 起算有 <strong>7 天免費體驗期</strong>，期間完全沒有廣告。體驗期結束後，畫面底部（分頁列上方）會出現一則橫幅廣告。App 內<strong>只有這一種廣告</strong>，沒有插頁式、影片或獎勵式廣告。設定頁可以看到體驗期剩餘天數。</p>
+
+<h3>由誰提供、看得到什麼</h3>
 <ul>
-  <li>沒有廣告 SDK。</li>
-  <li>沒有分析或統計工具。</li>
-  <li>沒有崩潰回報服務。</li>
-  <li>沒有任何形式的使用者追蹤，也不會存取廣告識別碼（IDFA）。</li>
+  <li>廣告由 <strong>Google AdMob</strong>（Google Mobile Ads SDK）提供。</li>
+  <li><strong>一律為非個人化廣告</strong>：所有廣告請求都標記為非個人化（<code>npa=1</code>），Google <strong>不會</strong>依據您的個人資料或跨 App 行為來決定投放哪一則廣告。</li>
+  <li>為了投放與計費，Google 仍會取得有限的技術資訊：IP 位址（用於國家／城市層級的粗略地區判斷，以及偵測廣告詐欺）、裝置與 App 的基本資訊，以及廣告識別碼。<strong>這裡的地區判斷來自 IP，與 App 的定位權限無關</strong>，您的 GPS 位置永遠不會提供給廣告服務。</li>
+  <li><span class="plat">Android</span>即使是非個人化廣告，SDK 仍可能使用系統的「廣告 ID」做曝光頻率控管與無效流量偵測。您可以在 Android 的「設定 → Google → 廣告」中重設或刪除廣告 ID。</li>
+  <li><span class="plat">iOS</span>本 App <strong>不會</strong>顯示「App 追蹤透明度（ATT）」的追蹤要求，因此依系統規則<strong>無法也不會取得 IDFA</strong>（廣告識別碼）。</li>
+  <li>廣告內容分級上限設定為 <strong>G（一般觀眾）</strong>，對齊 App Store 的 4+ 分級。</li>
+  <li>歐盟與英國使用者：因為本 App 一律投放非個人化廣告，不會因為同意與否而改變投放方式。</li>
 </ul>
-<p>App 使用 Apple 內建的地圖（MapKit）顯示地圖與提供導航，以及 Safari 瀏覽器元件開啟店家網頁；這些功能由 Apple 提供，適用 Apple 自身的隱私權政策。</p>
+<p>關於 Google 在合作夥伴的 App 中如何使用資料，請見 <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google 的說明</a>。</p>
 
-<h2>6. 問題回報</h2>
+<h2>6. 購買「移除廣告」</h2>
+<p>「移除廣告」是<strong>一次性購買</strong>（非消耗型商品），不是訂閱，不會自動續扣。購買後永久不再顯示廣告。</p>
+<p>付款與交易<strong>完全由 App Store／Google Play 處理</strong>。我們<strong>不會收到、也無法存取您的付款資訊</strong>（信用卡、帳單地址、Apple ID／Google 帳號皆然）。App 只會從系統取得「這個帳號有沒有這項購買」的結果，並在本機留下註記。</p>
+<p>換手機或重新安裝後，使用同一個 Apple ID／Google 帳號，可在設定頁的「恢復購買」取回權益。</p>
+
+<h2>7. 問題回報</h2>
 <p>設定頁的「問題回報」會開啟您裝置上的郵件 App 並預先填入收件人與主旨。是否寄出完全由您決定，我們只會收到您主動寄出的內容。</p>
 
-<h2>7. 兒童隱私</h2>
-<p>本 App 分級為 4+，不蒐集任何資料，因此也不會蒐集兒童的個人資訊。</p>
+<h2>8. 兒童隱私</h2>
+<p>本 App 分級為 4+（一般觀眾），不蒐集任何個人資料，因此也不會蒐集兒童的個人資訊。廣告的內容分級上限同樣設為 G。本 App 並非以兒童為主要對象。</p>
 
-<h2>8. 政策變更</h2>
+<h2>9. 政策變更</h2>
 <p>若本政策有所更新，我們會修改本頁面並更新頁首的「最後更新」日期。</p>
 
-<h2>9. 聯絡我們</h2>
+<h2>10. 聯絡我們</h2>
 <p>對隱私權有任何疑問，請來信：<a href="mailto:socky.lee@gmail.com">socky.lee@gmail.com</a></p>
 
 <hr class="lang">
 
 <header style="margin-top:48px">
   <h1>Privacy Policy</h1>
-  <div class="sub">Find a Cafe (找間咖啡館) · Last updated: 29 July 2026</div>
+  <div class="sub">Find a Cafe (找間咖啡館) · iOS and Android · Last updated: 12 August 2026</div>
 </header>
 
 <div class="box">
-  <p class="key" style="margin:0">Short version: this app collects no data, stores no data about you, and sends nothing anywhere. No ads, no analytics, no tracking, no account required.</p>
+  <p class="key" style="margin:0">Short version: no account, no personal data collected, no analytics, no cross-app tracking. After the free trial ends, a banner ad from Google AdMob appears at the bottom of the screen, and it is <strong>always a non-personalised ad</strong>. A one-time purchase removes ads permanently.</p>
 </div>
 
 <h2>1. What we collect</h2>
-<p><strong>Nothing.</strong> Find a Cafe has no accounts, no sign-in, and no server that receives your information. We cannot identify you, and we have no means to do so.</p>
+<p><strong>The developer collects nothing.</strong> Find a Cafe has no accounts, no sign-in, and no server of ours that receives your information. We cannot identify you, and we have no means to do so.</p>
+<p>The only third party that receives any technical data is the ad service (Google AdMob), and only while ads are actually being shown. It is not linked to your identity. See <a href="#ads-en">section 5</a>.</p>
 
 <h2>2. Location</h2>
 <p>The app requests <strong>While Using the App</strong> location access for exactly two purposes:</p>
@@ -107,41 +138,66 @@
   <li>To show your position on the map and centre the map on you.</li>
   <li>To calculate the distance between you and each cafe.</li>
 </ul>
-<p>Both happen <strong>entirely on your device</strong>. Your location is <strong>never stored, never uploaded, and never transmitted</strong> to us or to any third party.</p>
-<p>You may decline location access and the app still works: the map defaults to central Taipei and distances read “Distance unavailable”. You can change this at any time in iOS Settings → Privacy &amp; Security → Location Services.</p>
+<p>Both happen <strong>entirely on your device</strong>. Your location is <strong>never stored, never uploaded, and never transmitted</strong> to us, to the ad service, or to any third party.</p>
+<p>You may decline location access and the app still works: the map defaults to central Taipei and distances read “Distance unavailable”. You can change this at any time:</p>
+<ul>
+  <li><span class="plat">iOS</span>Settings → Privacy &amp; Security → Location Services → Find a Cafe.</li>
+  <li><span class="plat">Android</span>Settings → Apps → Find a Cafe → Permissions → Location.</li>
+</ul>
 
 <h2>3. Network activity</h2>
-<p>The app's only outbound connection is a request to the public <a href="https://cafenomad.tw" target="_blank" rel="noopener">Cafe Nomad</a> API (<code>cafenomad.tw</code>) to download cafe data for Taiwan.</p>
-<p>It is a plain data download that carries <strong>no user-identifying information</strong> — no account, no device ID, no location. We operate no servers of our own and keep no logs of your usage.</p>
+<p>The app makes only these kinds of outbound connections:</p>
+<ul>
+  <li><strong>Cafe data</strong>: a download from the public <a href="https://cafenomad.tw" target="_blank" rel="noopener">Cafe Nomad</a> API (<code>cafenomad.tw</code>). It is a plain data request carrying <strong>no user-identifying information</strong> — no account, no device ID, no location.</li>
+  <li><strong>Map tiles</strong>: <span class="plat">iOS</span>Apple's built-in MapKit; <span class="plat">Android</span>the Google Maps SDK. These are provided by Apple/Google and governed by their own privacy policies.</li>
+  <li><strong>Ads</strong>: banner requests go to Google's ad servers <strong>only once the free trial has ended and ads have not been removed by purchase</strong>. During the trial, or after you buy “Remove ads”, the ad component is <strong>never initialised</strong> — so there are no ad-related connections at all.</li>
+  <li><strong>Cafe websites</strong>: when you choose to open one, it opens in <span class="plat">iOS</span>Safari View Controller / <span class="plat">Android</span>a Chrome Custom Tab. Browsing from there is governed by that browser's privacy policy.</li>
+</ul>
+<p>We operate no servers of our own and keep no logs of your usage.</p>
 
 <h2>4. Data stored on your device</h2>
 <p>So the app works offline, the following is kept locally on your phone:</p>
 <ul>
-  <li>The downloaded cafe list (in the device's Core Data store).</li>
+  <li>The downloaded cafe list (<span class="plat">iOS</span>Core Data / <span class="plat">Android</span>Room).</li>
   <li>Your filter settings and which cities you have enabled.</li>
   <li>The timestamp of the last data refresh.</li>
+  <li>A local note of whether “Remove ads” has been purchased, so paying users never flash an ad on launch.</li>
+  <li>The date you first opened the app, used to count down the free trial.</li>
 </ul>
-<p>This stays <strong>on your device only</strong>. It is never synced or uploaded. Deleting the app removes it completely.</p>
+<p><span class="plat">iOS</span>The first-launch date is also written to the Keychain. The Keychain is not cleared when an app is deleted, so reinstalling does not reset the free trial. That entry is just a date and contains no personal information.</p>
+<p>Everything else stays <strong>on your device only</strong>. It is never synced or uploaded, and deleting the app removes it completely.</p>
 
-<h2>5. Third parties and tracking</h2>
+<h2 id="ads-en">5. Advertising</h2>
+<h3>When ads appear</h3>
+<p>There is a <strong>7-day free trial</strong> from the moment you first open the app, with no ads at all. After that, a single banner appears at the bottom of the screen, above the tab bar. That is the <strong>only</strong> ad format in the app — no interstitials, no video, no rewarded ads. Settings shows how many trial days are left.</p>
+
+<h3>Who serves them, and what they see</h3>
 <ul>
-  <li>No advertising SDKs.</li>
-  <li>No analytics.</li>
-  <li>No crash reporting services.</li>
-  <li>No tracking of any kind, and no access to the advertising identifier (IDFA).</li>
+  <li>Ads are served by <strong>Google AdMob</strong> (Google Mobile Ads SDK).</li>
+  <li><strong>Always non-personalised</strong>: every ad request is flagged non-personalised (<code>npa=1</code>). Google does <strong>not</strong> use your personal data or cross-app behaviour to decide which ad to show.</li>
+  <li>To serve and bill for ads, Google still receives limited technical data: your IP address (for country/city-level geo targeting and ad-fraud detection), basic device and app information, and an advertising identifier. <strong>That geo targeting comes from the IP address and has nothing to do with the app's location permission</strong> — your GPS location is never given to the ad service.</li>
+  <li><span class="plat">Android</span>Even for non-personalised ads, the SDK may use the system Advertising ID for frequency capping and invalid-traffic detection. You can reset or delete it under Settings → Google → Ads.</li>
+  <li><span class="plat">iOS</span>The app <strong>never</strong> shows an App Tracking Transparency prompt, so by the platform's own rules it <strong>cannot and does not</strong> obtain the IDFA.</li>
+  <li>The maximum ad content rating is set to <strong>G (General audiences)</strong>, matching the app's 4+ rating.</li>
+  <li>EU/UK users: because the app always requests non-personalised ads, consent status does not change how ads are served.</li>
 </ul>
-<p>The app uses Apple's built-in MapKit for maps and directions, and Safari View Controller to open cafe websites. Those are provided by Apple and governed by Apple's own privacy policy.</p>
+<p>For how Google uses data in partner apps, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google's explanation</a>.</p>
 
-<h2>6. Reporting an issue</h2>
-<p>“Report an issue” in Settings opens your device's Mail app with the recipient and subject pre-filled. Whether to send it is entirely your choice; we only receive what you deliberately send.</p>
+<h2>6. The “Remove ads” purchase</h2>
+<p>“Remove ads” is a <strong>one-time purchase</strong> (a non-consumable), not a subscription. Nothing auto-renews. Once bought, ads never appear again.</p>
+<p>Payment is handled <strong>entirely by the App Store / Google Play</strong>. We <strong>never receive and cannot access your payment details</strong> — card, billing address, Apple ID or Google account alike. The app only asks the platform whether this account owns the purchase, and notes the answer locally.</p>
+<p>On a new phone or after reinstalling, use the same Apple ID / Google account and tap “Restore purchase” in Settings.</p>
 
-<h2>7. Children's privacy</h2>
-<p>The app is rated 4+ and collects no data, so it collects no information from children either.</p>
+<h2>7. Reporting an issue</h2>
+<p>“Report an issue” in Settings opens your device's mail app with the recipient and subject pre-filled. Whether to send it is entirely your choice; we only receive what you deliberately send.</p>
 
-<h2>8. Changes to this policy</h2>
+<h2>8. Children's privacy</h2>
+<p>The app is rated 4+ (general audiences) and collects no personal data, so it collects no information from children either. Ad content is likewise capped at a G rating. The app is not directed at children.</p>
+
+<h2>9. Changes to this policy</h2>
 <p>If this policy changes we will update this page and the “Last updated” date above.</p>
 
-<h2>9. Contact</h2>
+<h2>10. Contact</h2>
 <p>Questions about privacy: <a href="mailto:socky.lee@gmail.com">socky.lee@gmail.com</a></p>
 
 <footer>
