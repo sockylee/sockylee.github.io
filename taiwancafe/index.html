@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>找間咖啡館 — 台灣咖啡廳地圖 / Find a Cafe — Taiwan</title>
+<meta name="description" content="收錄全台灣兩千多家咖啡廳，依插座、不限時、WiFi、安靜程度篩選。資料存在手機裡，沒網路也查得到。">
+<meta property="og:title" content="找間咖啡館 — 台灣咖啡廳地圖">
+<meta property="og:description" content="有插座、不限時，找一間能帶筆電久坐的店。離線可用，不追蹤。">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#8B5A2B">
+<style>
+  :root { --brown:#8B5A2B; --brown-dp:#6d4622; --cream:#f4e9dc; --ink:#23201d; --muted:#6b625a;
+          --line:#e7ded4; --bg:#fdfbf8; --card:#ffffff; --shadow:0 10px 30px rgba(60,40,20,.10); }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+  img, svg { max-width:100%; }
+  a { color:var(--brown); }
+
+  /* ---------- 版面 ---------- */
+  .wrap { max-width:1000px; margin:0 auto; padding:0 24px; }
+  section { padding:64px 0; }
+  .eyebrow { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+             color:var(--brown); margin:0 0 10px; }
+  h2 { font-size:27px; line-height:1.35; margin:0 0 12px; }
+  h3 { font-size:17px; margin:0 0 6px; }
+  .lead { color:var(--muted); max-width:52ch; margin:0 0 8px; }
+
+  /* ---------- 導覽列 ---------- */
+  .nav { position:sticky; top:0; z-index:20; background:rgba(253,251,248,.88);
+         backdrop-filter:saturate(180%) blur(12px); border-bottom:1px solid var(--line); }
+  .nav .wrap { display:flex; align-items:center; gap:16px; height:60px; }
+  .brand { display:flex; align-items:center; gap:10px; font-weight:700; color:var(--ink);
+           text-decoration:none; margin-right:auto; }
+  .brand .mark { width:28px; height:28px; border-radius:8px; background:var(--brown);
+                 display:grid; place-items:center; color:#fff; font-size:15px; }
+  .nav a.link { color:var(--muted); text-decoration:none; font-size:15px; }
+  .nav a.link:hover { color:var(--brown); }
+  .nav .link.hide-sm { display:none; }
+  @media (min-width:720px) { .nav .link.hide-sm { display:inline; } }
+
+  /* 語言切換 */
+  .langsw { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .langsw button { border:0; background:transparent; color:var(--muted); cursor:pointer;
+                   font:600 13px/1 inherit; padding:7px 12px; }
+  .langsw button[aria-pressed="true"] { background:var(--brown); color:#fff; }
+
+  /* ---------- Hero ---------- */
+  .hero { background:linear-gradient(180deg,var(--cream),var(--bg)); border-bottom:1px solid var(--line); }
+  .hero .wrap { display:grid; gap:40px; align-items:center; padding-top:56px; padding-bottom:56px; }
+  @media (min-width:860px) { .hero .wrap { grid-template-columns:1.05fr .95fr; gap:56px;
+                                           padding-top:72px; padding-bottom:72px; } }
+  .hero h1 { font-size:38px; line-height:1.22; margin:0 0 14px; color:var(--brown); }
+  @media (min-width:860px) { .hero h1 { font-size:46px; } }
+  .hero p { font-size:18px; color:var(--muted); margin:0 0 26px; max-width:46ch; }
+  .actions { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+  .cta { background:var(--brown); color:#fff; display:inline-block; padding:13px 24px;
+         border-radius:12px; text-decoration:none; font-weight:600; box-shadow:var(--shadow); }
+  .cta:hover { background:var(--brown-dp); }
+  .cta.ghost { background:transparent; color:var(--brown); box-shadow:none;
+               border:1px solid var(--brown); }
+  .note { font-size:13px; color:var(--muted); margin:14px 0 0; }
+  .phone-slot { display:flex; justify-content:center; }
+  .phone-slot svg { width:100%; max-width:300px; height:auto; filter:drop-shadow(0 18px 40px rgba(60,40,20,.22)); }
+
+  /* ---------- 重點條 ---------- */
+  .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line);
+           border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+  @media (min-width:720px) { .stats { grid-template-columns:repeat(4,1fr); } }
+  .stat { background:var(--card); padding:22px 18px; text-align:center; }
+  .stat b { display:block; font-size:24px; color:var(--brown); line-height:1.2; }
+  .stat span { font-size:13px; color:var(--muted); }
+
+  /* ---------- 功能卡 ---------- */
+  .cards { display:grid; gap:16px; margin-top:28px; }
+  @media (min-width:720px) { .cards { grid-template-columns:repeat(3,1fr); } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px;
+          padding:22px; box-shadow:var(--shadow); }
+  .card .ico { width:40px; height:40px; border-radius:11px; background:var(--cream);
+               display:grid; place-items:center; font-size:20px; margin-bottom:14px; }
+  .card p { margin:0; color:var(--muted); font-size:15px; }
+  .taglist { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; padding:0; list-style:none; }
+  .taglist li { font-size:13px; background:var(--cream); color:var(--brown-dp);
+                border-radius:999px; padding:4px 12px; font-weight:600; }
+
+  /* ---------- 透明度區塊 ---------- */
+  .panel { background:var(--card); border:1px solid var(--line); border-left:5px solid var(--brown);
+           border-radius:16px; padding:26px 28px; }
+  .panel ul { margin:14px 0 0; padding-left:20px; color:var(--muted); }
+  .panel li { margin:8px 0; }
+  .panel li strong { color:var(--ink); }
+
+  /* ---------- 頁尾 ---------- */
+  footer { border-top:1px solid var(--line); padding:36px 0 56px; color:var(--muted); font-size:14px; }
+  footer .wrap { display:flex; flex-wrap:wrap; gap:12px 24px; align-items:center; }
+  footer .spacer { margin-left:auto; }
+
+  /* ---------- 雙語切換 ---------- */
+  [data-lang="zh"] .en { display:none; }
+  [data-lang="en"] .zh { display:none; }
+
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#ece6df; --muted:#a89e94; --line:#3a332c; --bg:#1a1714; --card:#221e1a;
+            --cream:#2b241d; --brown:#d99e5f; --brown-dp:#eab475; --shadow:0 10px 30px rgba(0,0,0,.35); }
+    .nav { background:rgba(26,23,20,.86); }
+    .brand { color:var(--ink); }
+    .brand .mark, .cta, .langsw button[aria-pressed="true"] { color:#1a1714; }
+    .cta.ghost { color:var(--brown); }
+  }
+</style>
+</head>
+<body data-lang="zh">
+
+<!-- ============================= 導覽列 ============================= -->
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mark">☕</span>
+      <span class="zh">找間咖啡館</span><span class="en">Find a Cafe</span>
+    </a>
+    <a class="link hide-sm" href="#features"><span class="zh">功能</span><span class="en">Features</span></a>
+    <a class="link hide-sm" href="#privacy"><span class="zh">隱私</span><span class="en">Privacy</span></a>
+    <a class="link" href="support.html"><span class="zh">支援</span><span class="en">Support</span></a>
+    <div class="langsw">
+      <button type="button" data-set-lang="zh" aria-pressed="true">中文</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================= Hero ============================= -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="zh">
+        <h1>有插座、不限時，<br>找一間能久坐的咖啡廳。</h1>
+        <p>收錄全台灣兩千多家咖啡廳。用地圖或清單，依插座、不限時、WiFi 與安靜程度篩選，直接找到適合帶筆電坐一下午的店。</p>
+      </div>
+      <div class="en">
+        <h1>Outlets, wifi,<br>no time limit.</h1>
+        <p>Over two thousand cafes across Taiwan. Browse by map or list and filter by power outlets, time limits, wifi and quietness to find somewhere you can actually work.</p>
+      </div>
+
+      <div class="actions">
+        <!-- TODO：App 上架後，把下面的 href 換成正式 App Store 連結（https://apps.apple.com/tw/app/id……） -->
+        <a class="cta" href="#" data-appstore>
+          <span class="zh">App Store 即將上線</span><span class="en">Coming to the App Store</span>
+        </a>
+        <a class="cta ghost" href="#features">
+          <span class="zh">看看能做什麼</span><span class="en">See what it does</span>
+        </a>
+      </div>
+      <p class="note">
+        <span class="zh">iPhone · iOS 15 以上 · 繁體中文／English · 免費下載</span>
+        <span class="en">iPhone · iOS 15 or later · English &amp; Traditional Chinese · Free</span>
+      </p>
+    </div>
+
+    <!-- 手機示意圖（純 SVG，不依賴外部圖檔） -->
+    <div class="phone-slot" aria-hidden="true">
+      <svg viewBox="0 0 300 610" role="img">
+        <defs>
+          <clipPath id="screen"><rect x="14" y="14" width="272" height="582" rx="34"/></clipPath>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#8B5A2B"/><stop offset="1" stop-color="#a97240"/>
+          </linearGradient>
+        </defs>
+        <!-- 機身 -->
+        <rect x="0" y="0" width="300" height="610" rx="46" fill="#2c2622"/>
+        <rect x="8" y="8" width="284" height="594" rx="40" fill="#0f0d0b"/>
+        <g clip-path="url(#screen)">
+          <!-- 地圖底 -->
+          <rect x="14" y="14" width="272" height="582" fill="#f0ead9"/>
+          <!-- 綠地與水域 -->
+          <path d="M14 380 q60 -30 120 0 t140 -10 v226 H14 Z" fill="#e2ecd8"/>
+          <path d="M180 14 q40 90 10 150 t40 120 l70 40 V14 Z" fill="#d9e6ef"/>
+          <!-- 道路 -->
+          <g stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity=".95">
+            <path d="M-10 200 H310"/><path d="M-10 320 H310"/><path d="M80 0 V610"/><path d="M215 0 V610"/>
+            <path d="M14 470 L300 380"/>
+          </g>
+          <g stroke="#e6dcc8" stroke-width="3">
+            <path d="M-10 260 H310"/><path d="M148 0 V610"/>
+          </g>
+          <!-- 標題列 -->
+          <rect x="14" y="14" width="272" height="86" fill="url(#sky)"/>
+          <text x="34" y="66" fill="#fff" font-family="-apple-system,Segoe UI,sans-serif"
+                font-size="19" font-weight="700">地圖</text>
+          <rect x="188" y="46" width="80" height="30" rx="15" fill="rgba(255,255,255,.22)"/>
+          <text x="228" y="66" fill="#fff" font-family="-apple-system,Segoe UI,sans-serif"
+                font-size="13" font-weight="600" text-anchor="middle">篩選 (3)</text>
+          <!-- 大頭針 -->
+          <g fill="#8B5A2B">
+            <path d="M70 250 a15 15 0 1 1 30 0 c0 12 -15 26 -15 26 s-15 -14 -15 -26 z"/>
+            <path d="M186 210 a13 13 0 1 1 26 0 c0 10 -13 22 -13 22 s-13 -12 -13 -22 z"/>
+            <path d="M120 360 a13 13 0 1 1 26 0 c0 10 -13 22 -13 22 s-13 -12 -13 -22 z"/>
+            <path d="M230 320 a11 11 0 1 1 22 0 c0 9 -11 19 -11 19 s-11 -10 -11 -19 z"/>
+          </g>
+          <g fill="#fff">
+            <circle cx="85" cy="264" r="5.5"/><circle cx="199" cy="222" r="4.5"/>
+            <circle cx="133" cy="372" r="4.5"/><circle cx="241" cy="330" r="4"/>
+          </g>
+          <!-- 目前位置 -->
+          <circle cx="150" cy="300" r="22" fill="#4a90d9" opacity=".18"/>
+          <circle cx="150" cy="300" r="7" fill="#3b7fc4" stroke="#fff" stroke-width="3"/>
+          <!-- 店家卡片 -->
+          <g>
+            <rect x="28" y="416" width="244" height="128" rx="18" fill="#fff"/>
+            <text x="46" y="450" font-family="-apple-system,Segoe UI,sans-serif" font-size="16"
+                  font-weight="700" fill="#23201d">咖啡日常</text>
+            <text x="46" y="472" font-family="-apple-system,Segoe UI,sans-serif" font-size="12"
+                  fill="#6b625a">台北市大安區 · 320 公尺</text>
+            <g font-family="-apple-system,Segoe UI,sans-serif" font-size="11" font-weight="600">
+              <rect x="46" y="484" width="62" height="22" rx="11" fill="#f4e9dc"/>
+              <text x="77" y="499" fill="#6d4622" text-anchor="middle">有插座</text>
+              <rect x="114" y="484" width="62" height="22" rx="11" fill="#f4e9dc"/>
+              <text x="145" y="499" fill="#6d4622" text-anchor="middle">不限時</text>
+              <rect x="182" y="484" width="62" height="22" rx="11" fill="#f4e9dc"/>
+              <text x="213" y="499" fill="#6d4622" text-anchor="middle">安靜</text>
+            </g>
+            <g>
+              <rect x="46" y="518" width="180" height="6" rx="3" fill="#efe6da"/>
+              <rect x="46" y="518" width="146" height="6" rx="3" fill="#8B5A2B"/>
+              <text x="236" y="524" font-family="-apple-system,Segoe UI,sans-serif" font-size="11"
+                    fill="#6b625a">4.1</text>
+            </g>
+          </g>
+          <!-- 分頁列 -->
+          <rect x="14" y="552" width="272" height="44" fill="rgba(255,255,255,.96)"/>
+          <g font-family="-apple-system,Segoe UI,sans-serif" font-size="11" text-anchor="middle">
+            <text x="80" y="580" fill="#8B5A2B" font-weight="700">地圖</text>
+            <text x="150" y="580" fill="#a49a90">清單</text>
+            <text x="220" y="580" fill="#a49a90">設定</text>
+          </g>
+        </g>
+        <rect x="112" y="20" width="76" height="22" rx="11" fill="#0f0d0b"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- ============================= 數字 ============================= -->
+<section style="padding-top:48px;padding-bottom:8px">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>2,000+</b>
+        <span class="zh">全台咖啡廳</span><span class="en">cafes in Taiwan</span></div>
+      <div class="stat"><b>19</b>
+        <span class="zh">縣市可自由開關</span><span class="en">counties &amp; cities</span></div>
+      <div class="stat"><b>6</b>
+        <span class="zh">項評分可設下限</span><span class="en">ratings you can filter</span></div>
+      <div class="stat"><b>0</b>
+        <span class="zh">個追蹤器</span><span class="en">trackers</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 功能 ============================= -->
+<section id="features">
+  <div class="wrap">
+    <p class="eyebrow"><span class="zh">功能</span><span class="en">Features</span></p>
+    <div class="zh">
+      <h2>不用一家一家點開看</h2>
+      <p class="lead">篩選才是重點。設好條件之後，地圖與清單同步只留下符合的店。</p>
+    </div>
+    <div class="en">
+      <h2>Stop opening cafes one by one</h2>
+      <p class="lead">Filtering is the whole point. Set your conditions once and both the map and the list update instantly.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="ico">🗺️</div>
+        <div class="zh"><h3>地圖找店</h3>
+          <p>打開就看到你附近的咖啡廳，每一家都顯示距離。點一下大頭針，馬上看到插座、不限時、WiFi 與安靜程度。</p></div>
+        <div class="en"><h3>Find cafes on the map</h3>
+          <p>Open the app and see the cafes around you, each with its distance. Tap a pin for outlets, time limits, wifi and quietness at a glance.</p></div>
+      </div>
+
+      <div class="card">
+        <div class="ico">🎛️</div>
+        <div class="zh"><h3>條件篩選</h3>
+          <p>勾選有插座、不限時、有站立桌、靠近捷運，再為六項評分設下限，結果即時更新。</p>
+          <ul class="taglist"><li>有插座</li><li>不限時</li><li>站立桌</li><li>靠近捷運</li></ul></div>
+        <div class="en"><h3>Filters that matter</h3>
+          <p>Tick power outlets, no time limit, standing desk or near a metro station, then set a minimum score for any of six ratings.</p>
+          <ul class="taglist"><li>Outlets</li><li>No time limit</li><li>Standing desk</li><li>Near metro</li></ul></div>
+      </div>
+
+      <div class="card">
+        <div class="ico">📶</div>
+        <div class="zh"><h3>沒網路也能用</h3>
+          <p>所有資料下載後存在手機裡，離線照樣查。每天自動更新一次，也可以隨時手動更新。</p></div>
+        <div class="en"><h3>Works offline</h3>
+          <p>Everything is stored on your phone after the first download. Data refreshes automatically once a day, or manually whenever you want.</p></div>
+      </div>
+
+      <div class="card">
+        <div class="ico">📊</div>
+        <div class="zh"><h3>六項評分一次看完</h3>
+          <p>WiFi 穩定、安靜程度、座位充足、價格便宜、咖啡好喝、音樂好聽，以長條圖並列比較。</p></div>
+        <div class="en"><h3>All six ratings at a glance</h3>
+          <p>Wifi, quiet, seating, value, coffee quality and music — shown side by side as bars.</p></div>
+      </div>
+
+      <div class="card">
+        <div class="ico">🔍</div>
+        <div class="zh"><h3>清單瀏覽與搜尋</h3>
+          <p>依城市分區排列，右側索引條一滑就到；搜尋店名或地址即時過濾。</p></div>
+        <div class="en"><h3>Browse and search</h3>
+          <p>Cafes grouped by city with a quick index down the side. Search by name or address and results filter as you type.</p></div>
+      </div>
+
+      <div class="card">
+        <div class="ico">🧭</div>
+        <div class="zh"><h3>到店前該知道的都在</h3>
+          <p>地址、營業時間、限時規則、插座狀況與最近捷運站。一鍵開啟步行導航、開店家網頁或分享給朋友。</p></div>
+        <div class="en"><h3>Everything before you go</h3>
+          <p>Address, opening hours, time-limit policy, outlet availability and the nearest metro station. One tap for walking directions, the cafe's page, or sharing.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 隱私與廣告 ============================= -->
+<section id="privacy" style="background:linear-gradient(180deg,var(--bg),var(--cream))">
+  <div class="wrap">
+    <p class="eyebrow"><span class="zh">乾淨、不打擾</span><span class="en">Clean and quiet</span></p>
+    <div class="panel">
+      <div class="zh">
+        <h2 style="font-size:23px">沒有帳號、沒有追蹤，廣告只有一則橫幅</h2>
+        <ul>
+          <li><strong>前 7 天完全沒有廣告。</strong>從第一次開啟算起的免費體驗期內，廣告元件根本不會啟動。</li>
+          <li><strong>之後只有底部一則橫幅。</strong>沒有插頁式、影片或獎勵式廣告，也不會蓋住分頁列或列表最後一筆。</li>
+          <li><strong>一律是非個人化廣告。</strong>每一次廣告請求都標記為非個人化，不依你的個資或跨 App 行為決定內容。</li>
+          <li><strong>想關掉就關掉。</strong>設定頁可一次性購買「移除廣告」永久移除，不是訂閱、不會續扣。</li>
+          <li><strong>位置留在你的手機裡。</strong>定位只用來顯示距離與地圖置中，計算全在裝置端完成，不上傳、也不提供給廣告。</li>
+          <li><strong>沒有帳號、沒有分析、沒有崩潰回報</strong>，我們也沒有任何自營伺服器。</li>
+        </ul>
+        <p style="margin:18px 0 0"><a href="privacy.html">閱讀完整隱私權政策 →</a></p>
+      </div>
+      <div class="en">
+        <h2 style="font-size:23px">No account, no tracking, and just one banner</h2>
+        <ul>
+          <li><strong>The first 7 days are ad-free.</strong> During the free trial that starts on first launch, the ad component isn't even started.</li>
+          <li><strong>After that, one bottom banner.</strong> No interstitials, no video, no rewarded ads, and it never covers the tab bar or the last row of a list.</li>
+          <li><strong>Always non-personalised.</strong> Every ad request is flagged as non-personalised, so your data and cross-app behaviour are not used to pick the ad.</li>
+          <li><strong>Turn it off for good.</strong> A one-time purchase in Settings removes ads permanently — not a subscription, nothing auto-renews.</li>
+          <li><strong>Your location stays on your phone.</strong> It is used only for distances and centring the map, calculated on-device, never uploaded and never given to the ad service.</li>
+          <li><strong>No accounts, no analytics, no crash reporting</strong>, and no servers of our own.</li>
+        </ul>
+        <p style="margin:18px 0 0"><a href="privacy.html">Read the full privacy policy →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 資料來源 ============================= -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow"><span class="zh">資料來源</span><span class="en">Where the data comes from</span></p>
+    <div class="zh">
+      <h2>由社群維護的公開資料庫</h2>
+      <p class="lead">咖啡廳資料來自 <a href="https://cafenomad.tw" target="_blank" rel="noopener">Cafe Nomad</a>，是台灣的咖啡廳愛好者共同編輯的開放資料庫。評分同樣來自社群投票，我們不自行編輯內容。</p>
+      <p class="lead">發現某家店的資訊有誤，最直接的更正方式是到 Cafe Nomad 網站上修改；也歡迎透過 App 的「設定 → 問題回報」告訴我們。</p>
+    </div>
+    <div class="en">
+      <h2>A community-maintained open database</h2>
+      <p class="lead">Cafe data comes from <a href="https://cafenomad.tw" target="_blank" rel="noopener">Cafe Nomad</a>, an open database edited by cafe-goers in Taiwan. Ratings are crowd-sourced the same way, and we don't edit the entries ourselves.</p>
+      <p class="lead">If something is wrong, the most direct fix is to correct it on the Cafe Nomad site. You're also welcome to tell us through Settings → Report an issue.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 結尾 CTA ============================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="panel" style="text-align:center;border-left-width:1px">
+      <div class="zh">
+        <h2 style="font-size:24px">下次帶筆電出門前，先找好位子。</h2>
+        <p class="lead" style="margin:0 auto 22px">免費下載，前 7 天沒有廣告。</p>
+      </div>
+      <div class="en">
+        <h2 style="font-size:24px">Sort out where you're sitting before you leave.</h2>
+        <p class="lead" style="margin:0 auto 22px">Free to download, and ad-free for the first 7 days.</p>
+      </div>
+      <div class="actions" style="justify-content:center">
+        <!-- TODO：App 上架後，把下面的 href 換成正式 App Store 連結 -->
+        <a class="cta" href="#" data-appstore>
+          <span class="zh">App Store 即將上線</span><span class="en">Coming to the App Store</span>
+        </a>
+        <a class="cta ghost" href="mailto:socky.lee@gmail.com?subject=%E6%89%BE%E9%96%93%E5%92%96%E5%95%A1%E9%A4%A8">
+          <span class="zh">聯絡我們</span><span class="en">Contact us</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Shuo-Chi Lee</span>
+    <a href="support.html"><span class="zh">支援</span><span class="en">Support</span></a>
+    <a href="privacy.html"><span class="zh">隱私權政策</span><span class="en">Privacy</span></a>
+    <a href="mailto:socky.lee@gmail.com">socky.lee@gmail.com</a>
+    <span class="spacer">
+      <span class="zh">咖啡廳資料：</span><span class="en">Cafe data: </span>
+      <a href="https://cafenomad.tw" target="_blank" rel="noopener">Cafe Nomad</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  // 語言切換：預設繁中；瀏覽器語系非中文或網址帶 ?lang=en 時切成英文。
+  (function () {
+    var body = document.body;
+    var buttons = document.querySelectorAll('[data-set-lang]');
+
+    function apply(lang) {
+      body.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-Hant');
+      buttons.forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.setLang === lang));
+      });
+      try { localStorage.setItem('tc-lang', lang); } catch (e) {}
+    }
+
+    var stored = null;
+    try { stored = localStorage.getItem('tc-lang'); } catch (e) {}
+    var param = new URLSearchParams(location.search).get('lang');
+    var auto = /^zh/i.test(navigator.language || '') ? 'zh' : 'en';
+    apply(param === 'en' || param === 'zh' ? param : (stored || auto));
+
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () { apply(b.dataset.setLang); });
+    });
+  })();
+</script>
+
+</body>
+</html>
