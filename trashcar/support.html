@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>支援 — 垃圾車來了</title>
+<meta name="description" content="「垃圾車來了」的常見問題與聯絡方式。">
+<meta name="theme-color" content="#1F8F4A">
+<style>
+  :root { --green:#1F8F4A; --ink:#1E2A38; --muted:#5f6b78; --line:#dfe6da; --bg:#fbfdf9; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 96px; }
+  header { border-bottom:3px solid var(--green); padding-bottom:20px; margin-bottom:36px; }
+  h1 { margin:0 0 6px; font-size:28px; color:var(--green); }
+  .sub { color:var(--muted); font-size:15px; }
+  h2 { margin:44px 0 12px; font-size:21px; border-left:5px solid var(--green); padding-left:12px; }
+  details { background:#fff; border:1px solid var(--line); border-radius:12px;
+            padding:14px 18px; margin:10px 0; }
+  details summary { cursor:pointer; font-weight:600; }
+  details p { margin:12px 0 2px; color:var(--muted); }
+  details ul { color:var(--muted); padding-left:22px; margin:10px 0 2px; }
+  details li { margin:5px 0; }
+  .cta { background:var(--green); color:#fff; display:inline-block; padding:12px 22px;
+         border-radius:10px; text-decoration:none; font-weight:600; margin-top:8px; }
+  .box { background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:20px 0; }
+  a { color:var(--green); }
+  table { width:100%; border-collapse:collapse; margin:18px 0; font-size:15px; background:#fff;
+          border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  th, td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); }
+  th { background:#eef5ea; font-size:14px; }
+  tr:last-child td { border-bottom:0; }
+  .back { display:inline-block; margin-bottom:24px; font-size:14px; text-decoration:none; }
+  footer { margin-top:64px; padding-top:20px; border-top:1px solid var(--line);
+           color:var(--muted); font-size:14px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e8edf2; --muted:#98a4b0; --line:#2f3a33; --bg:#141a16; --green:#5CC97F; }
+    details, .box, table { background:#1c231e; }
+    th { background:#232d26; }
+    .cta { color:#101512; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="back" href="index.html">← 回首頁</a>
+
+<header>
+  <h1>垃圾車來了 · 支援</h1>
+  <div class="sub">清運時間查詢與到站提醒</div>
+</header>
+
+<p>「垃圾車來了」把各縣市政府開放的垃圾車清運資料整理成一張地圖：哪裡有清運點、幾點抵達、幾點離開，一眼就看得到。收藏常去的點位並開啟提醒，垃圾車來之前手機會先通知你。資料下載後存在手機裡，沒網路一樣查得到。</p>
+
+<p>App 免費使用：安裝後前七天完全沒有廣告，之後畫面最下方會出現一條橫幅；也可以在「設定 → 移除廣告」一次性買斷永久關掉。</p>
+
+<div class="box">
+  <strong>先看這個：白天打開，地圖上的車子全是灰色的？</strong>
+  <p style="margin:8px 0 0;color:var(--muted)">這是正常的。垃圾車清運多半集中在傍晚到夜間，灰色代表「這個時段還沒有車」。到了該點位的清運時段，標記就會自動變成橘（快到了）、綠（清運中）、紅（快走了）。</p>
+</div>
+
+<h2>常見問題</h2>
+
+<details>
+  <summary>地圖上的顏色是什麼意思？</summary>
+  <ul>
+    <li><strong>橘色 — 快到了</strong>：抵達前一分鐘，車子正往這裡來。</li>
+    <li><strong>綠色 — 清運中</strong>：垃圾車就在這個點上，可以出門了。</li>
+    <li><strong>紅色 — 快走了</strong>：離開前兩分鐘，要快一點。</li>
+    <li><strong>灰色 — 休息中</strong>：這個時段還沒有車，時間到才會亮起來。</li>
+  </ul>
+  <p>顏色依你手機的目前時間即時計算，不需要連網。</p>
+</details>
+
+<details>
+  <summary>支援哪些縣市？為什麼我的城市沒有「路線」或不能設提醒？</summary>
+  <p>我們只能呈現政府實際開放出來的資料，各縣市開放的內容不一樣：</p>
+  <table>
+    <tr><th>縣市</th><th>清運點排程（地圖時間、路線、提醒）</th><th>即時車輛位置</th></tr>
+    <tr><td>臺北市</td><td>✓ 完整</td><td>—</td></tr>
+    <tr><td>新北市</td><td>✓ 完整</td><td>✓</td></tr>
+    <tr><td>臺中市</td><td>—</td><td>✓</td></tr>
+    <tr><td>高雄市</td><td>—</td><td>✓</td></tr>
+  </table>
+  <p>臺中市與高雄市目前政府僅開放<strong>即時車輛位置</strong>，沒有停靠點排程，因此切換到這兩個城市時，地圖上可以看到垃圾車現在開到哪裡，但「路線」與「收藏」頁會是空的，也無法設定到站提醒。待該市開放對應資料後會於後續版本補上。</p>
+</details>
+
+<details>
+  <summary>怎麼設定到站提醒？</summary>
+  <p>在「地圖」或「路線」頁點開任一停靠點 → 加入收藏 → 開啟提醒，並選擇要提前幾分鐘通知（5、10、15、20 或 30 分鐘）。</p>
+  <p>提醒每天自動重複，而且<strong>只在該點位有清運的星期才會響</strong>——沒有清運的日子不會被吵醒。已設定的提醒可以在「收藏」頁一次看完。</p>
+</details>
+
+<details>
+  <summary>提醒沒有響，怎麼辦？</summary>
+  <ul>
+    <li>確認 iOS「設定 → 通知 → 垃圾車來了」的允許通知是開啟的。</li>
+    <li>確認該點位在「收藏」頁的提醒開關是開啟的。</li>
+    <li>確認今天是這個點位<strong>有清運的星期</strong>；沒有清運的日子本來就不會通知。</li>
+    <li>檢查是否開了「專注模式」或「勿擾模式」而把通知靜音。</li>
+  </ul>
+  <p>都確認過仍然沒響，歡迎來信告訴我們你收藏的點位與提前分鐘數。</p>
+</details>
+
+<details>
+  <summary>為什麼需要定位權限？可以不給嗎？</summary>
+  <p>定位只用來把地圖畫面移到你目前所在位置附近，好顯示鄰近的清運停靠點。計算全部在手機上完成，位置資料不會傳送到任何地方，也不會提供給廣告。</p>
+  <p>可以拒絕。拒絕後 App 仍可正常使用，地圖一樣能瀏覽與縮放，也可以透過「路線」頁依行政區與路線查到所有清運點。本 App 不使用「永遠允許」定位，不在背景取得位置，也不使用地理圍欄。</p>
+</details>
+
+<details>
+  <summary>清運時間準嗎？垃圾車沒有照時間來</summary>
+  <p>App 顯示的是各市政府公布的<strong>排定清運時間</strong>，不是車輛的即時預估到達時間。實際到車時間可能因交通、天候或臨時調度而有差異，請以現場實際狀況為準，建議提早幾分鐘到清運點等候。</p>
+  <p>若某個點位的時間長期與實際不符，那是來源資料本身尚未更新——最直接的反映管道是該市的環保局或開放資料平臺；也歡迎來信告訴我們。</p>
+</details>
+
+<details>
+  <summary>資料多久更新一次？可以手動更新嗎？</summary>
+  <p>App 會定期檢查來源平臺的資料版本，只有在遠端確實更新時才重新下載，不浪費流量。你也可以隨時到「設定 → 資料 → 重新同步」手動更新，同一頁可以看到上次同步的時間。</p>
+</details>
+
+<details>
+  <summary>某個清運點的資訊有誤（地址不對、已取消、時間變了）</summary>
+  <p>本 App 的資料<strong>完全取自各縣市政府的開放資料平臺</strong>，我們不自行編輯內容。因此最根本的更正方式，是向該市的環境保護局或開放資料平臺反映。</p>
+  <p>也歡迎來信告訴我們，若是我們解析資料的方式出錯（例如時間或星期判斷有誤），我們會盡快修正。</p>
+</details>
+
+<details>
+  <summary>為什麼會有廣告？什麼時候開始出現？</summary>
+  <p>App 是免費的，廣告是支應資料維護成本的唯一來源。從你第一次開啟起有 <strong>七天的免廣告期間</strong>，期間完全沒有廣告——廣告 SDK 根本不會被初始化，也不會發出任何廣告請求。七天後，畫面最下方會出現一條橫幅。</p>
+  <p>App 內只有這一種廣告——<strong>沒有插頁式、影片或獎勵式廣告</strong>，也不會蓋住地圖的操作區域。「設定」頁最上方可以看到免廣告期間還剩幾天。</p>
+</details>
+
+<details>
+  <summary>廣告會根據我的個人資料投放嗎？</summary>
+  <p>不會。本 App 向 Google AdMob 送出的每一次廣告請求都標記為<strong>非個人化</strong>，不會依你的個資或跨 App 行為決定內容。本 App 也<strong>不會</strong>跳出 iOS 的「App 追蹤透明度」請求，因此不會取得廣告識別碼（IDFA）。</p>
+  <p>如果你覺得廣告和所在地區有關，那是 Google 依連線的 IP 位址判斷的大略區域（國家／城市層級），<strong>與 App 的定位權限無關</strong>——你的 GPS 位置從來不會提供給廣告服務。詳見<a href="privacy.html">隱私權政策</a>。</p>
+</details>
+
+<details>
+  <summary>可以把廣告移除嗎？</summary>
+  <p>可以。到「設定 → 移除廣告」完成一次性購買即可永久移除。這<strong>不是訂閱</strong>，不會自動續扣，只付一次。價格以 App 內顯示的為準。</p>
+  <p>免廣告期間內也可以先買（該區塊的「提前買斷」）。若價格顯示「暫時無法取得」，通常是暫時連不上 App Store 的商店服務，稍後再開一次設定頁即可；仍然不行的話請來信告訴我們。</p>
+</details>
+
+<details>
+  <summary>我換了手機／重新安裝，買過的「移除廣告」不見了</summary>
+  <p>用原本購買時的 Apple 帳號登入裝置，然後到「設定 → 恢復購買」。權益取回後廣告會立刻消失。</p>
+  <p>若仍取不回來，請來信並附上購買日期與收據（App Store 的購買通知信），我們會協助處理。退款請透過 Apple 的 <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> 提出，我們無法代為退款。</p>
+</details>
+
+<details>
+  <summary>重新安裝後，七天免廣告期間會重新計算嗎？</summary>
+  <p>不會。首次開啟的時間存放在 iOS 的 Keychain，刪除 App 並不會清除它，因此重裝不會讓七天重新開始。那只是一個時間戳記，不含任何識別你身分的資訊，也不會離開你的裝置。</p>
+</details>
+
+<details>
+  <summary>App 會不會蒐集我的資料？</summary>
+  <p>我們不蒐集。沒有帳號、沒有登入、沒有雲端同步、沒有自建的分析工具或當機回報，我們也沒有任何自營伺服器。你的收藏與提醒設定只存在你的手機裡。</p>
+  <p>顯示廣告時，Google 會取得投放所需的有限技術資訊（IP 位址、裝置與 App 基本資訊等），但不與你的身分連結。完整說明見<a href="privacy.html">隱私權政策</a>。</p>
+</details>
+
+<details>
+  <summary>這是官方 App 嗎？</summary>
+  <p>不是。本 App 為<strong>非官方的第三方應用程式</strong>，與臺北市政府、新北市政府、臺中市政府、高雄市政府或其所屬環境保護局均無隸屬、代理或合作關係。所有清運資料均取自各該政府的開放資料平臺，依其開放資料授權條款使用。</p>
+</details>
+
+<h2>聯絡我們</h2>
+<p>有任何問題、建議或錯誤回報，歡迎來信：</p>
+<a class="cta" href="mailto:socky.lee@gmail.com?subject=垃圾車來了%20問題回報">socky.lee@gmail.com</a>
+<p style="font-size:14px;color:var(--muted);margin-top:16px">回報清運資料有誤時，若能一併附上<strong>城市、行政區、路線或地址</strong>，會幫助我們更快確認問題出在來源資料還是 App。</p>
+
+<footer>
+  清運資料來源：臺北市政府資料開放平臺、新北市政府資料開放平臺、臺中市政府資料開放平臺、高雄市政府開放資料平臺 ·
+  <a href="index.html">首頁</a> · <a href="privacy.html">隱私權政策</a>
+</footer>
+
+</div>
+</body>
+</html>

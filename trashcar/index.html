@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>垃圾車來了 — 清運時間查詢與到站提醒</title>
+<meta name="description" content="把各縣市政府開放的垃圾車清運資料整理成一張地圖：哪裡有清運點、幾點抵達、幾點離開。收藏常去的點位，垃圾車來之前先提醒你。">
+<meta property="og:title" content="垃圾車來了 — 清運時間查詢與到站提醒">
+<meta property="og:description" content="不必再提著垃圾站在路邊等。附近清運點的抵達時間一目瞭然，到站前手機先提醒你。">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1F8F4A">
+<style>
+  :root { --green:#1F8F4A; --green-dp:#166b38; --orange:#F0891B; --red:#E24B3F;
+          --leaf:#E9F1E4; --ink:#1E2A38; --muted:#5f6b78;
+          --line:#dfe6da; --bg:#fbfdf9; --card:#ffffff; --shadow:0 10px 30px rgba(30,50,35,.10); }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+  img, svg { max-width:100%; }
+  a { color:var(--green); }
+
+  /* ---------- 版面 ---------- */
+  .wrap { max-width:1000px; margin:0 auto; padding:0 24px; }
+  section { padding:64px 0; }
+  .eyebrow { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+             color:var(--green); margin:0 0 10px; }
+  h2 { font-size:27px; line-height:1.35; margin:0 0 12px; }
+  h3 { font-size:17px; margin:0 0 6px; }
+  .lead { color:var(--muted); max-width:52ch; margin:0 0 8px; }
+
+  /* ---------- 導覽列 ---------- */
+  .nav { position:sticky; top:0; z-index:20; background:rgba(251,253,249,.88);
+         backdrop-filter:saturate(180%) blur(12px); border-bottom:1px solid var(--line); }
+  .nav .wrap { display:flex; align-items:center; gap:16px; height:60px; }
+  .brand { display:flex; align-items:center; gap:10px; font-weight:700; color:var(--ink);
+           text-decoration:none; margin-right:auto; }
+  .brand .mark { width:28px; height:28px; border-radius:8px; background:var(--green);
+                 display:grid; place-items:center; }
+  .brand .mark svg { width:19px; height:19px; display:block; }
+  .nav a.link { color:var(--muted); text-decoration:none; font-size:15px; }
+  .nav a.link:hover { color:var(--green); }
+  .nav .link.hide-sm { display:none; }
+  @media (min-width:720px) { .nav .link.hide-sm { display:inline; } }
+
+  /* ---------- Hero ---------- */
+  .hero { background:linear-gradient(180deg,var(--leaf),var(--bg)); border-bottom:1px solid var(--line); }
+  .hero .wrap { display:grid; gap:40px; align-items:center; padding-top:56px; padding-bottom:56px; }
+  @media (min-width:860px) { .hero .wrap { grid-template-columns:1.05fr .95fr; gap:56px;
+                                           padding-top:72px; padding-bottom:72px; } }
+  .hero h1 { font-size:36px; line-height:1.25; margin:0 0 14px; color:var(--green-dp); }
+  @media (min-width:860px) { .hero h1 { font-size:44px; } }
+  .hero p { font-size:18px; color:var(--muted); margin:0 0 26px; max-width:46ch; }
+  .actions { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+  .cta { background:var(--green); color:#fff; display:inline-block; padding:13px 24px;
+         border-radius:12px; text-decoration:none; font-weight:600; box-shadow:var(--shadow); }
+  .cta:hover { background:var(--green-dp); }
+  .cta.ghost { background:transparent; color:var(--green); box-shadow:none;
+               border:1px solid var(--green); }
+  .note { font-size:13px; color:var(--muted); margin:14px 0 0; }
+  .phone-slot { display:flex; justify-content:center; }
+  .phone-slot svg { width:100%; max-width:300px; height:auto; filter:drop-shadow(0 18px 40px rgba(25,45,30,.24)); }
+
+  /* ---------- 重點條 ---------- */
+  .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line);
+           border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+  @media (min-width:720px) { .stats { grid-template-columns:repeat(4,1fr); } }
+  .stat { background:var(--card); padding:22px 18px; text-align:center; }
+  .stat b { display:block; font-size:24px; color:var(--green); line-height:1.2; }
+  .stat span { font-size:13px; color:var(--muted); }
+
+  /* ---------- 功能卡 ---------- */
+  .cards { display:grid; gap:16px; margin-top:28px; }
+  @media (min-width:720px) { .cards { grid-template-columns:repeat(3,1fr); } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px;
+          padding:22px; box-shadow:var(--shadow); }
+  .card .ico { width:40px; height:40px; border-radius:11px; background:var(--leaf);
+               display:grid; place-items:center; font-size:20px; margin-bottom:14px; }
+  .card p { margin:0; color:var(--muted); font-size:15px; }
+  .taglist { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; padding:0; list-style:none; }
+  .taglist li { font-size:13px; background:var(--leaf); color:var(--green-dp);
+                border-radius:999px; padding:4px 12px; font-weight:600; }
+
+  /* ---------- 狀態圖例 ---------- */
+  .legend { display:grid; gap:12px; margin-top:26px; }
+  @media (min-width:720px) { .legend { grid-template-columns:repeat(4,1fr); } }
+  .lg { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; }
+  .lg svg { width:44px; height:34px; display:block; margin-bottom:10px; }
+  .lg b { display:block; font-size:16px; }
+  .lg span { font-size:14px; color:var(--muted); }
+
+  /* ---------- 覆蓋範圍表 ---------- */
+  .table { width:100%; border-collapse:collapse; margin-top:22px; background:var(--card);
+           border:1px solid var(--line); border-radius:16px; overflow:hidden; font-size:15px; }
+  .table th, .table td { padding:13px 16px; text-align:left; border-bottom:1px solid var(--line); }
+  .table th { background:var(--leaf); font-size:14px; color:var(--green-dp); }
+  .table tr:last-child td { border-bottom:0; }
+  .yes { color:var(--green); font-weight:700; }
+  .no { color:var(--muted); }
+
+  /* ---------- 面板 ---------- */
+  .panel { background:var(--card); border:1px solid var(--line); border-left:5px solid var(--green);
+           border-radius:16px; padding:26px 28px; }
+  .panel ul { margin:14px 0 0; padding-left:20px; color:var(--muted); }
+  .panel li { margin:8px 0; }
+  .panel li strong { color:var(--ink); }
+
+  /* ---------- 頁尾 ---------- */
+  footer { border-top:1px solid var(--line); padding:36px 0 56px; color:var(--muted); font-size:14px; }
+  footer .wrap { display:flex; flex-wrap:wrap; gap:12px 24px; align-items:center; }
+  footer .spacer { margin-left:auto; }
+
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e8edf2; --muted:#98a4b0; --line:#2f3a33; --bg:#141a16; --card:#1c231e;
+            --leaf:#232d26; --green:#5CC97F; --green-dp:#7ddb9a; --shadow:0 10px 30px rgba(0,0,0,.38); }
+    .nav { background:rgba(20,26,22,.86); }
+    .brand { color:var(--ink); }
+    .cta { color:#101512; }
+    .cta.ghost { color:var(--green); }
+    .table th { color:var(--green); }
+  }
+</style>
+</head>
+<body>
+
+<!-- 垃圾車圖示的共用定義：車身顏色用 currentColor，由每個 <use> 的 color 決定狀態色。 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="truck">
+      <rect x="-20" y="-15" width="40" height="30" rx="9" fill="#fff"/>
+      <rect x="-8" y="-10" width="24" height="15.5" rx="3" fill="currentColor"/>
+      <rect x="-16" y="-3.5" width="9.5" height="9" rx="2.5" fill="currentColor"/>
+      <rect x="-14" y="-1.5" width="5" height="5" rx="1.5" fill="#fff"/>
+      <circle cx="-8" cy="8" r="4.4" fill="#1E2A38"/><circle cx="-8" cy="8" r="1.9" fill="#8b94a1"/>
+      <circle cx="8" cy="8" r="4.4" fill="#1E2A38"/><circle cx="8" cy="8" r="1.9" fill="#8b94a1"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- ============================= 導覽列 ============================= -->
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mark">
+        <svg viewBox="0 0 40 30" aria-hidden="true">
+          <rect x="12" y="4" width="24" height="15" rx="3" fill="#fff"/>
+          <rect x="4" y="10.5" width="9" height="8.5" rx="2.5" fill="#fff"/>
+          <circle cx="12" cy="23" r="4" fill="#fff"/><circle cx="28" cy="23" r="4" fill="#fff"/>
+        </svg>
+      </span>
+      垃圾車來了
+    </a>
+    <a class="link hide-sm" href="#features">功能</a>
+    <a class="link hide-sm" href="#coverage">服務範圍</a>
+    <a class="link hide-sm" href="#privacy">隱私</a>
+    <a class="link" href="support.html">支援</a>
+  </div>
+</nav>
+
+<!-- ============================= Hero ============================= -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>提著垃圾站在路邊等，<br>是最浪費時間的事。</h1>
+      <p>把各縣市政府開放的垃圾車清運資料整理成一張地圖：哪裡有清運點、幾點抵達、幾點離開，一眼就看得到。收藏常去的點位，垃圾車來之前手機會先提醒你。</p>
+
+      <div class="actions">
+        <!-- TODO：App 上架後，把下面的 href 換成正式 App Store 連結（https://apps.apple.com/tw/app/id……） -->
+        <a class="cta" href="#" data-appstore>App Store 即將上線</a>
+        <a class="cta ghost" href="#features">看看能做什麼</a>
+      </div>
+      <p class="note">iPhone · 繁體中文 · 免費下載 · 前七天完全沒有廣告</p>
+    </div>
+
+    <!-- 手機示意圖（純 SVG，不依賴外部圖檔） -->
+    <div class="phone-slot" aria-hidden="true">
+      <svg viewBox="0 0 300 610" role="img">
+        <defs>
+          <clipPath id="screen"><rect x="14" y="14" width="272" height="582" rx="34"/></clipPath>
+        </defs>
+
+        <!-- 機身 -->
+        <rect x="0" y="0" width="300" height="610" rx="46" fill="#2b332c"/>
+        <rect x="8" y="8" width="284" height="594" rx="40" fill="#0d110e"/>
+        <g clip-path="url(#screen)">
+          <!-- 地圖底：街廓與綠地 -->
+          <rect x="14" y="14" width="272" height="582" fill="#E9F1E4"/>
+          <g fill="#dcead4">
+            <rect x="26" y="120" width="72" height="58" rx="9"/>
+            <rect x="196" y="240" width="80" height="66" rx="9"/>
+            <rect x="40" y="470" width="86" height="60" rx="9"/>
+          </g>
+          <path d="M14 300 q60 26 120 6 t152 -18 v40 q-90 26 -160 26 T14 340 Z" fill="#bcd9ef" opacity=".55"/>
+          <!-- 道路 -->
+          <g stroke="#ffffff" stroke-width="11" stroke-linecap="round">
+            <path d="M-10 208 H310"/><path d="M-10 384 H310"/><path d="M116 0 V610"/><path d="M226 0 V610"/>
+          </g>
+          <g stroke="#EFC44E" stroke-width="2.5" stroke-dasharray="9 8" opacity=".9">
+            <path d="M-10 208 H310"/><path d="M-10 384 H310"/><path d="M116 0 V610"/><path d="M226 0 V610"/>
+          </g>
+
+          <!-- 停靠點標記（顏色＝目前狀態） -->
+          <g font-family="-apple-system,Segoe UI,sans-serif" font-size="11" font-weight="700"
+             text-anchor="middle" fill="#41505f">
+            <use href="#truck" x="66" y="170" color="#b6bfc9"/>
+            <text x="66" y="196">17:32</text>
+            <use href="#truck" x="176" y="150" color="#b6bfc9"/>
+            <text x="176" y="176">18:10</text>
+            <use href="#truck" x="256" y="262" color="#b6bfc9"/>
+            <text x="256" y="288">21:02</text>
+            <use href="#truck" x="62" y="330" color="#F0891B"/>
+            <text x="62" y="356" fill="#c26a08">19:40</text>
+            <use href="#truck" x="168" y="352" color="#E24B3F"/>
+            <text x="168" y="378" fill="#c23a2f">19:31</text>
+            <use href="#truck" x="256" y="430" color="#b6bfc9"/>
+            <text x="256" y="456">20:32</text>
+            <use href="#truck" x="70" y="500" color="#b6bfc9"/>
+            <text x="70" y="526">21:57</text>
+          </g>
+
+          <!-- 目前位置 -->
+          <circle cx="150" cy="276" r="21" fill="#3b82d9" opacity=".18"/>
+          <circle cx="150" cy="276" r="7" fill="#2f74c9" stroke="#fff" stroke-width="3"/>
+
+          <!-- 標題列 -->
+          <rect x="14" y="14" width="272" height="84" fill="rgba(233,241,228,.92)"/>
+          <text x="150" y="66" fill="#1E2A38" font-family="-apple-system,Segoe UI,sans-serif"
+                font-size="18" font-weight="700" text-anchor="middle">附近清運點</text>
+          <circle cx="256" cy="60" r="16" fill="#1F8F4A"/>
+          <g stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round">
+            <circle cx="256" cy="60" r="8"/><path d="M256 55 V60 L260 63"/>
+          </g>
+
+          <!-- 選中的停靠點卡片 -->
+          <g>
+            <rect x="26" y="392" width="248" height="126" rx="18" fill="#fff"/>
+            <use href="#truck" x="58" y="424" color="#1F8F4A"/>
+            <text x="88" y="420" font-family="-apple-system,Segoe UI,sans-serif" font-size="15"
+                  font-weight="700" fill="#1E2A38">民生東路三段 84 巷口</text>
+            <text x="88" y="440" font-family="-apple-system,Segoe UI,sans-serif" font-size="12"
+                  fill="#5f6b78">松山區 · 民生線 · 第 3 車次</text>
+            <g font-family="-apple-system,Segoe UI,sans-serif" font-size="12" font-weight="600">
+              <rect x="42" y="454" width="104" height="24" rx="12" fill="#E4F3E9"/>
+              <text x="94" y="470" fill="#166b38" text-anchor="middle">抵達 19:31</text>
+              <rect x="154" y="454" width="104" height="24" rx="12" fill="#F1F4F0"/>
+              <text x="206" y="470" fill="#5f6b78" text-anchor="middle">離開 19:33</text>
+            </g>
+            <rect x="42" y="488" width="216" height="18" rx="9" fill="#FDF1E0"/>
+            <text x="150" y="501" font-family="-apple-system,Segoe UI,sans-serif" font-size="11"
+                  font-weight="600" fill="#a86407" text-anchor="middle">已收藏 · 抵達前 10 分鐘提醒</text>
+          </g>
+
+          <!-- 分頁列 -->
+          <rect x="14" y="546" width="272" height="50" fill="rgba(255,255,255,.96)"/>
+          <g font-family="-apple-system,Segoe UI,sans-serif" font-size="11" text-anchor="middle">
+            <text x="48" y="578" fill="#1F8F4A" font-weight="700">地圖</text>
+            <text x="116" y="578" fill="#9aa6b2">路線</text>
+            <text x="184" y="578" fill="#9aa6b2">收藏</text>
+            <text x="252" y="578" fill="#9aa6b2">設定</text>
+          </g>
+        </g>
+        <rect x="112" y="20" width="76" height="22" rx="11" fill="#0d110e"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- ============================= 數字 ============================= -->
+<section style="padding-top:48px;padding-bottom:8px">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>30,000+</b><span>清運停靠點</span></div>
+      <div class="stat"><b>4</b><span>個縣市</span></div>
+      <div class="stat"><b>7 天</b><span>安裝後無廣告</span></div>
+      <div class="stat"><b>0</b><span>個帳號與追蹤器</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 功能 ============================= -->
+<section id="features">
+  <div class="wrap">
+    <p class="eyebrow">功能</p>
+    <h2>算好時間再出門</h2>
+    <p class="lead">清運點在哪、幾點到、幾點走，全部攤在地圖上；常去的點位設好提醒，就不必再自己盯時間。</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="ico">🗺️</div>
+        <h3>地圖：附近清運點一目瞭然</h3>
+        <p>地圖上直接呈現今天有清運的停靠點，每個點位旁標示預定抵達時間。也可以開啟「只看現在清運中」，只留下此刻正在收運的點。</p>
+      </div>
+
+      <div class="card">
+        <div class="ico">🔔</div>
+        <h3>到站提醒</h3>
+        <p>把常去的點位加入收藏並開啟提醒，垃圾車抵達前手機就會通知你。提醒每天自動重複，只在該點位有清運的星期才會響。</p>
+        <ul class="taglist"><li>5 分鐘</li><li>10 分鐘</li><li>15 分鐘</li><li>20 分鐘</li><li>30 分鐘</li></ul>
+      </div>
+
+      <div class="card">
+        <div class="ico">📋</div>
+        <h3>清運點詳情</h3>
+        <p>抵達時間、離開時間、完整地址、所屬路線、車次、車號、分隊與行政區，一次列齊，附上小地圖確認位置不走錯。</p>
+      </div>
+
+      <div class="card">
+        <div class="ico">🚏</div>
+        <h3>路線時刻表</h3>
+        <p>依行政區與路線瀏覽所有停靠點，每一站的抵達與離開時間依序排好。想知道垃圾車還有幾站才到你家，翻一下就知道。</p>
+      </div>
+
+      <div class="card">
+        <div class="ico">🔍</div>
+        <h3>搜尋路線與地址</h3>
+        <p>直接搜尋路線名稱、地址或行政區，不必在地圖上一個一個找。</p>
+      </div>
+
+      <div class="card">
+        <div class="ico">📶</div>
+        <h3>離線也能查</h3>
+        <p>資料在首次啟動時下載並存在手機裡，之後沒有網路一樣查得到清運時間與路線。只有資料更新時才重新下載，不浪費流量。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 狀態顏色 ============================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">地圖上的顏色</p>
+    <h2>不用點開，看顏色就知道還來不來得及</h2>
+    <p class="lead">停靠點會依照目前時間自動變色，四種狀態一眼分辨。</p>
+
+    <div class="legend">
+      <div class="lg">
+        <svg viewBox="-24 -19 48 38" aria-hidden="true"><use href="#truck" color="#F0891B"/></svg>
+        <b>快到了</b><span>抵達前一分鐘，車子正往這裡來。</span>
+      </div>
+      <div class="lg">
+        <svg viewBox="-24 -19 48 38" aria-hidden="true"><use href="#truck" color="#1F8F4A"/></svg>
+        <b>清運中</b><span>垃圾車就在這個點上，可以出門了。</span>
+      </div>
+      <div class="lg">
+        <svg viewBox="-24 -19 48 38" aria-hidden="true"><use href="#truck" color="#E24B3F"/></svg>
+        <b>快走了</b><span>離開前兩分鐘，要快一點。</span>
+      </div>
+      <div class="lg">
+        <svg viewBox="-24 -19 48 38" aria-hidden="true"><use href="#truck" color="#b6bfc9"/></svg>
+        <b>休息中</b><span>這個時段還沒有車，時間到才會亮起來。</span>
+      </div>
+    </div>
+    <p class="note">清運多半集中在傍晚到夜間，所以白天打開 App，地圖上多半是灰色的「休息中」——這是正常的。</p>
+  </div>
+</section>
+
+<!-- ============================= 服務範圍 ============================= -->
+<section id="coverage" style="background:linear-gradient(180deg,var(--bg),var(--leaf))">
+  <div class="wrap">
+    <p class="eyebrow">服務範圍</p>
+    <h2>各縣市開放的資料不一樣，能做的事也不一樣</h2>
+    <p class="lead">我們只能呈現政府實際開放出來的資料。目前四個縣市的支援程度如下：</p>
+
+    <table class="table">
+      <thead>
+        <tr><th>縣市</th><th>清運點排程<br>（地圖時間、路線、提醒）</th><th>即時車輛位置</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>臺北市</td><td class="yes">✓ 完整</td><td class="no">—</td></tr>
+        <tr><td>新北市</td><td class="yes">✓ 完整</td><td class="yes">✓</td></tr>
+        <tr><td>臺中市</td><td class="no">—</td><td class="yes">✓</td></tr>
+        <tr><td>高雄市</td><td class="no">—</td><td class="yes">✓</td></tr>
+      </tbody>
+    </table>
+
+    <p class="lead" style="margin-top:22px">臺中市與高雄市目前僅有政府公開的<strong>即時車輛位置</strong>，尚未開放停靠點排程，因此在這兩個城市可以在地圖上看到垃圾車現在開到哪裡，但沒有「路線」時刻表，也無法設定到站提醒。待該市開放對應資料後會於後續版本補上。</p>
+  </div>
+</section>
+
+<!-- ============================= 隱私與廣告 ============================= -->
+<section id="privacy">
+  <div class="wrap">
+    <p class="eyebrow">乾淨、不打擾</p>
+    <div class="panel">
+      <h2 style="font-size:23px">沒有帳號、沒有追蹤，廣告只有一則橫幅</h2>
+      <ul>
+        <li><strong>前 7 天完全沒有廣告。</strong>從第一次開啟算起的免廣告期間內，廣告 SDK 根本不會被初始化，也不會發出任何廣告請求。</li>
+        <li><strong>之後只有底部一則橫幅。</strong>沒有插頁式、影片或獎勵式廣告，也不會蓋住地圖的操作區域。</li>
+        <li><strong>一律是非個人化廣告。</strong>每一次廣告請求都標記為非個人化，不依你的個資或跨 App 行為決定內容；本 App 不要求「App 追蹤透明度」授權，也不取用 IDFA。</li>
+        <li><strong>想關掉就關掉。</strong>「設定 → 移除廣告」可一次性買斷永久移除，不是訂閱、不會續扣。</li>
+        <li><strong>位置留在你的手機裡。</strong>定位只用來把地圖移到你附近，計算全在裝置端完成，不上傳、也不提供給廣告。</li>
+        <li><strong>沒有帳號、沒有分析、沒有雲端同步</strong>，收藏與提醒設定只存在你的裝置裡，我們也沒有任何自營伺服器。</li>
+      </ul>
+      <p style="margin:18px 0 0"><a href="privacy.html">閱讀完整隱私權政策 →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 資料來源 ============================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">資料來源</p>
+    <h2>全部取自政府開放資料平臺</h2>
+    <p class="lead">本 App 為<strong>非官方的第三方應用程式</strong>，與各市政府或其所屬環境保護局均無隸屬、代理或合作關係。清運資料取自：</p>
+    <ul class="lead" style="max-width:none">
+      <li>臺北市政府資料開放平臺（<a href="https://data.taipei" target="_blank" rel="noopener">data.taipei</a>）</li>
+      <li>新北市政府資料開放平臺（<a href="https://data.ntpc.gov.tw" target="_blank" rel="noopener">data.ntpc.gov.tw</a>）</li>
+      <li>臺中市政府資料開放平臺</li>
+      <li>高雄市政府開放資料平臺</li>
+    </ul>
+    <p class="lead">清運時間為<strong>排定之排程資料</strong>，實際到車時間可能因交通、天候或臨時調度而有差異，請以現場實際狀況為準，並建議提早至清運點等候。</p>
+  </div>
+</section>
+
+<!-- ============================= 結尾 CTA ============================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="panel" style="text-align:center;border-left-width:1px">
+      <h2 style="font-size:24px">今晚出門倒垃圾前，先看一眼。</h2>
+      <p class="lead" style="margin:0 auto 22px">免費下載，前七天沒有廣告，不需要註冊帳號。</p>
+      <div class="actions" style="justify-content:center">
+        <!-- TODO：App 上架後，把下面的 href 換成正式 App Store 連結 -->
+        <a class="cta" href="#" data-appstore>App Store 即將上線</a>
+        <a class="cta ghost" href="mailto:socky.lee@gmail.com?subject=%E5%9E%83%E5%9C%BE%E8%BB%8A%E4%BE%86%E4%BA%86">聯絡我們</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Socky Lee</span>
+    <a href="support.html">支援</a>
+    <a href="privacy.html">隱私權政策</a>
+    <a href="mailto:socky.lee@gmail.com">socky.lee@gmail.com</a>
+    <span class="spacer">清運資料：各縣市政府開放資料平臺</span>
+  </div>
+</footer>
+
+</body>
+</html>
