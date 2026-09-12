@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>來學英文 — 5000 常用英文單字卡</title>
+<meta name="description" content="精選 5000 個最常用的英文單字，依 CEFR 分成五個等級。翻牌字卡、IPA 與 KK 雙音標、點一下就發音，還能自訂單字、換主題與字型。免費、離線可用、不蒐集個人資料。">
+<meta property="og:title" content="來學英文 — 5000 常用英文單字卡">
+<meta property="og:description" content="分級字卡・IPA/KK 雙音標・點一下就發音。免費、離線可用、不蒐集任何個人資料。">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5B4BC4">
+<style>
+  :root { --brand:#5B4BC4; --brand-dp:#3E2F9B; --pink:#F49AC2; --peach:#FFB37A;
+          --mint:#6FD3B8; --lav:#C0A9E8;
+          --tint:#EFEBFB; --ink:#1F2233; --muted:#616780;
+          --line:#e2ddf2; --bg:#fbfaff; --card:#ffffff; --shadow:0 10px 30px rgba(45,35,95,.10); }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+  img, svg { max-width:100%; }
+  a { color:var(--brand); }
+
+  /* ---------- 版面 ---------- */
+  .wrap { max-width:1000px; margin:0 auto; padding:0 24px; }
+  section { padding:64px 0; }
+  .eyebrow { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+             color:var(--brand); margin:0 0 10px; }
+  h2 { font-size:27px; line-height:1.35; margin:0 0 12px; }
+  h3 { font-size:17px; margin:0 0 6px; }
+  .lead { color:var(--muted); max-width:52ch; margin:0 0 8px; }
+
+  /* ---------- 導覽列 ---------- */
+  .nav { position:sticky; top:0; z-index:20; background:rgba(251,250,255,.88);
+         backdrop-filter:saturate(180%) blur(12px); border-bottom:1px solid var(--line); }
+  .nav .wrap { display:flex; align-items:center; gap:16px; height:60px; }
+  .brand { display:flex; align-items:center; gap:10px; font-weight:700; color:var(--ink);
+           text-decoration:none; margin-right:auto; }
+  .brand .mark { width:28px; height:28px; border-radius:8px; background:var(--brand);
+                 display:grid; place-items:center; }
+  .brand .mark svg { width:18px; height:18px; display:block; }
+  .nav a.link { color:var(--muted); text-decoration:none; font-size:15px; }
+  .nav a.link:hover { color:var(--brand); }
+  .nav .link.hide-sm { display:none; }
+  @media (min-width:720px) { .nav .link.hide-sm { display:inline; } }
+
+  /* ---------- Hero ---------- */
+  .hero { background:linear-gradient(180deg,var(--tint),var(--bg)); border-bottom:1px solid var(--line); }
+  .hero .wrap { display:grid; gap:40px; align-items:center; padding-top:56px; padding-bottom:56px; }
+  @media (min-width:860px) { .hero .wrap { grid-template-columns:1.05fr .95fr; gap:56px;
+                                           padding-top:72px; padding-bottom:72px; } }
+  .hero h1 { font-size:36px; line-height:1.25; margin:0 0 14px; color:var(--brand-dp); }
+  @media (min-width:860px) { .hero h1 { font-size:44px; } }
+  .hero p { font-size:18px; color:var(--muted); margin:0 0 26px; max-width:46ch; }
+  .actions { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+  .cta { background:var(--brand); color:#fff; display:inline-block; padding:13px 24px;
+         border-radius:12px; text-decoration:none; font-weight:600; box-shadow:var(--shadow); }
+  .cta:hover { background:var(--brand-dp); }
+  .cta.ghost { background:transparent; color:var(--brand); box-shadow:none;
+               border:1px solid var(--brand); }
+  .note { font-size:13px; color:var(--muted); margin:14px 0 0; }
+  .phone-slot { display:flex; justify-content:center; }
+  .phone-slot svg { width:100%; max-width:300px; height:auto; filter:drop-shadow(0 18px 40px rgba(45,30,95,.26)); }
+
+  /* ---------- 重點條 ---------- */
+  .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line);
+           border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+  @media (min-width:720px) { .stats { grid-template-columns:repeat(4,1fr); } }
+  .stat { background:var(--card); padding:22px 18px; text-align:center; }
+  .stat b { display:block; font-size:24px; color:var(--brand); line-height:1.2; }
+  .stat span { font-size:13px; color:var(--muted); }
+
+  /* ---------- 功能卡 ---------- */
+  .cards { display:grid; gap:16px; margin-top:28px; }
+  @media (min-width:720px) { .cards { grid-template-columns:repeat(3,1fr); } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px;
+          padding:22px; box-shadow:var(--shadow); }
+  .card .ico { width:40px; height:40px; border-radius:11px; background:var(--tint);
+               display:grid; place-items:center; font-size:20px; margin-bottom:14px; }
+  .card p { margin:0; color:var(--muted); font-size:15px; }
+  .taglist { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; padding:0; list-style:none; }
+  .taglist li { font-size:13px; background:var(--tint); color:var(--brand-dp);
+                border-radius:999px; padding:4px 12px; font-weight:600; }
+
+  /* ---------- 等級表 ---------- */
+  .table { width:100%; border-collapse:collapse; margin-top:22px; background:var(--card);
+           border:1px solid var(--line); border-radius:16px; overflow:hidden; font-size:15px; }
+  .table th, .table td { padding:13px 16px; text-align:left; border-bottom:1px solid var(--line); }
+  .table th { background:var(--tint); font-size:14px; color:var(--brand-dp); }
+  .table tr:last-child td { border-bottom:0; }
+
+  /* ---------- 主題色 ---------- */
+  .themes { display:grid; gap:12px; margin-top:26px; grid-template-columns:repeat(2,1fr); }
+  @media (min-width:720px) { .themes { grid-template-columns:repeat(5,1fr); } }
+  .th { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; text-align:center; }
+  .th .dot { width:38px; height:38px; border-radius:50%; margin:0 auto 10px; }
+  .th b { display:block; font-size:15px; }
+  .th span { font-size:13px; color:var(--muted); }
+
+  /* ---------- 面板 ---------- */
+  .panel { background:var(--card); border:1px solid var(--line); border-left:5px solid var(--brand);
+           border-radius:16px; padding:26px 28px; }
+  .panel ul { margin:14px 0 0; padding-left:20px; color:var(--muted); }
+  .panel li { margin:8px 0; }
+  .panel li strong { color:var(--ink); }
+
+  /* ---------- 頁尾 ---------- */
+  footer { border-top:1px solid var(--line); padding:36px 0 56px; color:var(--muted); font-size:14px; }
+  footer .wrap { display:flex; flex-wrap:wrap; gap:12px 24px; align-items:center; }
+  footer .spacer { margin-left:auto; }
+
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e9e8f2; --muted:#9c9ab4; --line:#332f47; --bg:#15141d; --card:#1d1b28;
+            --tint:#262239; --brand:#A79BF2; --brand-dp:#C4BAFB; --shadow:0 10px 30px rgba(0,0,0,.40); }
+    .nav { background:rgba(21,20,29,.86); }
+    .brand { color:var(--ink); }
+    .cta { color:#16121f; }
+    .cta.ghost { color:var(--brand); }
+    .table th { color:var(--brand); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================= 導覽列 ============================= -->
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="5" width="14" height="14" rx="3" fill="#fff" opacity=".55"/>
+          <rect x="7" y="3" width="14" height="14" rx="3" fill="#fff"/>
+          <path d="M11 10h6M11 13h4" stroke="#5B4BC4" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </span>
+      來學英文
+    </a>
+    <a class="link hide-sm" href="#features">功能</a>
+    <a class="link hide-sm" href="#levels">分級</a>
+    <a class="link hide-sm" href="#privacy">隱私</a>
+    <a class="link" href="support.html">支援</a>
+  </div>
+</nav>
+
+<!-- ============================= Hero ============================= -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>把 5000 個最常用的<br>英文單字，記進腦海。</h1>
+      <p>依語料庫使用頻率精選的 5000 個高頻英單，照 CEFR 難度分成五個等級。翻牌記憶、IPA 與 KK 雙音標、點一下就發音——從最實用的字開始，一步步累積。</p>
+
+      <div class="actions">
+        <!-- TODO：上架後把 href 換成 https://apps.apple.com/tw/app/id6810961674
+             （Apple ID 已確定，但尚未發行，先維持「即將上線」避免連到打不開的產品頁；
+             頁尾與結尾 CTA 的按鈕要一起改。） -->
+        <a class="cta" href="#" data-appstore>App Store 即將上線</a>
+        <!-- TODO：上架後換成 https://play.google.com/store/apps/details?id=com.sockylee.learningenglish -->
+        <a class="cta" href="#" data-play>Google Play 即將上線</a>
+        <a class="cta ghost" href="#features">看看能做什麼</a>
+      </div>
+      <p class="note">iPhone · iPad · Android · 繁體中文 · 免費下載 · 無廣告 · 離線可用</p>
+    </div>
+
+    <!-- 手機示意圖（純 SVG，不依賴外部圖檔） -->
+    <div class="phone-slot" aria-hidden="true">
+      <svg viewBox="0 0 300 610" role="img">
+        <defs>
+          <clipPath id="screen"><rect x="14" y="14" width="272" height="582" rx="34"/></clipPath>
+          <linearGradient id="cardg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#F3F0FE"/>
+          </linearGradient>
+        </defs>
+
+        <!-- 機身 -->
+        <rect x="0" y="0" width="300" height="610" rx="46" fill="#2e2a3d"/>
+        <rect x="8" y="8" width="284" height="594" rx="40" fill="#0f0d16"/>
+        <g clip-path="url(#screen)">
+          <rect x="14" y="14" width="272" height="582" fill="#EFEBFB"/>
+
+          <!-- 標題列 -->
+          <rect x="14" y="14" width="272" height="84" fill="rgba(239,235,251,.94)"/>
+          <text x="150" y="62" fill="#3E2F9B" font-family="-apple-system,Segoe UI,sans-serif"
+                font-size="18" font-weight="700" text-anchor="middle">中級 · B1</text>
+          <text x="150" y="82" fill="#616780" font-family="-apple-system,Segoe UI,sans-serif"
+                font-size="12" text-anchor="middle">第 428 / 1000 張</text>
+
+          <!-- 後方堆疊的卡片 -->
+          <rect x="46" y="130" width="208" height="300" rx="26" fill="#ffffff" opacity=".45"/>
+          <rect x="40" y="124" width="220" height="308" rx="26" fill="#ffffff" opacity=".7"/>
+
+          <!-- 主卡片 -->
+          <rect x="34" y="118" width="232" height="316" rx="26" fill="url(#cardg)"/>
+          <text x="150" y="196" fill="#1F2233" font-family="-apple-system,Segoe UI,sans-serif"
+                font-size="34" font-weight="700" text-anchor="middle">gather</text>
+
+          <text x="150" y="228" fill="#616780" font-family="-apple-system,Segoe UI,sans-serif"
+                font-size="13" text-anchor="middle">IPA　/ˈɡæð.ɚ/</text>
+          <text x="150" y="250" fill="#616780" font-family="-apple-system,Segoe UI,sans-serif"
+                font-size="13" text-anchor="middle">KK　　[ˋɡæðɚ]</text>
+
+          <!-- 發音鈕 -->
+          <circle cx="150" cy="292" r="26" fill="#5B4BC4"/>
+          <path d="M143 284 h-6 v16 h6 l9 8 V276 Z" fill="#fff"/>
+          <path d="M158 284 q5 8 0 16" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+          <path d="M164 279 q8 13 0 26" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".75"/>
+
+          <line x1="66" y1="334" x2="234" y2="334" stroke="#E2DDF2" stroke-width="1.5"/>
+          <text x="150" y="366" fill="#1F2233" font-family="-apple-system,Segoe UI,sans-serif"
+                font-size="17" font-weight="600" text-anchor="middle">聚集；收集；採集</text>
+          <text x="150" y="396" fill="#8b88a6" font-family="-apple-system,Segoe UI,sans-serif"
+                font-size="12" text-anchor="middle">點一下卡片翻面</text>
+
+          <!-- 語速選擇 -->
+          <g font-family="-apple-system,Segoe UI,sans-serif" font-size="12" font-weight="600" text-anchor="middle">
+            <rect x="34" y="456" width="52" height="28" rx="14" fill="#ffffff"/>
+            <text x="60" y="474" fill="#616780">很慢</text>
+            <rect x="94" y="456" width="52" height="28" rx="14" fill="#ffffff"/>
+            <text x="120" y="474" fill="#616780">慢</text>
+            <rect x="154" y="456" width="52" height="28" rx="14" fill="#5B4BC4"/>
+            <text x="180" y="474" fill="#ffffff">正常</text>
+            <rect x="214" y="456" width="52" height="28" rx="14" fill="#ffffff"/>
+            <text x="240" y="474" fill="#616780">快</text>
+          </g>
+
+          <!-- 左右換卡 -->
+          <g stroke="#b3adcf" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M40 520 l-9 9 9 9"/>
+            <path d="M260 520 l9 9 -9 9"/>
+          </g>
+          <text x="150" y="534" fill="#8b88a6" font-family="-apple-system,Segoe UI,sans-serif"
+                font-size="12" text-anchor="middle">左右滑動換下一張</text>
+
+          <!-- 分頁列 -->
+          <rect x="14" y="546" width="272" height="50" fill="rgba(255,255,255,.96)"/>
+          <g font-family="-apple-system,Segoe UI,sans-serif" font-size="11" text-anchor="middle">
+            <text x="62" y="578" fill="#5B4BC4" font-weight="700">字卡</text>
+            <text x="150" y="578" fill="#a7a3bd">我的單字</text>
+            <text x="238" y="578" fill="#a7a3bd">設定</text>
+          </g>
+        </g>
+        <rect x="112" y="20" width="76" height="22" rx="11" fill="#0f0d16"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- ============================= 數字 ============================= -->
+<section style="padding-top:48px;padding-bottom:8px">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>5,000</b><span>個高頻英文單字</span></div>
+      <div class="stat"><b>5</b><span>個 CEFR 分級</span></div>
+      <div class="stat"><b>2</b><span>種音標（IPA / KK）</span></div>
+      <div class="stat"><b>0</b><span>個帳號、廣告與追蹤器</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 功能 ============================= -->
+<section id="features">
+  <div class="wrap">
+    <p class="eyebrow">功能</p>
+    <h2>翻一張卡的時間，就記住一個字</h2>
+    <p class="lead">介面只留下背單字這件事：一張卡、兩種音標、一個發音鍵。其餘的都交給 App 自己記住。</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="ico">🗂️</div>
+        <h3>5000 個高頻英單，分級不迷路</h3>
+        <p>依語料庫的使用頻率精選，對應 CEFR A1 到 C1 共五個等級。從最常用的字開始，循序漸進地把詞彙量堆起來。</p>
+      </div>
+
+      <div class="card">
+        <div class="ico">🔄</div>
+        <h3>翻牌字卡</h3>
+        <p>左右滑動換卡、點一下翻面看繁體中文解釋。流暢的翻牌動畫，讓背單字不再像在啃書。</p>
+      </div>
+
+      <div class="card">
+        <div class="ico">🔤</div>
+        <h3>IPA + KK 雙音標</h3>
+        <p>每個單字同時附上國際音標（IPA）與台灣學生熟悉的 KK 音標，不必再另外查。</p>
+      </div>
+
+      <div class="card">
+        <div class="ico">🔊</div>
+        <h3>點一下就發音，四段語速</h3>
+        <p>使用系統內建的語音朗讀單字，可切換「很慢 / 慢 / 正常 / 快」四段速度——從逐字聽清楚，到接近母語者的語速。</p>
+        <ul class="taglist"><li>很慢</li><li>慢</li><li>正常</li><li>快</li></ul>
+      </div>
+
+      <div class="card">
+        <div class="ico">✏️</div>
+        <h3>自己的單字，自己加</h3>
+        <p>除了內建的 5000 字，也能新增、編輯、刪除自己的單字，補上音標與中文解釋，做成專屬的單字本。</p>
+      </div>
+
+      <div class="card">
+        <div class="ico">📍</div>
+        <h3>自動記住學到哪裡</h3>
+        <p>每個等級都會記住你上次看到的那張卡，下次打開直接接續，不用再從頭捲。</p>
+      </div>
+
+      <div class="card">
+        <div class="ico">🎨</div>
+        <h3>五款療癒主題</h3>
+        <p>靛紫綻放、櫻花粉、蜜桃日落、薄荷微風、薰衣草霧，挑一個看得舒服的色調。iOS 版連 App 圖示都會一起換。</p>
+      </div>
+
+      <div class="card">
+        <div class="ico">🅰️</div>
+        <h3>字型自由換</h3>
+        <p>內建多款好讀字型，也能從檔案匯入自己的字型（TTF / OTF），套用到字卡或整個 App。</p>
+      </div>
+
+      <div class="card">
+        <div class="ico">📶</div>
+        <h3>離線可用</h3>
+        <p>單字資料隨 App 打包，沒有網路一樣背得動。不必註冊帳號，打開就開始。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 分級 ============================= -->
+<section id="levels" style="background:linear-gradient(180deg,var(--bg),var(--tint))">
+  <div class="wrap">
+    <p class="eyebrow">分級</p>
+    <h2>從最實用的字開始，往上疊</h2>
+    <p class="lead">5000 個單字依使用頻率排序後，切成五個等級，對應 CEFR 的 A1 到 C1。你隨時可以切換，不必照順序走完。</p>
+
+    <table class="table">
+      <thead>
+        <tr><th>等級</th><th>CEFR</th><th>適合誰</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>初級</td><td>A1</td><td>剛開始累積英文詞彙，想先把日常最常見的字記牢</td></tr>
+        <tr><td>初中級</td><td>A2</td><td>看得懂簡單句子，想擴充到一般生活與工作場景</td></tr>
+        <tr><td>中級</td><td>B1</td><td>準備英檢中級、多益基礎分數的學習者</td></tr>
+        <tr><td>中高級</td><td>B2</td><td>想讀懂新聞與一般文章，追求更高的考試分數</td></tr>
+        <tr><td>高級</td><td>C1</td><td>已有相當基礎，想補上較少見但關鍵的字彙</td></tr>
+      </tbody>
+    </table>
+
+    <div class="themes">
+      <div class="th"><div class="dot" style="background:#5B4BC4"></div><b>靛紫綻放</b><span>Indigo Bloom</span></div>
+      <div class="th"><div class="dot" style="background:#F49AC2"></div><b>櫻花粉</b><span>Sakura Pink</span></div>
+      <div class="th"><div class="dot" style="background:#FFB37A"></div><b>蜜桃日落</b><span>Peach Sunset</span></div>
+      <div class="th"><div class="dot" style="background:#6FD3B8"></div><b>薄荷微風</b><span>Mint Breeze</span></div>
+      <div class="th"><div class="dot" style="background:#C0A9E8"></div><b>薰衣草霧</b><span>Lavender Mist</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 隱私 ============================= -->
+<section id="privacy">
+  <div class="wrap">
+    <p class="eyebrow">乾淨、不打擾</p>
+    <div class="panel">
+      <h2 style="font-size:23px">沒有廣告、沒有帳號、沒有追蹤</h2>
+      <ul>
+        <li><strong>完全沒有廣告。</strong>App 內沒有任何橫幅、插頁、影片或獎勵式廣告，也沒有整合任何廣告 SDK。</li>
+        <li><strong>不需要註冊帳號。</strong>沒有登入、沒有會員資料庫，我們也沒有任何自營伺服器。</li>
+        <li><strong>不蒐集個人資料。</strong>沒有第三方分析或當機回報 SDK，我們無法得知你是誰、你背到哪一個字。</li>
+        <li><strong>資料留在你的裝置上。</strong>單字、學習進度與外觀設定都寫在 App 的私有儲存空間，刪除 App 就一併刪除。</li>
+        <li><strong>iOS 版的 iCloud 同步走你自己的帳號。</strong>自訂單字與進度透過 CloudKit 存在你私人的 iCloud 資料庫，開發者無法存取。Android 版為純本地儲存，不做跨裝置同步。</li>
+        <li><strong>Android 版沒有網際網路權限。</strong>App 不會、也無法主動連線到任何伺服器。</li>
+      </ul>
+      <p style="margin:18px 0 0"><a href="privacy.html">閱讀完整隱私權政策（iOS 版）→</a><br><a href="privacy-android.html">閱讀完整隱私權政策（Android 版）→</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 關於單字資料 ============================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">關於單字資料</p>
+    <h2>字表怎麼來的</h2>
+    <p class="lead">5000 個單字依英文語料庫統計的<strong>使用頻率</strong>排序後挑選，再依 CEFR 難度分成五級，所以你看到的前幾張卡，就是日常英文裡真正最常出現的字。</p>
+    <p class="lead">音標與中文解釋隨 App 一起打包，不需連網查詢。若你發現某個字的音標、詞性或解釋有誤，<a href="support.html">歡迎來信告訴我們</a>，我們會在後續版本修正。</p>
+    <p class="lead">語音朗讀使用 iOS / Android <strong>系統內建</strong>的語音合成服務，不上傳任何內容到我們這裡。</p>
+  </div>
+</section>
+
+<!-- ============================= 結尾 CTA ============================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="panel" style="text-align:center;border-left-width:1px">
+      <h2 style="font-size:24px">今天先翻十張卡就好。</h2>
+      <p class="lead" style="margin:0 auto 22px">免費下載，沒有廣告，不需要註冊帳號。</p>
+      <div class="actions" style="justify-content:center">
+        <!-- TODO：同上，換成正式商店連結 -->
+        <a class="cta" href="#" data-appstore>App Store 即將上線</a>
+        <a class="cta" href="#" data-play>Google Play 即將上線</a>
+        <a class="cta ghost" href="mailto:socky.lee@gmail.com?subject=%E4%BE%86%E5%AD%B8%E8%8B%B1%E6%96%87%20%E5%95%8F%E9%A1%8C%E5%9B%9E%E5%A0%B1">聯絡我們</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Shuo-Chi Li</span>
+    <a href="support.html">支援</a>
+    <a href="privacy.html">隱私權政策（iOS）</a>
+    <a href="privacy-android.html">隱私權政策（Android）</a>
+    <a href="terms.html">服務條款</a>
+    <a href="mailto:socky.lee@gmail.com">socky.lee@gmail.com</a>
+    <span class="spacer"><a href="../">其他作品</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

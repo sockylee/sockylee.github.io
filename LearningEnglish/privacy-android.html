@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>隱私權政策（Android 版） — 來學英文</title>
+<meta name="description" content="「來學英文」Android 版的隱私權政策：不蒐集、不儲存、不傳輸任何個人資料，App 未宣告網際網路權限，也未整合任何廣告、分析或追蹤 SDK。">
+<meta name="theme-color" content="#5B4BC4">
+<style>
+  :root { --brand:#5B4BC4; --ink:#1F2233; --muted:#616780; --line:#e2ddf2; --bg:#fbfaff; --tint:#EFEBFB; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 96px; }
+  header { border-bottom:3px solid var(--brand); padding-bottom:20px; margin-bottom:36px; }
+  h1 { margin:0 0 6px; font-size:28px; color:var(--brand); }
+  .sub { color:var(--muted); font-size:15px; }
+  h2 { margin:44px 0 12px; font-size:21px; border-left:5px solid var(--brand); padding-left:12px; }
+  h3 { margin:28px 0 8px; font-size:17px; }
+  ul { padding-left:22px; }
+  li { margin:6px 0; }
+  code { background:var(--tint); padding:1px 6px; border-radius:5px; font-size:14px; }
+  .box { background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:20px 0; }
+  .key { font-weight:700; color:var(--brand); }
+  .back { display:inline-block; margin-bottom:24px; font-size:14px; text-decoration:none; }
+  .platform { font-size:14px; color:var(--muted); margin:0 0 28px; }
+  a { color:var(--brand); }
+  table { width:100%; border-collapse:collapse; margin:18px 0; font-size:15px; background:#fff;
+          border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  th, td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:var(--tint); font-size:14px; }
+  tr:last-child td { border-bottom:0; }
+  footer { margin-top:64px; padding-top:20px; border-top:1px solid var(--line);
+           color:var(--muted); font-size:14px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e9e8f2; --muted:#9c9ab4; --line:#332f47; --bg:#15141d; --tint:#262239; --brand:#A79BF2; }
+    .box, table { background:#1d1b28; }
+    code { background:#262239; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="back" href="index.html">← 回首頁</a>
+
+<header>
+  <h1>隱私權政策（Android 版）</h1>
+  <div class="sub">來學英文 · Android 版 · 最後更新：2026 年 9 月 12 日</div>
+</header>
+
+<p class="platform">這是 <strong>Android 版</strong>的隱私權政策。iOS 版請見<a href="privacy.html">這裡</a>。</p>
+
+<p>感謝你使用「來學英文」（以下稱「本 App」，Google Play 套件名稱 <code>com.sockylee.learningenglish</code>）。本文件說明本 App 如何處理你的資料。</p>
+
+<div class="box">
+  <p class="key" style="margin:0">簡短版本：本 App <strong>不蒐集、不儲存、不傳輸任何個人資料</strong>，也不需要註冊帳號。App <strong>未宣告網際網路權限</strong>，不會主動連線到任何伺服器；未整合任何廣告、分析或追蹤 SDK，並已明確移除廣告 ID（<code>AD_ID</code>）權限。所有內容都只存在於你的裝置上。</p>
+</div>
+
+<h2>1. 我們不蒐集的資料</h2>
+<p>本 App 不會蒐集下列任何一項：</p>
+<ul>
+  <li>姓名、電子郵件、電話號碼或任何身分識別資料</li>
+  <li>位置資訊（本 App 不請求任何定位權限）</li>
+  <li>通訊錄、相片、檔案（匯入字型時只讀取你主動選擇的那一個檔案）</li>
+  <li>裝置識別碼、廣告 ID（Advertising ID）</li>
+  <li>使用行為分析、當機報告</li>
+</ul>
+<p>本 App <strong>未整合任何第三方分析、廣告或追蹤 SDK</strong>，並已在 <code>AndroidManifest.xml</code> 中以 <code>tools:node="remove"</code> 明確移除 <code>com.google.android.gms.permission.AD_ID</code> 權限。</p>
+<p>開發者<strong>沒有自建的後端伺服器</strong>，因此無法從伺服器端得知你是誰、你新增了哪些單字，或你背到第幾張卡。</p>
+
+<h2>2. 儲存在你裝置上的資料</h2>
+<p>下列資料只寫入本 App 的私有儲存空間（Room 資料庫與 DataStore），不會離開你的裝置：</p>
+
+<table>
+  <tr><th>資料</th><th>內容</th><th>儲存位置</th></tr>
+  <tr><td>單字資料</td><td>內建的 5000 個單字，以及你自行新增或編輯的單字</td><td>App 私有資料庫</td></tr>
+  <tr><td>學習進度</td><td>每個等級最後看到的那一張卡</td><td>App 私有偏好設定</td></tr>
+  <tr><td>外觀設定</td><td>佈景主題、字型與套用範圍、發音速度</td><td>App 私有偏好設定</td></tr>
+  <tr><td>匯入的字型檔</td><td>你主動選擇匯入的 <code>.ttf</code> / <code>.otf</code> 檔複本</td><td>App 私有檔案目錄</td></tr>
+</table>
+
+<p>移除本 App 或清除 App 資料時，上述資料會一併刪除。開發者沒有任何備份，也無法代為復原。</p>
+
+<h2>3. 跨裝置同步</h2>
+<p>Android 版<strong>不提供跨裝置同步</strong>。你的單字與進度只存在這一台裝置上。</p>
+
+<h3>系統備份</h3>
+<p>若你在 Android 系統中啟用了「備份到 Google 雲端硬碟」，系統可能會依 Android Auto Backup 機制備份本 App 的資料，以便你換機時還原。</p>
+<ul>
+  <li>該備份由 <strong>Google 與你的 Google 帳戶</strong>管理，本 App 無法讀取，開發者也無法存取其內容。</li>
+  <li>你可以在系統設定中關閉此功能（設定 → Google → 備份）。</li>
+</ul>
+
+<h2>4. 網路連線</h2>
+<p>本 App <strong>未宣告 <code>android.permission.INTERNET</code> 權限</strong>，在技術上不具備連線能力，因此不會、也無法主動連線至任何伺服器。單字資料隨 App 打包，完全離線可用。</p>
+
+<h2>5. 語音朗讀</h2>
+<p>單字朗讀使用 Android 系統的文字轉語音（TTS）服務。</p>
+<ul>
+  <li>朗讀的內容僅為<strong>單字本身</strong>，交由系統設定的語音引擎處理。</li>
+  <li>本 App 不錄音、不請求麥克風權限。</li>
+  <li>不同語音引擎（例如 Google 語音服務）的隱私作法，請參閱該引擎提供者的政策。你可以在系統「設定 → 語言與輸入設定 → 文字轉語音輸出」中更換引擎。</li>
+</ul>
+
+<h2>6. 字型匯入</h2>
+<p>你可以透過 Android 的系統檔案選取器（Storage Access Framework）匯入自己的字型檔。</p>
+<ul>
+  <li>本 App <strong>只讀取你主動選擇的那一個檔案</strong>，不請求任何儲存空間的廣泛存取權限，也不會瀏覽或掃描你裝置上的其他檔案。</li>
+  <li>匯入的字型會複製一份到 App 的私有檔案目錄，供 App 內使用；不會上傳到任何地方。</li>
+</ul>
+
+<h2>7. 付費功能</h2>
+<p>App 內的「佈景主題」與「字型」頁面標示為訂閱功能，但<strong>訂閱機制尚未實作</strong>（未接上 Google Play Billing）。目前所有使用者一律為未訂閱狀態，本 App 不會產生任何交易，也不會蒐集付款資訊。</p>
+<p>未來若啟用訂閱，付款將由 Google Play 處理，開發者不會接觸你的付款資料；屆時本政策會另行更新並標註新的更新日期。</p>
+
+<h2>8. 兒童隱私與 Google Play 家庭政策</h2>
+<p>本 App 的內容分級為<strong>全年齡</strong>，目標對象包含 13 歲以下的兒童，因此適用 Google Play 的「專為家庭設計」政策。</p>
+<ul>
+  <li>本 App <strong>不蒐集任何個人資料或裝置識別碼</strong>，因此不涉及兒童個人資料的處理。</li>
+  <li><strong>不含廣告</strong>，未整合任何廣告 SDK，也不會顯示任何形式的商業推廣。</li>
+  <li>已移除廣告 ID（<code>AD_ID</code>）權限，不會取得或使用廣告識別碼。</li>
+  <li>沒有使用者之間的互動、訊息或社群分享功能。</li>
+  <li>沒有應用程式內購買，也沒有誘導消費的設計。</li>
+  <li>沒有誘導點擊的外部連結。</li>
+</ul>
+<p>本 App 的設計符合美國《兒童線上隱私保護法》（COPPA）與歐盟 GDPR（含 GDPR-K）對兒童資料的要求——因為我們根本不蒐集資料。</p>
+
+<h2>9. Google Play 資料安全區段</h2>
+<p>本 App 在 Google Play「資料安全」區段的申報內容如下，與實際行為一致：</p>
+<table>
+  <tr><th>項目</th><th>申報</th></tr>
+  <tr><td>是否蒐集使用者資料</td><td>否</td></tr>
+  <tr><td>是否分享使用者資料</td><td>否</td></tr>
+  <tr><td>資料傳輸是否加密</td><td>不適用（App 不傳輸任何資料）</td></tr>
+  <tr><td>是否可要求刪除資料</td><td>使用者可自行刪除 App 或清除 App 資料，無雲端副本</td></tr>
+  <tr><td>是否使用廣告 ID</td><td>否（已移除 <code>AD_ID</code> 權限）</td></tr>
+</table>
+
+<h2>10. 你的權利</h2>
+<p>由於開發者不持有你的任何個人資料，一般法規所稱的查詢、更正、刪除、可攜等權利，在本 App 上可由你自行完全掌握：</p>
+<ul>
+  <li><strong>查看與修改</strong>：所有資料都在 App 內，可直接檢視、編輯或刪除。</li>
+  <li><strong>刪除</strong>：在系統「設定 → 應用程式 → 來學英文 → 儲存空間 → 清除資料」，或直接移除本 App。</li>
+</ul>
+<p>我們無法代為執行上述動作，因為我們從未取得你的資料。</p>
+
+<h2>11. 政策變更</h2>
+<p>本政策若有變更，會更新本頁面的「最後更新」日期，並於新版本 App 上架時一併公告。</p>
+
+<h2>12. 聯絡方式</h2>
+<p>對本隱私權政策有任何疑問，歡迎來信：<a href="mailto:socky.lee@gmail.com?subject=%E4%BE%86%E5%AD%B8%E8%8B%B1%E6%96%87%20%E9%9A%B1%E7%A7%81%E6%AC%8A%E5%95%8F%E9%A1%8C">socky.lee@gmail.com</a></p>
+<p>開發者：Shuo-Chi Li（李碩祈）· 台灣</p>
+
+<footer>
+  另見 <a href="privacy.html">iOS 版隱私權政策</a> · <a href="terms.html">服務條款</a> · <a href="support.html">支援</a> · <a href="index.html">首頁</a>
+</footer>
+
+</div>
+</body>
+</html>
