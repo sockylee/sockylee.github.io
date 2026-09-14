@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>支援 — 垃圾車雷達</title>
-<meta name="description" content="「垃圾車雷達」的常見問題與聯絡方式。">
+<title>支援（Android 版） — 垃圾車雷達</title>
+<meta name="description" content="「垃圾車雷達」Android 版的常見問題與聯絡方式。">
 <meta name="theme-color" content="#1F8F4A">
 <style>
   :root { --green:#1F8F4A; --ink:#1E2A38; --muted:#5f6b78; --line:#dfe6da; --bg:#fbfdf9; }
@@ -50,10 +50,10 @@
 
 <header>
   <h1>垃圾車雷達 · 支援</h1>
-  <div class="sub">iOS 版 · 清運時間查詢與到站提醒</div>
+  <div class="sub">Android 版 · 清運時間查詢與到站提醒</div>
 </header>
 
-<p class="platform">這是 <strong>iOS 版</strong>的支援說明。Android 版請見<a href="support-android.html">這裡</a>。</p>
+<p class="platform">這是 <strong>Android 版</strong>的支援說明。iOS 版請見<a href="support.html">這裡</a>。</p>
 
 <p>「垃圾車雷達」把各縣市政府開放的垃圾車清運資料整理成一張地圖：哪裡有清運點、幾點抵達、幾點離開，一眼就看得到。收藏常去的點位並開啟提醒，垃圾車來之前手機會先通知你。資料下載後存在手機裡，沒網路一樣查得到。</p>
 
@@ -99,10 +99,12 @@
 <details>
   <summary>提醒沒有響，怎麼辦？</summary>
   <ul>
-    <li>確認 iOS「設定 → 通知 → 垃圾車雷達」的允許通知是開啟的。</li>
+    <li>確認 Android「設定 → 應用程式 → 垃圾車雷達 → 通知」的允許通知是開啟的。</li>
+    <li><strong>確認「鬧鐘與提醒」權限</strong>：Android 14 以上預設<strong>不</strong>授予這個權限，未授權時提醒會自動降級成約 ±10 分鐘的時間視窗，可能比你設定的時間晚幾分鐘才響。App 的「設定 → 提醒」區有前往授權的入口。</li>
     <li>確認該點位在「收藏」頁的提醒開關是開啟的。</li>
     <li>確認今天是這個點位<strong>有清運的星期</strong>；沒有清運的日子本來就不會通知。</li>
-    <li>檢查是否開了「專注模式」或「勿擾模式」而把通知靜音。</li>
+    <li>檢查是否開了「零打擾」模式而把通知靜音。</li>
+    <li>部分品牌的手機有較積極的省電或自動管理機制會延後鬧鐘。若你的手機有這類設定，把本 App 的電池用量設為「不受限制」通常可以解決。</li>
   </ul>
   <p>都確認過仍然沒響，歡迎來信告訴我們你收藏的點位與提前分鐘數。</p>
 </details>
@@ -138,31 +140,39 @@
 
 <details>
   <summary>廣告會根據我的個人資料投放嗎？</summary>
-  <p>不會。本 App 向 Google AdMob 送出的每一次廣告請求都標記為<strong>非個人化</strong>，不會依你的個資或跨 App 行為決定內容。本 App 也<strong>不會</strong>跳出 iOS 的「App 追蹤透明度」請求，因此不會取得廣告識別碼（IDFA）。</p>
-  <p>如果你覺得廣告和所在地區有關，那是 Google 依連線的 IP 位址判斷的大略區域（國家／城市層級），<strong>與 App 的定位權限無關</strong>——你的 GPS 位置從來不會提供給廣告服務。詳見<a href="privacy.html">隱私權政策</a>。</p>
+  <p>不會。本 App 向 Google AdMob 送出的每一次廣告請求都標記為<strong>非個人化</strong>，不會依你的個資或跨 App 行為決定內容。</p>
+  <p>Google Mobile Ads SDK 在 Android 上會宣告 <code>com.google.android.gms.permission.AD_ID</code> 權限。你可以隨時在 Android「<strong>設定 → Google → 廣告</strong>」刪除或重設你的廣告 ID。</p>
+  <p>如果你覺得廣告和所在地區有關，那是 Google 依連線的 IP 位址判斷的大略區域（國家／城市層級），<strong>與 App 的定位權限無關</strong>——你的 GPS 位置從來不會提供給廣告服務。詳見<a href="privacy-android.html">隱私權政策</a>。</p>
 </details>
 
 <details>
   <summary>可以把廣告移除嗎？</summary>
   <p>可以。到「設定 → 移除廣告」完成一次性購買即可永久移除。這<strong>不是訂閱</strong>，不會自動續扣，只付一次。價格以 App 內顯示的為準。</p>
-  <p>免廣告期間內也可以先買（該區塊的「提前買斷」）。若價格顯示「暫時無法取得」，通常是暫時連不上 App Store 的商店服務，稍後再開一次設定頁即可；仍然不行的話請來信告訴我們。</p>
+  <p>免廣告期間內也可以先買（該區塊的「提前買斷」）。若價格顯示「暫時無法取得」，通常是暫時連不上 Google Play 的計費服務，稍後再開一次設定頁，或按同一區塊的「重新整理購買狀態」即可；仍然不行的話請來信告訴我們。</p>
 </details>
 
 <details>
   <summary>我換了手機／重新安裝，買過的「移除廣告」不見了</summary>
-  <p>用原本購買時的 Apple 帳號登入裝置，然後到「設定 → 恢復購買」。權益取回後廣告會立刻消失。</p>
-  <p>若仍取不回來，請來信並附上購買日期與收據（App Store 的購買通知信），我們會協助處理。退款請透過 Apple 的 <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> 提出，我們無法代為退款。</p>
+  <p>用原本購買時的 <strong>Google 帳號</strong>登入裝置就可以了——Android 會在 App 進入前景時自動還原權益，通常<strong>不需要</strong>你手動做任何事。</p>
+  <p>若等了一下廣告還在，到「設定 → 重新整理購買狀態」手動觸發一次。</p>
+  <p>仍取不回來，請來信並附上購買日期與訂單編號（Google Play 的購買通知信裡有），我們會協助處理。退款請透過 <a href="https://play.google.com/store/account/orderhistory" target="_blank" rel="noopener">Google Play 的訂單記錄</a> 提出，我們無法代為退款。</p>
 </details>
 
 <details>
   <summary>重新安裝後，七天免廣告期間會重新計算嗎？</summary>
-  <p>不會。首次開啟的時間存放在 iOS 的 Keychain，刪除 App 並不會清除它，因此重裝不會讓七天重新開始。那只是一個時間戳記，不含任何識別你身分的資訊，也不會離開你的裝置。</p>
+  <p>視情況而定：</p>
+  <ul>
+    <li><strong>同一支手機上刪掉再重裝 → 會重新開始。</strong>首次開啟的時間存放在 App 自己的資料區，Android 在解除安裝時會把整個資料區清除。</li>
+    <li><strong>換新手機、透過 Google 帳號還原 → 會延續。</strong>這筆時間戳記包含在 <strong>Android 自動備份</strong>的範圍內，備份還原時會一起回來，不會重新計算。</li>
+  </ul>
+  <p>那只是一個時間戳記，不含任何識別你身分的資訊。（iOS 版因為存放在 Keychain、刪除 App 不會清除，行為與這裡不同。）</p>
 </details>
 
 <details>
   <summary>App 會不會蒐集我的資料？</summary>
-  <p>我們不蒐集。沒有帳號、沒有登入、沒有雲端同步、沒有自建的分析工具或當機回報，我們也沒有任何自營伺服器。你的收藏與提醒設定只存在你的手機裡。</p>
-  <p>顯示廣告時，Google 會取得投放所需的有限技術資訊（IP 位址、裝置與 App 基本資訊等），但不與你的身分連結。完整說明見<a href="privacy.html">隱私權政策</a>。</p>
+  <p><strong>我們自己不蒐集</strong>，也沒有任何自營伺服器：沒有帳號、沒有登入、沒有雲端同步。你的收藏與提醒設定只存在你的手機裡。</p>
+  <p>但 Android 版內建 <strong>Google 提供的服務</strong>——廣告（AdMob）、使用分析（Firebase Analytics）、當機回報（Crashlytics）與推播（Firebase Cloud Messaging）。這些服務會取得裝置層級的技術資料，例如 IP 位址、App 內互動事件、診斷與效能資訊，以及廣告 ID 與安裝識別碼。資料由 Google 依其自身政策處理，不在我們的控制範圍，也不會與你在本 App 內的任何身分連結（本 App 根本沒有身分可連結）。</p>
+  <p>逐項說明——包含每個服務蒐集什麼、為什麼需要、以及你可以怎麼降低可連結性——見 <a href="privacy-android.html">Android 版隱私權政策</a>。</p>
 </details>
 
 <details>
@@ -177,7 +187,7 @@
 
 <footer>
   清運資料來源：臺北市政府資料開放平臺、新北市政府資料開放平臺、臺中市政府資料開放平臺、高雄市政府開放資料平臺 ·
-  <a href="index.html">首頁</a> · <a href="privacy.html">隱私權政策</a> · <a href="terms.html">服務條款</a>
+  <a href="index.html">首頁</a> · <a href="privacy-android.html">隱私權政策</a> · <a href="support.html">iOS 版支援</a>
 </footer>
 
 </div>
