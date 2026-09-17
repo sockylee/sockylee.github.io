@@ -46,7 +46,7 @@
 
 <header>
   <h1>隱私權政策（Android 版）</h1>
-  <div class="sub">來學英文 · Android 版 · 最後更新：2026 年 9 月 12 日</div>
+  <div class="sub">來學英文 · Android 版 · 最後更新：2026 年 9 月 17 日</div>
 </header>
 
 <p class="platform">這是 <strong>Android 版</strong>的隱私權政策。iOS 版請見<a href="privacy.html">這裡</a>。</p>
@@ -54,7 +54,7 @@
 <p>感謝你使用「來學英文」（以下稱「本 App」，Google Play 套件名稱 <code>com.sockylee.learningenglish</code>）。本文件說明本 App 如何處理你的資料。</p>
 
 <div class="box">
-  <p class="key" style="margin:0">簡短版本：本 App <strong>不蒐集、不儲存、不傳輸任何個人資料</strong>，也不需要註冊帳號。App <strong>未宣告網際網路權限</strong>，不會主動連線到任何伺服器；未整合任何廣告、分析或追蹤 SDK，並已明確移除廣告 ID（<code>AD_ID</code>）權限。所有內容都只存在於你的裝置上。</p>
+  <p class="key" style="margin:0">簡短版本：本 App <strong>不蒐集、不儲存、不傳輸任何個人資料</strong>，也不需要註冊帳號。App <strong>不會連線到開發者的伺服器</strong>（我們根本沒有伺服器）；除了處理 Pro 購買所需的 Google Play 帳務權限（<code>com.android.vending.BILLING</code>）外，未整合任何廣告、分析或追蹤 SDK，並已明確移除廣告 ID（<code>AD_ID</code>）權限。單字與設定都只存在於你的裝置上。</p>
 </div>
 
 <h2>1. 我們不蒐集的資料</h2>
@@ -110,9 +110,15 @@
   <li>匯入的字型會複製一份到 App 的私有檔案目錄，供 App 內使用；不會上傳到任何地方。</li>
 </ul>
 
-<h2>7. 付費功能</h2>
-<p>App 內的「佈景主題」與「字型」頁面標示為訂閱功能，但<strong>訂閱機制尚未實作</strong>（未接上 Google Play Billing）。目前所有使用者一律為未訂閱狀態，本 App 不會產生任何交易，也不會蒐集付款資訊。</p>
-<p>未來若啟用訂閱，付款將由 Google Play 處理，開發者不會接觸你的付款資料；屆時本政策會另行更新並標註新的更新日期。</p>
+<h2>7. 付費功能（應用程式內購買）</h2>
+<p>本 App 提供 Pro 方案（月訂閱、年訂閱、終身解鎖），用於解鎖 Level 2–5、全部佈景主題與字型自訂。</p>
+<ul>
+  <li><strong>付款由 Google Play 處理。</strong>所有交易都在 Google Play 完成，開發者<strong>不會接觸</strong>你的信用卡號、帳單地址或 Google 帳號資訊。</li>
+  <li><strong>開發者沒有伺服器，也沒有帳號系統。</strong>購買狀態由裝置上的 Google Play 服務回報，App 只會讀取「你是否擁有有效權益」這一個結果。</li>
+  <li><strong>不會建立購買紀錄資料庫。</strong>開發者不會蒐集、儲存或分析你的購買、續訂或退款紀錄；Google 提供給開發者的僅是彙總後的銷售統計，無法識別個人。</li>
+  <li>App 內僅在裝置本機（DataStore）記住「目前是否為 Pro」與生效的方案名稱，用於冷啟動時不誤顯示付費牆；此紀錄不會離開你的裝置。</li>
+</ul>
+<p>Google 對 Google Play 交易的資料處理方式，請參閱 <a href="https://policies.google.com/privacy">Google 的隱私權政策</a>。</p>
 
 <h2>8. 兒童隱私與 Google Play 家庭政策</h2>
 <p>本 App 的內容分級為<strong>全年齡</strong>，目標對象包含 13 歲以下的兒童，因此適用 Google Play 的「專為家庭設計」政策。</p>
@@ -121,7 +127,7 @@
   <li><strong>不含廣告</strong>，未整合任何廣告 SDK，也不會顯示任何形式的商業推廣。</li>
   <li>已移除廣告 ID（<code>AD_ID</code>）權限，不會取得或使用廣告識別碼。</li>
   <li>沒有使用者之間的互動、訊息或社群分享功能。</li>
-  <li>沒有應用程式內購買，也沒有誘導消費的設計。</li>
+  <li>App 內購買僅有單純的 Pro 解鎖方案，價格與續訂條件在購買前完整揭露，<strong>沒有虛擬貨幣、轉蛋、隨機獎勵或任何催促消費的設計</strong>。購買一律須經 Google 帳戶驗證，家長可於 Google Play 設定「購買時需要驗證」，或使用 Family Link 管理。</li>
   <li>沒有誘導點擊的外部連結。</li>
 </ul>
 <p>本 App 的設計符合美國《兒童線上隱私保護法》（COPPA）與歐盟 GDPR（含 GDPR-K）對兒童資料的要求——因為我們根本不蒐集資料。</p>
@@ -135,6 +141,7 @@
   <tr><td>資料傳輸是否加密</td><td>不適用（App 不傳輸任何資料）</td></tr>
   <tr><td>是否可要求刪除資料</td><td>使用者可自行刪除 App 或清除 App 資料，無雲端副本</td></tr>
   <tr><td>是否使用廣告 ID</td><td>否（已移除 <code>AD_ID</code> 權限）</td></tr>
+  <tr><td>應用程式內購買</td><td>有（Pro 方案）；付款與購買紀錄皆由 Google Play 處理，開發者不蒐集</td></tr>
 </table>
 
 <h2>10. 你的權利</h2>
