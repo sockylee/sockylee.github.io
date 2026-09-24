@@ -46,7 +46,7 @@
 
 <header>
   <h1>隱私權政策</h1>
-  <div class="sub">來學英文 · iOS / iPadOS 版 · 最後更新：2026 年 9 月 17 日</div>
+  <div class="sub">來學英文 · iOS 版 · 最後更新：2026 年 9 月 23 日</div>
 </header>
 
 <p class="platform">這是 <strong>iOS 版</strong>的隱私權政策。Android 版請見<a href="privacy-android.html">這裡</a>。</p>
@@ -70,22 +70,27 @@
 <p>開發者<strong>沒有自建的後端伺服器</strong>，因此無法從伺服器端得知你是誰、你新增了哪些單字，或你背到第幾張卡。</p>
 
 <h2>2. 儲存在你裝置上的資料</h2>
-<p>下列資料寫入本 App 在 iOS 上的私有儲存空間（Core Data 與 <code>UserDefaults</code>），不會離開你的裝置：</p>
+<p>下列資料寫入本 App 在 iOS 上的私有儲存空間（Core Data 與 <code>UserDefaults</code>）。除了下表註明會同步的項目之外，這些資料不會離開你的裝置，也不會傳送給開發者：</p>
 
 <table>
   <tr><th>資料</th><th>內容</th></tr>
-  <tr><td>單字資料</td><td>內建的 5000 個單字，以及你自行新增或編輯的單字（英文、音標、中文解釋）</td></tr>
-  <tr><td>學習進度</td><td>每個等級最後看到的那一張卡</td></tr>
-  <tr><td>外觀設定</td><td>佈景主題、App 圖示、字型與套用範圍、發音速度</td></tr>
-  <tr><td>匯入的字型檔</td><td>你主動選擇匯入的 <code>.ttf</code> / <code>.otf</code> 檔複本</td></tr>
+  <tr><td>單字資料</td><td>內建的 5000 個單字，以及你自行新增或編輯的單字（英文、音標、中文解釋）<br><small>會透過 iCloud 同步，見第 3 節</small></td></tr>
+  <tr><td>學習進度</td><td>每個等級最後看到的那一張卡<br><small>會透過 iCloud 同步，見第 3 節</small></td></tr>
+  <tr><td>外觀設定</td><td>佈景主題、App 圖示、字型與套用範圍、發音速度<br><small>僅存在本機，不同步</small></td></tr>
+  <tr><td>匯入的字型檔</td><td>你主動選擇匯入的 <code>.ttf</code> / <code>.otf</code> 檔複本<br><small>僅存在本機，不同步</small></td></tr>
 </table>
 
 <p>刪除本 App 即會一併刪除裝置上的這些資料。開發者沒有任何備份，也無法代為復原。</p>
 
-<h2>3. iCloud 同步（CloudKit）</h2>
-<p>本 App 使用 Apple 的 <strong>CloudKit</strong>（<code>NSPersistentCloudKitContainer</code>）在你自己的裝置之間同步自訂單字與學習進度。</p>
+<h2>3. iCloud 同步</h2>
+<p>本 App 會在<strong>你自己的裝置之間</strong>同步兩類資料，讓你換手機或重裝後可以接續學習：</p>
 <ul>
-  <li>資料存放於<strong>你個人 iCloud 帳號的私人資料庫</strong>（private database），不是開發者的伺服器。</li>
+  <li><strong>自訂單字</strong>——透過 Apple 的 <strong>CloudKit</strong>（<code>NSPersistentCloudKitContainer</code>）同步。</li>
+  <li><strong>學習進度</strong>（每個等級最後看到的那一張卡）——透過 Apple 的 <strong>iCloud 鍵值儲存</strong>（<code>NSUbiquitousKeyValueStore</code>）同步。</li>
+</ul>
+<p>兩者都適用下列說明：</p>
+<ul>
+  <li>資料存放於<strong>你個人的 iCloud 帳號</strong>中（CloudKit 為私人資料庫 private database），不是開發者的伺服器。</li>
   <li>依 Apple 的架構設計，<strong>開發者無法讀取、查詢或匯出</strong>私人資料庫中的任何內容。</li>
   <li>同步只發生在登入同一個 Apple 帳號的你自己的裝置之間，不會與其他使用者共享。</li>
   <li>傳輸與儲存皆由 Apple 加密處理，適用 <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple 的隱私權政策</a>。</li>
