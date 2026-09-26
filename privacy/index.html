@@ -34,7 +34,7 @@
         <span class="section-label">PRIVACY POLICY</span>
         <h1>隱私權政策</h1>
         <p class="legal-sub">Privacy Policy — apps published by Shuo Chi Lee</p>
-        <p class="updated-at">最後更新 Last updated：2026-08-01</p>
+        <p class="updated-at">最後更新 Last updated：2026-09-26</p>
         <div class="lang-switch">
           <a href="#zh">繁體中文</a>
           <a href="#en">English</a>
@@ -59,7 +59,7 @@
         </ul>
 
         <h2>三、儲存在您裝置上的資料</h2>
-        <p>本 App 的設定與您輸入的內容（例如查詢紀錄、偏好設定、購買狀態快取）以 <strong>Core Data 或 UserDefaults</strong> 儲存在您的裝置本機。這些資料不會傳送給開發者，並會在您<strong>刪除 App 時一併移除</strong>。</p>
+        <p>本 App 的設定與您輸入的內容（例如查詢紀錄、偏好設定、購買狀態快取）以 <strong>Core Data、UserDefaults（iOS）或 Room、DataStore（Android）</strong>儲存在您的裝置本機。這些資料不會傳送給開發者，並會在您<strong>刪除 App 時一併移除</strong>。</p>
 
         <h2>四、第三方服務</h2>
         <p>部分 App 會使用下列第三方服務。這些服務可能依其自身政策收集資料，開發者僅取得彙總後的統計資訊，無法識別個別使用者。</p>
@@ -86,6 +86,12 @@
                 <td>處理訂閱與一次性購買</td>
                 <td>交易憑證（由 Apple 處理，開發者不會取得您的付款資訊）</td>
                 <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noreferrer">Apple 隱私權</a></td>
+              </tr>
+              <tr>
+                <td>Google Play<br /><span class="muted">Play 帳款服務</span></td>
+                <td>處理 Android 版的訂閱與一次性購買</td>
+                <td>購買紀錄與購買憑證（由 Google 處理，開發者不會取得您的付款資訊）</td>
+                <td><a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google 隱私權</a></td>
               </tr>
             </tbody>
           </table>
@@ -124,16 +130,40 @@
             <h3>台彩開獎速報</h3>
             <div class="pc-badges">
               <span class="badge badge-ios">iOS</span>
+              <span class="badge badge-android">Android</span>
               <span class="badge badge-self">自主開發</span>
             </div>
           </div>
           <ul class="legal-list">
             <li><strong>資料來源</strong>：以唯讀方式從 Google Firebase Realtime Database 取得<strong>公開的開獎號碼</strong>；不會上傳您的任何資料。</li>
-            <li><strong>相機權限</strong>：僅用於掃描您的紙本彩券以辨識號碼。<strong>辨識完全在您的裝置上完成</strong>，照片不會被儲存或上傳。您可以拒絕授權，僅影響掃描功能。</li>
+            <li><strong>相機權限</strong>：僅用於掃描您的紙本彩券以辨識號碼。<strong>辨識完全在您的裝置上完成</strong>（iOS 使用 Apple Vision；Android 使用 Google ML Kit 的裝置端文字辨識），照片不會被儲存或上傳。您可以拒絕授權，僅影響掃描功能。</li>
             <li><strong>本機儲存</strong>：開獎資料、您輸入的對獎號碼與已掃描的彩券紀錄，皆存放於裝置本機。</li>
             <li><strong>廣告</strong>：免費版本會在「最新開獎」「歷史開獎」「開獎詳情」頁面底部顯示 Google AdMob 橫幅廣告。</li>
-            <li><strong>App 內購買</strong>：「尊榮方案」訂閱（解鎖兌獎與我的彩券，並包含免廣告）與「移除廣告」一次性購買。購買由 Apple 處理。</li>
+            <li><strong>App 內購買</strong>：「尊榮方案」訂閱（解鎖兌獎與我的彩券，並包含免廣告）與「移除廣告」一次性購買。iOS 版由 Apple 處理，Android 版由 Google Play 帳款服務處理。</li>
+            <li><strong>Android 版的廣告識別碼</strong>：Android 版宣告 <code>AD_ID</code> 權限，供 AdMob 使用廣告 ID（AAID）；您可於 Android「設定 → Google → 廣告」刪除或重設。已購買「移除廣告」或訂閱者，App 不會初始化廣告 SDK。</li>
+            <li><strong>Android 版的資料安全揭露</strong>：Google Mobile Ads SDK 可能處理裝置或其他 ID、大略位置（由 IP 推估）、應用程式互動與當機記錄，用於廣告放送、分析與防詐騙；開發者本身不接收這些資料。</li>
             <li><strong>提醒</strong>：本 App 為非官方工具，開獎與中獎結果一律以台灣彩券官方公告為準。</li>
+          </ul>
+        </article>
+
+        <article class="app-block" id="mymoney">
+          <div class="app-block-head">
+            <h3>我的錢錢（MyMoney）</h3>
+            <div class="pc-badges">
+              <span class="badge badge-ios">iOS / iPadOS / macOS</span>
+              <span class="badge badge-self">自主開發</span>
+            </div>
+          </div>
+          <ul class="legal-list">
+            <li><strong>帳目資料</strong>：您輸入的交易、帳戶、預算、分類、備註、標籤與收據照片，皆以 Core Data 存放在您的裝置上；開啟 iCloud 時，會透過 Apple CloudKit 同步到<strong>您自己 Apple ID 的 iCloud 私人資料庫</strong>。開發者沒有伺服器，<strong>無法存取您的任何帳目資料</strong>。</li>
+            <li><strong>共用帳本</strong>：若您主動把帳本共享給他人，該帳本內容會透過 iCloud 共享給您邀請的參與者，並依 Apple 的 iCloud 條款處理；您可隨時停止共享或移除成員。</li>
+            <li><strong>刪除資料</strong>：刪除 App 會移除本機資料；iCloud 中的副本可於「設定 → [您的名字] → iCloud → 管理帳號儲存空間」刪除本 App 的資料。</li>
+            <li><strong>股價查詢（Max 方案）</strong>：更新股價時，App 會向 Yahoo Finance 公開報價服務送出<strong>股票代碼</strong>以取得報價，不會附帶任何個人或帳目資料。Yahoo 可能依其<a href="https://legal.yahoo.com/us/en/yahoo/privacy/index.html" target="_blank" rel="noreferrer">隱私權政策</a>記錄連線 IP。</li>
+            <li><strong>Face ID</strong>：App 鎖使用 Apple 的 LocalAuthentication 在裝置上驗證，App 不會取得您的生物辨識資料。</li>
+            <li><strong>相片</strong>：僅在您選擇為交易附加收據時，透過系統相片選擇器讀取您挑選的那一張照片。</li>
+            <li><strong>通知</strong>：預算提醒與定期交易提醒皆為本機通知，不經過任何伺服器。</li>
+            <li><strong>App 內購買</strong>：Pro／Max 自動續訂訂閱由 Apple 處理，開發者不會取得您的付款資訊。</li>
+            <li>本 App <strong>無廣告、無追蹤、無第三方分析 SDK</strong>。</li>
           </ul>
         </article>
 
@@ -157,7 +187,7 @@
         </ul>
 
         <h2>3. Data stored on your device</h2>
-        <p>Settings and the content you enter (search history, preferences, cached purchase state) are stored locally using <strong>Core Data or UserDefaults</strong>. This data is never sent to the developer and is <strong>removed when you delete the App</strong>.</p>
+        <p>Settings and the content you enter (search history, preferences, cached purchase state) are stored locally using <strong>Core Data or UserDefaults (iOS), or Room or DataStore (Android)</strong>. This data is never sent to the developer and is <strong>removed when you delete the App</strong>.</p>
 
         <h2>4. Third-party services</h2>
         <p>Some apps use the services below. They may collect data under their own policies; the developer only receives aggregated statistics that cannot identify an individual user.</p>
@@ -184,6 +214,12 @@
                 <td>Processing subscriptions and one-time purchases</td>
                 <td>Transaction receipts (handled by Apple; we never receive your payment details)</td>
                 <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noreferrer">Apple Privacy</a></td>
+              </tr>
+              <tr>
+                <td>Google Play<br /><span class="muted">Play Billing</span></td>
+                <td>Processing subscriptions and one-time purchases on Android</td>
+                <td>Purchase records and tokens (handled by Google; we never receive your payment details)</td>
+                <td><a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy</a></td>
               </tr>
             </tbody>
           </table>
@@ -221,16 +257,40 @@
             <h3>Taiwan Lottery Live（台彩開獎速報）</h3>
             <div class="pc-badges">
               <span class="badge badge-ios">iOS</span>
+              <span class="badge badge-android">Android</span>
               <span class="badge badge-self">Self-published</span>
             </div>
           </div>
           <ul class="legal-list">
             <li><strong>Data source</strong>: public draw numbers are read from a Google Firebase Realtime Database in a read-only manner; nothing about you is uploaded.</li>
-            <li><strong>Camera</strong>: used solely to scan your paper lottery ticket. Recognition happens <strong>entirely on your device</strong>; images are never stored or uploaded. Declining only disables scanning.</li>
+            <li><strong>Camera</strong>: used solely to scan your paper lottery ticket. Recognition happens <strong>entirely on your device</strong> (Apple Vision on iOS, Google ML Kit on-device text recognition on Android); images are never stored or uploaded. Declining only disables scanning.</li>
             <li><strong>Local storage</strong>: draw data, the numbers you enter and your scanned tickets are kept on your device.</li>
             <li><strong>Advertising</strong>: the free version shows AdMob banners on the Latest, History and Draw Detail screens.</li>
-            <li><strong>In-app purchases</strong>: the "Pro" subscription (unlocks ticket checking and My Tickets, and includes an ad-free experience) and the one-time "Remove Ads" item, both handled by Apple.</li>
+            <li><strong>In-app purchases</strong>: the "Pro" subscription (unlocks ticket checking and My Tickets, and includes an ad-free experience) and the one-time "Remove Ads" item — handled by Apple on iOS and by Google Play Billing on Android.</li>
+            <li><strong>Advertising ID on Android</strong>: the Android app declares the <code>AD_ID</code> permission so AdMob can use the Android advertising ID; you can delete or reset it in Android Settings → Google → Ads. After purchasing Remove Ads or Pro, the ad SDK is not initialized.</li>
+            <li><strong>Android data safety</strong>: the Google Mobile Ads SDK may process device or other IDs, approximate location (derived from IP), app interactions and crash logs for advertising, analytics and fraud prevention; the developer does not receive this data.</li>
             <li><strong>Note</strong>: this is an unofficial tool; official announcements by Taiwan Lottery always prevail.</li>
+          </ul>
+        </article>
+
+        <article class="app-block" id="mymoney-en">
+          <div class="app-block-head">
+            <h3>MyMoney（我的錢錢）</h3>
+            <div class="pc-badges">
+              <span class="badge badge-ios">iOS / iPadOS / macOS</span>
+              <span class="badge badge-self">Self-published</span>
+            </div>
+          </div>
+          <ul class="legal-list">
+            <li><strong>Your financial data</strong>: transactions, accounts, budgets, categories, notes, tags and receipt photos are stored on your device with Core Data and, when iCloud is on, synced via Apple CloudKit to <strong>your own private iCloud database</strong>. The developer runs no servers and <strong>cannot access any of your data</strong>.</li>
+            <li><strong>Shared ledgers</strong>: if you choose to share a ledger, its contents are shared through iCloud with the participants you invite, under Apple's iCloud terms. You can stop sharing or remove participants at any time.</li>
+            <li><strong>Deleting data</strong>: deleting the app removes local data; the iCloud copy can be deleted in Settings → [your name] → iCloud → Manage Account Storage.</li>
+            <li><strong>Stock quotes (Max plan)</strong>: when refreshing prices the app sends only the <strong>ticker symbol</strong> to Yahoo Finance's public quote service; no personal or financial data is included. Yahoo may log the connecting IP address under its <a href="https://legal.yahoo.com/us/en/yahoo/privacy/index.html" target="_blank" rel="noreferrer">privacy policy</a>.</li>
+            <li><strong>Face ID</strong>: the app lock uses Apple's on-device LocalAuthentication; the app never receives biometric data.</li>
+            <li><strong>Photos</strong>: only the single photo you pick through the system photo picker is read, when you attach a receipt.</li>
+            <li><strong>Notifications</strong>: budget and recurring-transaction reminders are local notifications.</li>
+            <li><strong>In-app purchases</strong>: Pro / Max auto-renewing subscriptions are processed by Apple; the developer never receives your payment details.</li>
+            <li>No ads, no tracking and no third-party analytics SDKs.</li>
           </ul>
         </article>
 
