@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>隨手錄 — 一按即錄，雲端備份安心存</title>
+<meta name="description" content="簡潔的錄音 App：一按即錄、即時波形、內建播放器，並可備份到 Dropbox、Google Drive、OneDrive、Synology Drive（iOS 另支援 iCloud Drive）。">
+<meta property="og:title" content="隨手錄 — 錄音與雲端備份">
+<meta property="og:description" content="一按即錄，雲端備份安心存。">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0F766E">
+<link rel="icon" href="icon.png" type="image/png">
+<style>
+  :root { --teal:#0F766E; --teal-lt:#14B8A6; --ink:#1E2A38; --muted:#5f6b78;
+          --line:#d7e7e4; --bg:#f8fcfb; --card:#fff; --tint:#e3f4f1; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+  a { color:var(--teal); }
+  .wrap { max-width:960px; margin:0 auto; padding:0 24px; }
+  .hero { background:linear-gradient(160deg,var(--teal-lt),var(--teal)); color:#fff; }
+  .hero .wrap { display:flex; flex-wrap:wrap; gap:28px; align-items:center; padding:64px 24px; }
+  .hero img { width:120px; height:120px; border-radius:28px; box-shadow:0 12px 30px rgba(0,0,0,.25); }
+  .hero h1 { margin:0 0 6px; font-size:38px; line-height:1.2; }
+  .hero p { margin:0; font-size:18px; opacity:.92; max-width:40ch; }
+  .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+  .btn { display:inline-block; padding:11px 20px; border-radius:10px; text-decoration:none; font-weight:600; }
+  .btn.solid { background:#fff; color:var(--teal); }
+  .btn.ghost { border:1px solid rgba(255,255,255,.75); color:#fff; }
+  section { padding:56px 0; }
+  h2 { font-size:26px; margin:0 0 20px; }
+  .grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; }
+  .card h3 { margin:0 0 6px; font-size:17px; }
+  .card p { margin:0; color:var(--muted); font-size:15px; }
+  .clouds { display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; }
+  .clouds span { background:var(--tint); color:var(--teal); border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; }
+  .clouds small { font-weight:400; opacity:.8; }
+  .note { background:var(--card); border:1px solid var(--line); border-left:5px solid var(--teal-lt); border-radius:12px; padding:16px 20px; color:var(--muted); }
+  footer { border-top:1px solid var(--line); padding:28px 0 48px; color:var(--muted); font-size:14px; }
+  footer a { margin-right:14px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e8f0ee; --muted:#9fb1ad; --line:#24403c; --bg:#0b1417; --card:#13201f; --tint:#173230; --teal:#2DD4BF; }
+    .hero { background:linear-gradient(160deg,#0f766e,#0a3f3b); }
+    .btn.solid { color:#0a3f3b; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <img src="icon.png" alt="隨手錄 App 圖示">
+    <div>
+      <h1>隨手錄</h1>
+      <p>一按即錄，靈感不漏接。錄好的聲音，安心備份到你自己的雲端。</p>
+      <div class="actions">
+        <a class="btn solid" href="support.html">常見問題與支援</a>
+        <a class="btn ghost" href="mailto:socky.lee@gmail.com?subject=%E9%9A%A8%E6%89%8B%E9%8C%84">聯絡我們</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>功能</h2>
+    <div class="grid">
+      <div class="card"><h3>一按即錄</h3><p>打開就是錄音頁，點一下麥克風立即開始，即時波形與計時。</p></div>
+      <div class="card"><h3>背景不中斷</h3><p>切到其他 App 或鎖上螢幕，錄音照常進行。</p></div>
+      <div class="card"><h3>內建播放器</h3><p>點擊即播，暫停、停止與進度拖曳，快速跳到重點。</p></div>
+      <div class="card"><h3>檔案管理與搜尋</h3><p>依時間排序，可重新命名、刪除，並依名稱搜尋。</p></div>
+      <div class="card"><h3>雲端備份</h3><p>單筆上傳或存檔後自動備份，可限定僅在 Wi-Fi 上傳，失敗自動重試。</p></div>
+      <div class="card"><h3>沒有伺服器</h3><p>錄音只存在你的裝置與你自己的雲端帳號，不收集個人資料、無廣告。</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>支援的雲端</h2>
+    <div class="clouds">
+      <span>Dropbox</span><span>Google Drive</span><span>OneDrive</span><span>Synology Drive</span><span>iCloud Drive <small>僅 iPhone / iPad</small></span>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="note">隨手錄提供 iPhone / iPad 與 Android 版本，兩個平台功能相同；唯一差別是 iCloud Drive 只在 iPhone / iPad 上提供。</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="support.html">支援</a><a href="privacy.html">隱私權政策（iOS）</a><a href="privacy-android.html">隱私權政策（Android）</a><a href="terms.html">使用條款</a><a href="../">開發者首頁</a>
+    <div style="margin-top:10px">© 2026 李碩祈 Shuo Chi Lee</div>
+  </div>
+</footer>
+
+</body>
+</html>

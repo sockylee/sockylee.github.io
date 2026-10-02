@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>支援 — 隨手錄</title>
+<meta name="description" content="「隨手錄」（iOS / Android）的常見問題、雲端備份設定與聯絡方式。">
+<meta name="theme-color" content="#0F766E">
+<link rel="icon" href="icon.png" type="image/png">
+<style>
+  :root { --teal:#0F766E; --ink:#1E2A38; --muted:#5f6b78; --line:#d7e7e4; --bg:#f8fcfb; --card:#fff; --th:#e9f5f3; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 96px; }
+  header { display:flex; gap:16px; align-items:center; border-bottom:3px solid var(--teal); padding-bottom:20px; margin-bottom:28px; }
+  header img { width:64px; height:64px; border-radius:15px; }
+  h1 { margin:0 0 4px; font-size:28px; color:var(--teal); }
+  .sub { color:var(--muted); font-size:15px; }
+  h2 { margin:44px 0 12px; font-size:21px; border-left:5px solid var(--teal); padding-left:12px; }
+  h3 { margin:28px 0 8px; font-size:17px; }
+  ul { padding-left:22px; } li { margin:6px 0; }
+  code { background:var(--th); padding:1px 6px; border-radius:5px; font-size:14px; }
+  details { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:10px 0; }
+  details summary { cursor:pointer; font-weight:600; }
+  details p { margin:12px 0 2px; color:var(--muted); }
+  details ul { color:var(--muted); margin:10px 0 2px; }
+  .tag { display:inline-block; font-size:12px; font-weight:700; padding:1px 8px; border-radius:999px; margin-right:6px; }
+  .ios { background:#eff6ff; color:#2563eb; } .android { background:#f0fdf4; color:#16a34a; }
+  .cta { background:var(--teal); color:#fff; display:inline-block; padding:12px 22px; border-radius:10px; text-decoration:none; font-weight:600; margin-top:8px; }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:20px 0; }
+  .key { font-weight:700; color:var(--teal); }
+  .platform, .updated { font-size:14px; color:var(--muted); margin:0 0 20px; }
+  a { color:var(--teal); }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:15px; background:var(--card); display:block; overflow-x:auto; }
+  th, td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; min-width:7em; }
+  td:nth-child(2) { min-width:13em; }
+  th { background:var(--th); font-size:14px; }
+  .back { display:inline-block; margin-bottom:24px; font-size:14px; text-decoration:none; }
+  footer { margin-top:64px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e8f0ee; --muted:#9fb1ad; --line:#24403c; --bg:#0b1417; --card:#13201f; --th:#173230; --teal:#2DD4BF; }
+    .cta { color:#0a3f3b; }
+    .ios { background:#1e2a44; color:#93c5fd; } .android { background:#16301f; color:#86efac; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="back" href="index.html">← 回 App 介紹</a>
+
+<header>
+  <img src="icon.png" alt="">
+  <div>
+    <h1>隨手錄 · 支援</h1>
+    <div class="sub">Recorder · iOS / Android</div>
+  </div>
+</header>
+
+<p>「隨手錄」是一款簡潔的錄音 App：打開就能錄、即時波形、內建播放器，並可把錄音備份到你自己的雲端帳號。我們<strong>沒有伺服器</strong>，錄音不會經過我們。</p>
+
+<h2>常見問題</h2>
+
+<details>
+  <summary>錄音檔存在哪裡？</summary>
+  <p>錄音預設只存在你的裝置上（App 的私有空間，其他 App 無法讀取）。只有在你按「上傳到雲端」或開啟「存檔後自動備份」時，才會由你的裝置<strong>直接</strong>傳到你自己連接的雲端帳號。</p>
+</details>
+
+<details>
+  <summary>支援哪些雲端？備份在哪個資料夾？</summary>
+  <table>
+    <tr><th>雲端</th><th>平台</th><th>備份位置</th></tr>
+    <tr><td>Dropbox</td><td>iOS / Android</td><td><code>/Recorder</code></td></tr>
+    <tr><td>Google Drive</td><td>iOS / Android</td><td>「我的雲端硬碟」中的 <code>Recorder</code> 資料夾</td></tr>
+    <tr><td>OneDrive</td><td>iOS / Android</td><td>「應用程式」資料夾中本 App 的專屬資料夾</td></tr>
+    <tr><td>Synology Drive</td><td>iOS / Android</td><td><code>/home/Drive/Recorder</code>（透過 QuickConnect）</td></tr>
+    <tr><td>iCloud Drive</td><td>僅 iOS</td><td>iCloud Drive 中的 <code>Recorder</code> 資料夾</td></tr>
+  </table>
+  <p>上傳到雲端的檔名格式為「<code>錄音名稱_日期時間.m4a</code>」，在雲端網頁上一看就知道是哪一段。</p>
+</details>
+
+<details>
+  <summary>如何備份錄音？可以自動備份嗎？</summary>
+  <ul>
+    <li><strong>單筆上傳</strong>：在「檔案列表」對錄音向左滑動或長按，選「上傳到雲端」，會上傳到所有已連接的雲端。</li>
+    <li><strong>自動備份</strong>：到「設定 → 備份」開啟「存檔後自動備份」，之後每次存檔都會自動上傳。</li>
+    <li><strong>僅在 Wi-Fi 上傳</strong>（預設開啟）：關閉後才會使用行動網路上傳。</li>
+    <li>上傳失敗會自動重試；檔案列表右側的雲端圖示代表該筆已備份到哪幾個雲端。</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Synology Drive 連不上？</summary>
+  <ul>
+    <li>確認 NAS 已啟用 <strong>QuickConnect</strong> 與 <strong>Synology Drive Server</strong>，且帳號有使用 Synology Drive 的權限。</li>
+    <li>目前<strong>不支援已開啟兩步驟驗證（2FA）</strong>的帳號，請改用未啟用 2FA 的帳號。</li>
+    <li>QuickConnect ID 只需填 ID 本身（例如 <code>mynas</code>），不用填完整網址。</li>
+  </ul>
+</details>
+
+<details>
+  <summary>OneDrive 授權時顯示「未驗證」或公司帳號無法授權</summary>
+  <p>個人 Microsoft 帳號可正常授權。若你使用公司或學校帳號，所屬組織可能限制授權第三方 App，請洽組織的 IT 管理員，或改用個人帳號。</p>
+</details>
+
+<details>
+  <summary>如何取消雲端連接？</summary>
+  <p>到「設定」對應的雲端區塊按「取消連接」，App 會刪除裝置上保存的登入憑證。你也可以到各雲端服務的帳號安全設定撤銷「隨手錄」的存取權。已上傳的檔案不會被刪除。</p>
+</details>
+
+<details>
+  <summary>切到其他 App 或鎖螢幕，錄音會停嗎？</summary>
+  <p>不會，錄音會持續進行。</p>
+  <p><span class="tag android">Android</span>錄音期間通知列會顯示「錄音中」常駐通知；即使拒絕通知權限也能錄音，只是看不到這個通知。</p>
+  <p><span class="tag ios">iOS</span>錄音期間狀態列會顯示麥克風指示。若有來電，錄音會暫停，通話結束後可繼續。</p>
+</details>
+
+<details>
+  <summary>按錄音沒反應／提示需要麥克風權限</summary>
+  <p><span class="tag ios">iOS</span>設定 → 隨手錄 → 麥克風，打開開關。</p>
+  <p><span class="tag android">Android</span>設定 → 應用程式 → 隨手錄 → 權限 → 麥克風 → 允許。</p>
+</details>
+
+<details>
+  <summary>換手機或刪除 App 後，錄音還在嗎？</summary>
+  <p>刪除 App 時，本機錄音會一併被系統刪除。</p>
+  <p><span class="tag ios">iOS</span>錄音會包含在 iPhone 的 iCloud 備份或電腦備份中，用備份還原新手機即可取回。</p>
+  <p><span class="tag android">Android</span>錄音<strong>不會</strong>包含在 Google 的自動備份中（系統備份有容量上限，錄音檔很容易超過）。換手機前請先上傳到雲端。</p>
+  <p>已上傳到雲端的檔案不受影響，隨時可在雲端服務中下載。</p>
+</details>
+
+<details>
+  <summary>想重看操作導覽</summary>
+  <p>到「設定」頁最下方點「重看導覽」。</p>
+</details>
+
+<h2>聯絡我們</h2>
+<p>有任何問題、建議或錯誤回報，歡迎來信（中文或英文皆可）：</p>
+<a class="cta" href="mailto:socky.lee@gmail.com?subject=%E9%9A%A8%E6%89%8B%E9%8C%84%20%E5%95%8F%E9%A1%8C%E5%9B%9E%E5%A0%B1">socky.lee@gmail.com</a>
+<p style="font-size:14px;color:var(--muted);margin-top:16px">回報問題時，若能附上<strong>手機型號、系統版本（iOS / Android）、App 版本與使用的雲端</strong>，會幫助我們更快找到原因。</p>
+
+<h2 lang="en">English</h2>
+<div lang="en">
+  <p><strong>Recorder (隨手錄)</strong> is a simple voice recorder for iOS and Android. Recordings stay on your device unless you choose to back them up to your own Dropbox, Google Drive, OneDrive or Synology Drive account (iCloud Drive on iOS only). The developer runs no servers and never receives your recordings.</p>
+  <ul style="color:var(--muted)">
+    <li><strong>Back up</strong> — swipe or long-press a recording and choose “Upload”, or turn on “Auto backup after saving” in Settings.</li>
+    <li><strong>Disconnect a cloud</strong> — Settings → the cloud’s section → Disconnect.</li>
+    <li><strong>Synology</strong> — QuickConnect required; accounts with 2-step verification are not supported yet.</li>
+  </ul>
+  <p>Contact: <a href="mailto:socky.lee@gmail.com">socky.lee@gmail.com</a></p>
+</div>
+
+<footer>
+  <a href="index.html">首頁</a> · <a href="privacy.html">隱私權政策（iOS）</a> · <a href="privacy-android.html">隱私權政策（Android）</a> · <a href="terms.html">使用條款</a> · © 2026 李碩祈 Shuo Chi Lee
+</footer>
+
+</div>
+</body>
+</html>
