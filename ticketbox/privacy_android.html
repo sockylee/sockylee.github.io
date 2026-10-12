@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>隱私權政策（Android）— 收券盒</title>
+<meta name="description" content="「收券盒」Android 版的隱私權政策：開發者不收集資料；Google ML Kit 會傳送匿名診斷資料，不含截圖與票券內容。">
+<meta name="theme-color" content="#6C4CF1">
+<link rel="icon" href="icon.png" type="image/png">
+<style>
+  :root { --brand:#6C4CF1; --ink:#1E1B2E; --muted:#625d75; --line:#e4defb; --bg:#faf9ff; --card:#fff; --th:#f1edff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 96px; }
+  header { display:flex; gap:16px; align-items:center; border-bottom:3px solid var(--brand); padding-bottom:20px; margin-bottom:28px; }
+  header img { width:64px; height:64px; border-radius:15px; }
+  h1 { margin:0 0 4px; font-size:28px; color:var(--brand); }
+  .sub { color:var(--muted); font-size:15px; }
+  h2 { margin:44px 0 12px; font-size:21px; border-left:5px solid var(--brand); padding-left:12px; }
+  h3 { margin:28px 0 8px; font-size:17px; }
+  ul { padding-left:22px; } li { margin:6px 0; }
+  code { background:var(--th); padding:1px 6px; border-radius:5px; font-size:14px; }
+  details { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:10px 0; }
+  details summary { cursor:pointer; font-weight:600; }
+  details p { margin:12px 0 2px; color:var(--muted); }
+  details ul { color:var(--muted); margin:10px 0 2px; }
+  .tag { display:inline-block; font-size:12px; font-weight:700; padding:1px 8px; border-radius:999px; margin-right:6px; }
+  .ios { background:#eff6ff; color:#2563eb; } .android { background:#f0fdf4; color:#16a34a; }
+  .cta { background:var(--brand); color:#fff; display:inline-block; padding:12px 22px; border-radius:10px; text-decoration:none; font-weight:600; margin-top:8px; }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:20px 0; }
+  .key { font-weight:700; color:var(--brand); }
+  .platform { font-size:14px; color:var(--muted); margin:0 0 20px; }
+  a { color:var(--brand); }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:15px; background:var(--card); display:block; overflow-x:auto; }
+  th, td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; min-width:7em; }
+  td:nth-child(2) { min-width:13em; }
+  th { background:var(--th); font-size:14px; }
+  .back { display:inline-block; margin-bottom:24px; font-size:14px; text-decoration:none; }
+  footer { margin-top:64px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+  .hero { text-align:center; padding:24px 0 8px; }
+  .hero img { width:112px; height:112px; border-radius:26px; box-shadow:0 10px 30px rgba(108,76,241,.25); }
+  .hero h1 { font-size:34px; margin:18px 0 6px; }
+  .hero p { color:var(--muted); font-size:17px; margin:0 0 18px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; }
+  .card h3 { margin:0 0 6px; font-size:16px; color:var(--brand); }
+  .card p { margin:0; color:var(--muted); font-size:15px; }
+  .ghost { background:transparent; color:var(--brand); border:2px solid var(--brand); margin-left:8px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#ece9f7; --muted:#a9a3bf; --line:#2e2852; --bg:#110e1f; --card:#1a1630; --th:#241e44; --brand:#A08BFF; }
+    .cta { color:#140f2a; } .ghost { color:var(--brand); }
+    .ios { background:#1e2a44; color:#93c5fd; } .android { background:#16301f; color:#86efac; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">← 回 App 介紹</a>
+<header>
+  <img src="icon.png" alt="">
+  <div>
+    <h1>隱私權政策</h1>
+    <div class="sub">收券盒 · Android 版 · 最後更新：2026 年 10 月 12 日</div>
+  </div>
+</header>
+
+<p class="platform">這是 <strong>Android 版</strong>的隱私權政策。iOS 版請見<a href="privacy.html">這裡</a>。</p>
+
+<p>收券盒（以下稱「本 App」）由 李碩祈（以下稱「開發者」）開發。本政策說明本 App 的 Android 版如何處理你的資料。</p>
+
+<div class="box"><p class="key" style="margin:0">一句話版本：你的票券與截圖只存在你的手機裡，開發者看不到也不收集。本 App 用 Google ML Kit 在手機上辨識文字與條碼，ML Kit 會把匿名的診斷資料傳給 Google（不含你的截圖、文字或票券內容），詳見下方「Google ML Kit」。</p></div>
+
+<h2>本 App 處理哪些資料、存在哪裡</h2>
+<table>
+  <tr><th>資料</th><th>用途</th><th>存放位置</th><th>開發者能否存取</th></tr>
+  <tr><td>你匯入或分享進來的截圖（原檔完整保存）</td><td>辨識到期日、兌換序號與條碼，兌換時直接出示</td><td>你的手機（App 私有空間）</td><td>否</td></tr>
+  <tr><td>辨識出的文字、條碼內容、你輸入的票券資訊</td><td>顯示、搜尋、提醒</td><td>同上</td><td>否</td></tr>
+  <tr><td>設定（提醒開關、外觀等）</td><td>記住你的偏好</td><td>同上</td><td>否</td></tr>
+  <tr><td>購買狀態</td><td>判斷是否開通 Pro</td><td>由 Google Play 處理；本 App 只在手機上記住結果</td><td>否（開發者僅能在 Play Console 看到匿名的銷售統計）</td></tr>
+</table>
+<ul>
+  <li><strong>文字辨識與條碼讀取在你的手機上完成</strong>（Google ML Kit 的裝置端模型，隨 App 一起安裝），<strong>截圖與辨識出的文字不會傳到任何伺服器</strong>。</li>
+  <li><strong>分享進來的圖片</strong>（在 LINE、相簿按「分享」→ 收券盒）會暫存在本 App 的私有資料夾，確認或匯入完成後即刪除。</li>
+  <li><strong>Google 自動備份</strong>：若你的手機開啟了 Google 備份，系統會依你的設定把本 App 的資料庫、設定與縮圖備份到你自己的 Google 帳戶（開發者無法存取）；原始截圖不包含在內，換手機請用 App 內的「匯出備份檔」，否則還原後沒有截圖可兌換。</li>
+</ul>
+
+<h2>Google ML Kit（第三方元件）</h2>
+<p>本 App 使用 Google 提供的 ML Kit 文字辨識與條碼掃描。依 Google 的說明，ML Kit 會自動收集並傳送下列資料給 Google，用於<strong>診斷與使用狀況分析</strong>：</p>
+<ul>
+  <li>裝置資訊：製造商、型號、作業系統版本與組建、可用的機器學習硬體加速器</li>
+  <li>App 資訊：套件名稱、App 版本</li>
+  <li>每次安裝產生的識別碼（不用來辨識特定使用者或裝置）</li>
+  <li>效能指標（例如處理時間）、API 設定（例如圖片格式與解析度）、輸入與輸出的大小、功能版本、事件類型、錯誤代碼</li>
+</ul>
+<p>這些資料<strong>不包含你的截圖、辨識出的文字、兌換序號或任何票券內容</strong>，以 HTTPS 加密傳輸，Google 表示不會轉給第三方。開發者無法存取這些資料，也無法關閉這項傳送。詳見 Google 的說明：</p>
+<ul>
+  <li><a href="https://developers.google.com/ml-kit/android-data-disclosure" target="_blank" rel="noopener">ML Kit 資料揭露</a></li>
+  <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私權政策</a></li>
+</ul>
+
+<h2>本 App 不做的事</h2>
+<ul>
+  <li>不需要帳號，不要求登入。</li>
+  <li>不放廣告，不使用廣告 ID。</li>
+  <li>開發者沒有使用任何分析或追蹤工具，也收不到上述 ML Kit 的診斷資料。</li>
+  <li>不把你的資料賣給、分享給任何第三方。</li>
+  <li>開發者沒有伺服器。本 App 的網路連線只有：購買 Pro 時透過 Google Play，以及 ML Kit 傳送上述診斷資料。</li>
+</ul>
+
+<h2>權限</h2>
+<table>
+  <tr><th>權限</th><th>用途</th><th>何時詢問</th></tr>
+  <tr><td>照片</td><td>透過系統的相片選擇器選取截圖；本 App 只會拿到你選的那幾張，不會讀取整個相簿</td><td>不需另外授權</td></tr>
+  <tr><td>通知</td><td>到期提醒</td><td>首次引導的最後一頁，說明後才詢問（Android 13 以上）</td></tr>
+  <tr><td>生物辨識／螢幕鎖</td><td>App 鎖（Pro 功能，你自己開啟時）</td><td>開啟 App 鎖時</td></tr>
+  <tr><td>網路</td><td>Google Play 購買、ML Kit 診斷資料</td><td>不需另外授權</td></tr>
+</table>
+
+<h2>備份檔</h2>
+<p>「匯出備份檔」產生的 <code>.ticketbox</code> 檔案包含你的票券、截圖與兌換碼，由你自行保存與分享。分享備份檔前請留意其中可能含有可兌換的序號。</p>
+
+<h2>刪除資料</h2>
+<ul>
+  <li>在 App 內刪除票券，會同時刪除其截圖。</li>
+  <li>解除安裝 App 會移除手機上的所有資料；Google 帳戶中的自動備份可在 Google 雲端硬碟 →「備份」中刪除。</li>
+  <li>ML Kit 傳給 Google 的診斷資料由 Google 依其政策保存，開發者無法存取或刪除。</li>
+</ul>
+
+<h2>兒童隱私</h2>
+<p>本 App 不針對 13 歲以下兒童設計，開發者不收集任何人的個人資料。</p>
+
+<h2>政策變更</h2>
+<p>政策有變更時會更新本頁的「最後更新」日期；重大變更會在 App 更新說明中告知。</p>
+
+<h2>聯絡方式</h2>
+<p><a href="mailto:socky.lee@gmail.com">socky.lee@gmail.com</a></p>
+
+<footer>
+  <a href="index.html">首頁</a> · <a href="support.html">支援</a> · <a href="privacy.html">隱私權政策（iOS）</a> · <a href="privacy_android.html">隱私權政策（Android）</a> · <a href="terms_android.html">使用條款（Android）</a> · © 2026 李碩祈 Shuo Chi Lee
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>支援 — 收券盒</title>
+<meta name="description" content="「收券盒」（iOS / Android）的常見問題與聯絡方式。">
+<meta name="theme-color" content="#6C4CF1">
+<link rel="icon" href="icon.png" type="image/png">
+<style>
+  :root { --brand:#6C4CF1; --ink:#1E1B2E; --muted:#625d75; --line:#e4defb; --bg:#faf9ff; --card:#fff; --th:#f1edff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 96px; }
+  header { display:flex; gap:16px; align-items:center; border-bottom:3px solid var(--brand); padding-bottom:20px; margin-bottom:28px; }
+  header img { width:64px; height:64px; border-radius:15px; }
+  h1 { margin:0 0 4px; font-size:28px; color:var(--brand); }
+  .sub { color:var(--muted); font-size:15px; }
+  h2 { margin:44px 0 12px; font-size:21px; border-left:5px solid var(--brand); padding-left:12px; }
+  h3 { margin:28px 0 8px; font-size:17px; }
+  ul { padding-left:22px; } li { margin:6px 0; }
+  code { background:var(--th); padding:1px 6px; border-radius:5px; font-size:14px; }
+  details { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:10px 0; }
+  details summary { cursor:pointer; font-weight:600; }
+  details p { margin:12px 0 2px; color:var(--muted); }
+  details ul { color:var(--muted); margin:10px 0 2px; }
+  .tag { display:inline-block; font-size:12px; font-weight:700; padding:1px 8px; border-radius:999px; margin-right:6px; }
+  .ios { background:#eff6ff; color:#2563eb; } .android { background:#f0fdf4; color:#16a34a; }
+  .cta { background:var(--brand); color:#fff; display:inline-block; padding:12px 22px; border-radius:10px; text-decoration:none; font-weight:600; margin-top:8px; }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:20px 0; }
+  .key { font-weight:700; color:var(--brand); }
+  .platform { font-size:14px; color:var(--muted); margin:0 0 20px; }
+  a { color:var(--brand); }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:15px; background:var(--card); display:block; overflow-x:auto; }
+  th, td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; min-width:7em; }
+  td:nth-child(2) { min-width:13em; }
+  th { background:var(--th); font-size:14px; }
+  .back { display:inline-block; margin-bottom:24px; font-size:14px; text-decoration:none; }
+  footer { margin-top:64px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+  .hero { text-align:center; padding:24px 0 8px; }
+  .hero img { width:112px; height:112px; border-radius:26px; box-shadow:0 10px 30px rgba(108,76,241,.25); }
+  .hero h1 { font-size:34px; margin:18px 0 6px; }
+  .hero p { color:var(--muted); font-size:17px; margin:0 0 18px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; }
+  .card h3 { margin:0 0 6px; font-size:16px; color:var(--brand); }
+  .card p { margin:0; color:var(--muted); font-size:15px; }
+  .ghost { background:transparent; color:var(--brand); border:2px solid var(--brand); margin-left:8px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#ece9f7; --muted:#a9a3bf; --line:#2e2852; --bg:#110e1f; --card:#1a1630; --th:#241e44; --brand:#A08BFF; }
+    .cta { color:#140f2a; } .ghost { color:var(--brand); }
+    .ios { background:#1e2a44; color:#93c5fd; } .android { background:#16301f; color:#86efac; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">← 回 App 介紹</a>
+<header>
+  <img src="icon.png" alt="">
+  <div>
+    <h1>收券盒 · 支援</h1>
+    <div class="sub">TicketBox · iOS / Android</div>
+  </div>
+</header>
+
+<p>「收券盒」把散落在相簿裡的優惠券、兌換券、電子票截圖集中起來，自動讀出到期日與兌換序號，快到期時提醒你。開發者<strong>沒有伺服器</strong>，你的截圖與票券內容不會經過我們。</p>
+
+<h2>常見問題</h2>
+
+<details>
+  <summary>辨識出來的到期日或序號不對？</summary>
+  <p>匯入時的確認頁會把讀不準的欄位用黃色標出來，可以直接修改；存好後也能在票券詳情頁按「編輯」修正。辨識結果僅供參考，請以票券原始內容為準。</p>
+</details>
+
+<details>
+  <summary>兌換時店員掃不到條碼？</summary>
+  <p>收券盒兌換時出示的就是你匯入的<strong>原始截圖</strong>（不壓縮、不重新產生條碼）。請先在兌換模式按「放大條碼」，並確認螢幕亮度已調到最亮；部分掃描器對螢幕反光較敏感，可稍微傾斜手機。若原始截圖本身條碼就不清楚，建議重新從原 App 截圖。</p>
+</details>
+
+<details>
+  <summary>沒有收到到期提醒</summary>
+  <ul>
+    <li>確認系統的通知權限已開啟，並在 App 的「設定 → 提醒」確認三個時段的開關。</li>
+    <li>只有「使用中」且有到期日的票券會提醒；同一時間到期的券會合併成一則通知。</li>
+  </ul>
+  <p><span class="tag ios">iOS</span>設定 → 通知 → 收券盒 → 允許通知。</p>
+  <p><span class="tag android">Android</span>設定 → 應用程式 → 收券盒 → 通知。部分品牌手機的省電模式會延後通知，可把收券盒設為「不限制電池用量」。</p>
+</details>
+
+<details>
+  <summary>相同的券匯入兩次會怎樣？</summary>
+  <p>收券盒以<strong>兌換序號</strong>判斷是否重複；序號相同時會提示，並開啟已存的那一張讓你確認。</p>
+</details>
+
+<details>
+  <summary>換手機怎麼搬資料？iPhone 和 Android 之間可以嗎？</summary>
+  <p>在「設定 → 備份」按「匯出備份檔」，產生 <code>.ticketbox</code> 檔案（含票券、原始截圖與序號），在新手機的收券盒「匯入備份檔」即可。iPhone 與 Android 版使用同一種格式，可以互相匯入。</p>
+  <p><span class="tag ios">iOS</span>同一個 Apple ID 的 iPhone、iPad 會透過你自己的 iCloud 自動同步。</p>
+  <p><span class="tag android">Android</span>Google 自動備份不包含原始截圖，換手機請務必使用備份檔。</p>
+  <p>備份檔含有可兌換的序號，分享給別人前請留意。</p>
+</details>
+
+<details>
+  <summary>免費版和 Pro 差在哪？</summary>
+  <p>免費版可存 20 張「使用中」的券（已使用、已過期不計），到期提醒、兌換模式、日曆、備份都免費。Pro 提供無上限收納、桌面小工具（iOS 另有鎖定畫面小工具）與 App 鎖。</p>
+</details>
+
+<details>
+  <summary>如何取消訂閱、恢復購買？</summary>
+  <p><span class="tag ios">iOS</span>取消：設定 → Apple ID → 訂閱 → 收券盒。恢復購買：App 內「設定」或升級頁的「恢復購買」。</p>
+  <p><span class="tag android">Android</span>取消：Google Play → 付款和訂閱 → 訂閱。用同一個 Google 帳戶開啟 App 會自動還原購買，也可在「設定 → 重新整理購買狀態」手動重試。</p>
+</details>
+
+<h2>聯絡我們</h2>
+<p>有任何問題、建議或錯誤回報，歡迎來信：</p>
+<a class="cta" href="mailto:socky.lee@gmail.com?subject=%E6%94%B6%E5%88%B8%E7%9B%92%20%E5%95%8F%E9%A1%8C%E5%9B%9E%E5%A0%B1">socky.lee@gmail.com</a>
+<p style="font-size:14px;color:var(--muted);margin-top:16px">回報辨識問題時，若能附上<strong>手機型號、系統版本、App 版本</strong>，以及（遮掉序號後的）票券截圖，會幫助我們更快改善。</p>
+
+<footer>
+  <a href="index.html">首頁</a> · <a href="support.html">支援</a> · <a href="privacy.html">隱私權政策（iOS）</a> · <a href="privacy_android.html">隱私權政策（Android）</a> · <a href="terms_android.html">使用條款（Android）</a> · © 2026 李碩祈 Shuo Chi Lee
+</footer>
+
+</div>
+</body>
+</html>
