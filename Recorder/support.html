@@ -83,7 +83,7 @@
 <details>
   <summary>如何備份錄音？可以自動備份嗎？</summary>
   <ul>
-    <li><strong>單筆上傳</strong>：在「檔案列表」對錄音向左滑動或長按，選「上傳到雲端」，會上傳到所有已連接的雲端。</li>
+    <li><strong>單筆上傳</strong>：在「檔案列表」操作，會上傳到所有已連接的雲端。<br><span class="tag ios">iOS</span>對錄音向左滑動點「上傳」，或長按選「上傳到雲端」。<br><span class="tag android">Android</span>點錄音右側的「⋮」選「上傳到雲端」（向左滑動是刪除）。</li>
     <li><strong>自動備份</strong>：到「設定 → 備份」開啟「存檔後自動備份」，之後每次存檔都會自動上傳。</li>
     <li><strong>僅在 Wi-Fi 上傳</strong>（預設開啟）：關閉後才會使用行動網路上傳。</li>
     <li>上傳失敗會自動重試；檔案列表右側的雲端圖示代表該筆已備份到哪幾個雲端。</li>
@@ -107,13 +107,14 @@
 <details>
   <summary>如何取消雲端連接？</summary>
   <p>到「設定」對應的雲端區塊按「取消連接」，App 會刪除裝置上保存的登入憑證。你也可以到各雲端服務的帳號安全設定撤銷「隨手錄」的存取權。已上傳的檔案不會被刪除。</p>
+  <p><span class="tag ios">iOS</span>iCloud Drive 跟隨系統的 Apple 帳號設定，App 內沒有取消連接鍵；若不想備份到 iCloud，請到 iOS「設定 → Apple 帳號 → iCloud」關閉隨手錄的 iCloud Drive 存取。</p>
 </details>
 
 <details>
   <summary>切到其他 App 或鎖螢幕，錄音會停嗎？</summary>
   <p>不會，錄音會持續進行。</p>
   <p><span class="tag android">Android</span>錄音期間通知列會顯示「錄音中」常駐通知；即使拒絕通知權限也能錄音，只是看不到這個通知。</p>
-  <p><span class="tag ios">iOS</span>錄音期間狀態列會顯示麥克風指示。若有來電，錄音會暫停，通話結束後可繼續。</p>
+  <p><span class="tag ios">iOS</span>錄音期間狀態列會顯示麥克風指示。若有來電，錄音會暫停；通話結束後若系統允許會自動繼續，否則畫面顯示「已暫停（通話中斷）」，請按停止並存檔，已錄的部分會保留。</p>
 </details>
 
 <details>
@@ -132,7 +133,7 @@
 
 <details>
   <summary>想重看操作導覽</summary>
-  <p>到「設定」頁最下方點「重看導覽」。</p>
+  <p>到「設定 → 關於 → 重新觀看導覽」（iOS 與 Android 相同）。</p>
 </details>
 
 <h2>聯絡我們</h2>
@@ -144,8 +145,10 @@
 <div lang="en">
   <p><strong>Recorder (隨手錄)</strong> is a simple voice recorder for iOS and Android. Recordings stay on your device unless you choose to back them up to your own Dropbox, Google Drive, OneDrive or Synology Drive account (iCloud Drive on iOS only). The developer runs no servers and never receives your recordings.</p>
   <ul style="color:var(--muted)">
-    <li><strong>Back up</strong> — swipe or long-press a recording and choose “Upload”, or turn on “Auto backup after saving” in Settings.</li>
-    <li><strong>Disconnect a cloud</strong> — Settings → the cloud’s section → Disconnect.</li>
+    <li><strong>Back up</strong> — iOS: swipe left on a recording and tap “Upload”, or long-press and choose “Upload to cloud”. Android: tap “⋮” next to a recording and choose “Upload to cloud” (swiping left deletes). Or turn on “Auto backup after saving” in Settings.</li>
+    <li><strong>Disconnect a cloud</strong> — Settings → the cloud’s section → Disconnect. iCloud Drive (iOS) follows your system Apple Account settings and has no disconnect button in the app.</li>
+    <li><strong>Background recording (iOS)</strong> — a phone call pauses the recording; it resumes automatically when the system allows, otherwise the screen shows “Paused (call interruption)” — tap Stop and save, and everything recorded so far is kept.</li>
+    <li><strong>Replay the tour</strong> — Settings → About → Replay tour.</li>
     <li><strong>Synology</strong> — QuickConnect required; accounts with 2-step verification are not supported yet.</li>
   </ul>
   <p>Contact: <a href="mailto:socky.lee@gmail.com">socky.lee@gmail.com</a></p>

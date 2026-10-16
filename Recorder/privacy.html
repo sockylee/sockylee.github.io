@@ -81,7 +81,7 @@
   <tr><td>錄音音訊檔（.m4a）</td><td>App 私有的「文件」資料夾（<code>Documents/Recording</code>）與 Core Data 資料庫</td><td>否（除非你選擇上傳）</td></tr>
   <tr><td>錄音名稱、建立時間、長度、上傳狀態</td><td>App 私有資料庫</td><td>否</td></tr>
   <tr><td>App 設定（自動備份、僅 Wi-Fi 上傳、是否看過導覽）</td><td>iOS <code>UserDefaults</code></td><td>否</td></tr>
-  <tr><td>雲端帳號憑證</td><td>Dropbox、Google 與 OneDrive 的授權權杖由各自的登入元件或本 App 存放在 iOS <strong>鑰匙圈（Keychain）</strong>；Synology 的帳號與密碼存放在 Keychain，QuickConnect ID 存放在 <code>UserDefaults</code></td><td>否（僅在向該雲端服務驗證身分時使用）</td></tr>
+  <tr><td>雲端帳號憑證</td><td>Dropbox、Google 與 OneDrive 的授權權杖由各自的登入元件或本 App 存放在 iOS <strong>鑰匙圈（Keychain）</strong>；Synology 的<strong>密碼</strong>存放在 Keychain，<strong>帳號與 QuickConnect ID</strong> 存放在 App 的本機設定（<code>UserDefaults</code>）</td><td>否（僅在向該雲端服務驗證身分時使用）</td></tr>
 </table>
 <p>錄音存放在 App 的「文件」資料夾，會依你的 iPhone 設定包含在 <strong>iCloud 備份或電腦備份</strong>中（由 Apple 處理，與本 App 的雲端備份功能無關）。</p>
 <p>刪除本 App 時，iOS 會一併刪除上述本機資料。Keychain 中的雲端登入憑證在某些情況下可能於重新安裝後仍存在；若要完全清除，請先在 App 內「取消連接」各雲端再刪除 App。</p>
