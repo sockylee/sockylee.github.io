@@ -107,7 +107,7 @@
 <details>
   <summary>如何取消雲端連接？</summary>
   <p>到「設定」對應的雲端區塊按「取消連接」，App 會刪除裝置上保存的登入憑證。你也可以到各雲端服務的帳號安全設定撤銷「隨手錄」的存取權。已上傳的檔案不會被刪除。</p>
-  <p><span class="tag ios">iOS</span>iCloud Drive 跟隨系統的 Apple 帳號設定，App 內沒有取消連接鍵；若不想備份到 iCloud，請到 iOS「設定 → Apple 帳號 → iCloud」關閉隨手錄的 iCloud Drive 存取。</p>
+  <p><span class="tag ios">iOS</span>iCloud Drive 跟隨系統的 Apple 帳號設定，App 內沒有取消連接鍵；若不想備份到 iCloud，請到 iOS「設定 → Apple 帳號 → iCloud → iCloud 雲碟」關閉「隨手錄」。</p>
 </details>
 
 <details>
@@ -115,6 +115,11 @@
   <p>不會，錄音會持續進行。</p>
   <p><span class="tag android">Android</span>錄音期間通知列會顯示「錄音中」常駐通知；即使拒絕通知權限也能錄音，只是看不到這個通知。</p>
   <p><span class="tag ios">iOS</span>錄音期間狀態列會顯示麥克風指示。若有來電，錄音會暫停；通話結束後若系統允許會自動繼續，否則畫面顯示「已暫停（通話中斷）」，請按停止並存檔，已錄的部分會保留。</p>
+</details>
+
+<details>
+  <summary>鎖定螢幕或切到其他 App，還能繼續聽錄音嗎？</summary>
+  <p>可以。鎖定螢幕或切到其他 App 時會繼續播放，並可在鎖定畫面（Android 另有通知列）暫停、拖曳進度、前後跳 15 秒。來電或拔掉耳機時會自動暫停；開始錄音時會先停止播放。</p>
 </details>
 
 <details>
@@ -146,8 +151,9 @@
   <p><strong>Recorder (隨手錄)</strong> is a simple voice recorder for iOS and Android. Recordings stay on your device unless you choose to back them up to your own Dropbox, Google Drive, OneDrive or Synology Drive account (iCloud Drive on iOS only). The developer runs no servers and never receives your recordings.</p>
   <ul style="color:var(--muted)">
     <li><strong>Back up</strong> — iOS: swipe left on a recording and tap “Upload”, or long-press and choose “Upload to cloud”. Android: tap “⋮” next to a recording and choose “Upload to cloud” (swiping left deletes). Or turn on “Auto backup after saving” in Settings.</li>
-    <li><strong>Disconnect a cloud</strong> — Settings → the cloud’s section → Disconnect. iCloud Drive (iOS) follows your system Apple Account settings and has no disconnect button in the app.</li>
-    <li><strong>Background recording (iOS)</strong> — a phone call pauses the recording; it resumes automatically when the system allows, otherwise the screen shows “Paused (call interruption)” — tap Stop and save, and everything recorded so far is kept.</li>
+    <li><strong>Disconnect a cloud</strong> — Settings → the cloud’s section → Disconnect. iCloud Drive (iOS) follows your system Apple Account settings (Settings → Apple Account → iCloud → iCloud Drive) and has no disconnect button in the app.</li>
+    <li><strong>Background recording (iOS)</strong> — a phone call pauses the recording; it resumes automatically when the system allows, otherwise the screen shows that the recording is paused by the call — tap Stop and save, and everything recorded so far is kept.</li>
+    <li><strong>Listen with the screen locked</strong> — playback continues when you lock the screen or switch apps; use the lock screen (and the notification on Android) to pause, scrub, or skip 15 seconds back/forward. Playback pauses for phone calls or when headphones are unplugged, and stops when you start a new recording.</li>
     <li><strong>Replay the tour</strong> — Settings → About → Replay tour.</li>
     <li><strong>Synology</strong> — QuickConnect required; accounts with 2-step verification are not supported yet.</li>
   </ul>
