@@ -54,7 +54,7 @@
   <img src="icon.png" alt="">
   <div>
     <h1>隱私權政策</h1>
-    <div class="sub">隨手錄 · iOS 版 · 最後更新：2026 年 10 月 16 日</div>
+    <div class="sub">隨手錄 · iOS 版 · 最後更新：2026 年 10 月 19 日</div>
   </div>
 </header>
 
@@ -78,8 +78,9 @@
 <h2>2. 儲存在你裝置上的資料</h2>
 <table>
   <tr><th>資料</th><th>存放位置</th><th>是否離開裝置</th></tr>
-  <tr><td>錄音音訊檔（.m4a）</td><td>App 私有的「文件」資料夾（<code>Documents/Recording</code>）與 Core Data 資料庫</td><td>否（除非你選擇上傳）</td></tr>
+  <tr><td>錄音音訊檔（.m4a），以及你從雲端下載回裝置的音訊檔</td><td>App 私有的「文件」資料夾（<code>Documents/Recording</code>）與 Core Data 資料庫</td><td>否（除非你選擇上傳）</td></tr>
   <tr><td>錄音名稱、建立時間、長度、上傳狀態</td><td>App 私有資料庫</td><td>否</td></tr>
+  <tr><td>雲端檔案清單暫存（各雲端備份資料夾中音訊檔的檔名、大小、修改時間）</td><td>App 私有的 Application Support 資料夾（<code>CloudListCache.json</code>）</td><td>否（取消連接該雲端時刪除）</td></tr>
   <tr><td>App 設定（自動備份、僅 Wi-Fi 上傳、是否看過導覽）</td><td>iOS <code>UserDefaults</code></td><td>否</td></tr>
   <tr><td>雲端帳號憑證</td><td>Dropbox、Google 與 OneDrive 的授權權杖由各自的登入元件或本 App 存放在 iOS <strong>鑰匙圈（Keychain）</strong>；Synology 的<strong>密碼</strong>存放在 Keychain，<strong>帳號與 QuickConnect ID</strong> 存放在 App 的本機設定（<code>UserDefaults</code>）</td><td>否（僅在向該雲端服務驗證身分時使用）</td></tr>
 </table>
@@ -90,22 +91,26 @@
 <p>你可以選擇連接 Dropbox、Google Drive、OneDrive、Synology Drive 與 iCloud Drive。這是<strong>完全選用</strong>的功能，不連接任何雲端也能正常錄音、播放與管理檔案。</p>
 <ul>
   <li><strong>授權方式</strong>：Dropbox、Google Drive 與 OneDrive 透過各服務的<strong>官方登入頁</strong>授權，你的帳號密碼由該服務處理，本 App 不會取得；Synology Drive 需要你輸入 NAS 的 QuickConnect ID、帳號與密碼，僅保存在你的裝置上並透過 HTTPS 直接傳送到你的 NAS。</li>
-  <li><strong>最小權限</strong>：Google Drive 僅能存取<strong>本 App 建立的檔案</strong>（<code>drive.file</code>），OneDrive 僅能存取<strong>本 App 的專屬資料夾</strong>（<code>Files.ReadWrite.AppFolder</code>），本 App 不會讀取你雲端上的其他檔案。</li>
-  <li><strong>傳送的內容</strong>：你選擇上傳的錄音檔，以及以錄音名稱與時間組成的檔名。本 App 也會列出備份資料夾中的檔名，用來在檔案列表顯示「已備份」圖示。</li>
+  <li><strong>最小權限</strong>：Google Drive 僅能存取<strong>本 App 建立的檔案</strong>（<code>drive.file</code>），OneDrive 僅能存取<strong>本 App 的專屬資料夾</strong>（<code>Files.ReadWrite.AppFolder</code>）。本 App 只讀取備份資料夾，不會讀取你雲端上的其他檔案。</li>
+  <li><strong>上傳</strong>：你選擇上傳（或開啟自動備份後存檔）的錄音檔，以及以錄音名稱與時間組成的檔名。</li>
+  <li><strong>列出</strong>：本 App 會列出備份資料夾中的<strong>所有音訊檔</strong>（包括不是由本 App 建立、但放在該資料夾中的音訊檔），讀取檔名、大小與修改時間，用來在檔案列表顯示各雲端的備份狀態，以及只存在雲端上的錄音。</li>
+  <li><strong>下載</strong>：只有在你點選某個雲端上的錄音時，本 App 才會把該檔案下載到你的裝置。</li>
+  <li><strong>清單暫存</strong>：雲端檔案清單（上述檔名、大小與修改時間）會暫存在你的裝置上，供離線時顯示；取消連接某個雲端時，會一併刪除該雲端的暫存。</li>
+  <li><strong>不經過我們</strong>：以上資料只在你的裝置與你的雲端帳號之間直接傳輸。我們沒有伺服器，不會經手或取得任何內容。</li>
   <li><strong>傳輸加密</strong>：所有連線一律使用 HTTPS。</li>
-  <li><strong>iCloud Drive</strong>（僅 iOS）：使用你在本機登入的 Apple 帳號，錄音存放在 iCloud Drive 的 <code>Recorder</code> 資料夾，由 Apple 依其隱私權政策處理。本 App 不會取得你的 Apple 帳號資訊。</li>
-  <li><strong>取消連接</strong>：在「設定」按「取消連接」即刪除裝置上的該服務憑證。已上傳的檔案留在你的雲端帳號，由你自行管理或刪除。</li>
+  <li><strong>iCloud Drive</strong>（僅 iOS）：使用你在本機登入的 Apple 帳號，錄音存放在 iCloud Drive 的「隨手錄」資料夾（「檔案」App 中的「iCloud 雲碟 › 隨手錄」），由 Apple 依其隱私權政策處理。本 App 不會取得你的 Apple 帳號資訊。</li>
+  <li><strong>取消連接</strong>：在「設定」按「取消連接」即刪除裝置上的該服務憑證、雲端檔案清單暫存，以及尚未完成的上傳工作。已上傳的檔案留在你的雲端帳號，由你自行管理或刪除。</li>
 </ul>
 <p>錄音上傳後即由各雲端服務依其隱私權政策處理：<a href="https://www.dropbox.com/privacy" target="_blank" rel="noopener">Dropbox</a>、<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a>、<a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">Microsoft</a>、<a href="https://www.synology.com/company/legal/privacy" target="_blank" rel="noopener">Synology</a>、<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple</a>。</p>
 
 <h3>Google 使用者資料</h3>
-<p>本 App 對從 Google API 取得之資訊的使用與傳輸，遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>，包括其中的「有限使用（Limited Use）」規定：Google Drive 的存取權僅用於替你上傳、列出與刪除本 App 建立的錄音檔，不用於其他任何目的，不會轉移給任何人，也不會被我們或任何第三方讀取。</p>
+<p>本 App 對從 Google API 取得之資訊的使用與傳輸，遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>，包括其中的「有限使用（Limited Use）」規定：Google Drive 的存取權僅用於替你上傳、列出與下載本 App 建立的錄音檔，不用於其他任何目的，不會轉移給任何人，也不會被我們或任何第三方讀取。</p>
 
 <h2>4. 權限用途</h2>
 <ul>
   <li><strong>麥克風</strong>：僅在你按下錄音鍵後啟用，用於錄製你要求的聲音。首次使用時系統會詢問，可隨時於「設定 → 隨手錄 → 麥克風」變更。</li>
   <li><strong>背景音訊</strong>：讓錄音在你切到其他 App 或鎖定螢幕時持續進行，以及在你播放自己的錄音檔時於鎖定螢幕繼續播放。<strong>只在錄音或播放錄音檔時使用</strong>，其他時候不會在背景錄製或播放任何聲音。錄音期間狀態列會顯示麥克風指示。</li>
-  <li><strong>網路</strong>：僅用於與你授權的雲端帳號傳輸檔案。</li>
+  <li><strong>網路</strong>：僅用於與你授權的雲端帳號傳輸檔案（上傳、列出與下載），以及判斷目前是否離線。</li>
 </ul>
 <p>本 App 不要求追蹤許可（App 追蹤透明度），不取用廣告識別碼（IDFA），也不使用位置、相機、聯絡人或相片。</p>
 
