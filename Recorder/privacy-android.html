@@ -54,7 +54,7 @@
   <img src="icon.png" alt="">
   <div>
     <h1>隱私權政策</h1>
-    <div class="sub">隨手錄 · Android 版 · 最後更新：2026 年 10 月 19 日</div>
+    <div class="sub">隨手錄 · Android 版 · 最後更新：2026 年 10 月 21 日</div>
   </div>
 </header>
 
@@ -95,6 +95,7 @@
   <li><strong>上傳</strong>：你選擇上傳（或開啟自動備份後存檔）的錄音檔，以及以錄音名稱與時間組成的檔名。</li>
   <li><strong>列出</strong>：本 App 會列出備份資料夾中的<strong>所有音訊檔</strong>（包括不是由本 App 建立、但放在該資料夾中的音訊檔），讀取檔名、大小與修改時間，用來在檔案列表顯示各雲端的備份狀態，以及只存在雲端上的錄音。</li>
   <li><strong>下載</strong>：只有在你點選某個雲端上的錄音時，本 App 才會把該檔案下載到你的裝置。</li>
+  <li><strong>改名</strong>：你在 App 內為已備份的錄音改名時，本 App 會把雲端上對應的檔案改成新檔名，不會重新上傳內容。若雲端上已經有新檔名的同一段錄音，本 App 會刪除舊檔名的那一份以取代它，讓雲端只保留一份。這是本 App 唯一會刪除雲端檔案的情況，只限於與該錄音相同、被新檔名取代的舊檔。</li>
   <li><strong>清單暫存</strong>：雲端檔案清單（上述檔名、大小與修改時間）會暫存在你的裝置上，供離線時顯示；取消連接某個雲端時，會一併刪除該雲端的暫存。</li>
   <li><strong>不經過我們</strong>：以上資料只在你的裝置與你的雲端帳號之間直接傳輸。我們沒有伺服器，不會經手或取得任何內容。</li>
   <li><strong>傳輸加密</strong>：所有連線一律使用 HTTPS。</li>
@@ -104,7 +105,7 @@
 <p>錄音上傳後即由各雲端服務依其隱私權政策處理：<a href="https://www.dropbox.com/privacy" target="_blank" rel="noopener">Dropbox</a>、<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a>、<a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">Microsoft</a>、<a href="https://www.synology.com/company/legal/privacy" target="_blank" rel="noopener">Synology</a>。</p>
 
 <h3>Google 使用者資料</h3>
-<p>本 App 對從 Google API 取得之資訊的使用與傳輸，遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>，包括其中的「有限使用（Limited Use）」規定：Google Drive 的存取權僅用於替你上傳、列出與下載本 App 建立的錄音檔，不用於其他任何目的，不會轉移給任何人，也不會被我們或任何第三方讀取。</p>
+<p>本 App 對從 Google API 取得之資訊的使用與傳輸，遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>，包括其中的「有限使用（Limited Use）」規定：Google Drive 的存取權僅用於替你上傳、列出、下載與改名本 App 建立的錄音檔（改名時取代舊檔名的檔案），不用於其他任何目的，不會轉移給任何人，也不會被我們或任何第三方讀取。</p>
 
 <h2>4. 權限用途</h2>
 <ul>
@@ -112,7 +113,7 @@
   <li><strong>前景服務</strong>（<code>FOREGROUND_SERVICE</code>、<code>FOREGROUND_SERVICE_MICROPHONE</code>）：讓錄音在你切到其他 App 或關閉螢幕後持續進行。錄音期間通知列會顯示「錄音中」常駐通知，你隨時看得到錄音正在進行。</li>
   <li><strong>媒體播放前景服務</strong>（<code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code>）：播放錄音檔時，讓你在切到其他 App 或關閉螢幕後繼續聽，並在通知列與鎖定畫面顯示播放控制。</li>
   <li><strong>通知</strong>（<code>POST_NOTIFICATIONS</code>，Android 13 以上）：顯示上述錄音中通知。<strong>拒絕不影響錄音功能。</strong></li>
-  <li><strong>網路</strong>（<code>INTERNET</code>、<code>ACCESS_NETWORK_STATE</code>）：僅用於與你授權的雲端帳號傳輸檔案（上傳、列出與下載），並判斷目前是否為 Wi-Fi（「僅在 Wi-Fi 上傳」）或離線。</li>
+  <li><strong>網路</strong>（<code>INTERNET</code>、<code>ACCESS_NETWORK_STATE</code>）：僅用於與你授權的雲端帳號傳輸檔案（上傳、列出、下載與改名），並判斷目前是否為 Wi-Fi（「僅在 Wi-Fi 上傳」）或離線。</li>
   <li><strong>開機完成、喚醒鎖定</strong>（<code>RECEIVE_BOOT_COMPLETED</code>、<code>WAKE_LOCK</code>）：由系統元件 WorkManager 使用，讓未完成的上傳在重新開機後繼續、上傳期間不被休眠中斷。</li>
 </ul>
 <p>本 App 不使用廣告 ID（已於 manifest 移除 <code>AD_ID</code> 權限），也不使用位置、相機、聯絡人或相片。</p>
