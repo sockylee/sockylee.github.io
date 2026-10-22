@@ -68,6 +68,50 @@
 </details>
 
 <details>
+  <summary>免費版能做什麼？隨手錄 Pro 多了什麼？</summary>
+  <table>
+    <tr><th>功能</th><th>免費</th><th>Pro</th></tr>
+    <tr><td>錄音（不限長度）、背景錄音、播放、搜尋、改名、刪除</td><td>✅</td><td>✅</td></tr>
+    <tr><td>手動上傳到預設雲端（<span class="tag ios">iOS</span>iCloud Drive、<span class="tag android">Android</span>Google Drive），失敗後手動重試</td><td>✅</td><td>✅</td></tr>
+    <tr><td>在檔案列表看到只在雲端的錄音</td><td>✅</td><td>✅</td></tr>
+    <tr><td>下載只在雲端的錄音</td><td>—</td><td>✅</td></tr>
+    <tr><td>連接其他雲端（Dropbox、OneDrive、Synology Drive，iOS 另有 Google Drive），同時備份到多個雲端</td><td>—</td><td>✅</td></tr>
+    <tr><td>存檔後自動備份、上傳失敗自動重試、僅在 Wi-Fi 上傳</td><td>—</td><td>✅</td></tr>
+    <tr><td>改名時雲端上的檔名一起改</td><td>—</td><td>✅</td></tr>
+  </table>
+  <p>Pro 有月訂閱、年訂閱（首次訂閱 7 天免費試用）與一次買斷三種方案，解鎖的功能完全相同。價格以 App 內升級畫面顯示的為準。到「設定 → 隨手錄 Pro」即可升級。</p>
+</details>
+
+<details>
+  <summary>換手機或重新安裝後，怎麼恢復購買？</summary>
+  <p>到「設定 → 隨手錄 Pro」按「恢復購買」。請使用當初購買時的同一個 <span class="tag ios">iOS</span>Apple 帳號／<span class="tag android">Android</span>Google 帳號。</p>
+  <p><span class="tag ios">iOS</span>月訂閱與年訂閱支援「家人共享」，家庭成員打開 App 後會自動取得 Pro（一次買斷不支援家人共享）。</p>
+</details>
+
+<details>
+  <summary>怎麼取消訂閱？</summary>
+  <p><span class="tag ios">iOS</span>App 內「設定 → 隨手錄 Pro → 管理訂閱」，或 iPhone「設定」→ 你的姓名 →「訂閱項目」。</p>
+  <p><span class="tag android">Android</span>Google Play →「付款與訂閱」→「訂閱」。</p>
+  <p>請在目前期間結束<strong>至少 24 小時前</strong>取消，否則會續訂。取消後可以使用到目前期間結束。年訂閱的 7 天試用期間取消不會收費。退款請向 Apple 或 Google 申請。</p>
+</details>
+
+<details>
+  <summary>為什麼在 Android 買的 Pro，iPhone 上不能用？</summary>
+  <p>iOS 與 Android 的購買分別由 Apple 與 Google 處理，兩邊無法互通；本 App 沒有帳號系統，也沒有伺服器可以同步購買紀錄。兩個平台需要各自購買。</p>
+</details>
+
+<details>
+  <summary>Pro 到期或取消後，錄音和設定會怎樣？</summary>
+  <ul>
+    <li>本機錄音、雲端上已備份的檔案<strong>都不會被刪除</strong>。</li>
+    <li>預設雲端以外的雲端保持連接，但顯示「已暫停（需要 Pro）」，不再上傳；檔案列表仍會列出這些雲端上的錄音，只是下載會鎖住。</li>
+    <li>尚未完成的上傳工作會保留，重新取得 Pro 後自動繼續。</li>
+    <li>「存檔後自動備份」「僅在 Wi-Fi 上傳」的設定會保留，但不生效；重新取得 Pro 後照原本的設定運作。</li>
+    <li>改名只改本機，雲端上維持原檔名。</li>
+  </ul>
+</details>
+
+<details>
   <summary>支援哪些雲端？備份在哪個資料夾？</summary>
   <table>
     <tr><th>雲端</th><th>平台</th><th>備份位置</th></tr>
@@ -77,16 +121,17 @@
     <tr><td>Synology Drive</td><td>iOS / Android</td><td><code>/home/Drive/Recorder</code>（透過 QuickConnect）</td></tr>
     <tr><td>iCloud Drive</td><td>僅 iOS</td><td>iCloud 雲碟中的「隨手錄」資料夾</td></tr>
   </table>
+  <p>免費版可使用預設雲端（<span class="tag ios">iOS</span>iCloud Drive、<span class="tag android">Android</span>Google Drive），其他雲端需要隨手錄 Pro。</p>
   <p>上傳到雲端的檔名格式為「<code>錄音名稱_日期時間.m4a</code>」，在雲端網頁上一看就知道是哪一段。</p>
 </details>
 
 <details>
   <summary>如何備份錄音？可以自動備份嗎？</summary>
   <ul>
-    <li><strong>單筆上傳</strong>：在「檔案列表」操作，會上傳到所有已連接的雲端。<br><span class="tag ios">iOS</span>對錄音向左滑動點「上傳」，或長按選「上傳到雲端」。<br><span class="tag android">Android</span>點錄音右側的「⋮」選「上傳到雲端」（向左滑動是刪除）。</li>
-    <li><strong>自動備份</strong>：到「設定 → 備份」開啟「存檔後自動備份」，之後每次存檔都會自動上傳。</li>
-    <li><strong>僅在 Wi-Fi 上傳</strong>（預設開啟）：關閉後才會使用行動網路上傳。</li>
-    <li>上傳失敗會自動重試；檔案列表每一列右側的雲端圖示代表該筆已備份到哪幾個雲端。</li>
+    <li><strong>單筆上傳</strong>：在「檔案列表」操作，會上傳到所有已連接、還沒有這個錄音的雲端（免費版只上傳到預設雲端；離線時請連線後再上傳）。<br><span class="tag ios">iOS</span>對錄音向左滑動點「上傳」，或長按選「上傳到雲端」。<br><span class="tag android">Android</span>點錄音右側的「⋮」選「上傳到雲端」（向左滑動是刪除）。</li>
+    <li><strong>自動備份</strong>（Pro）：到「設定 → 備份」開啟「存檔後自動備份」，之後每次存檔都會自動上傳。</li>
+    <li><strong>僅在 Wi-Fi 上傳</strong>（Pro，預設開啟）：關閉後才會使用行動網路上傳。免費版按「上傳」時 Wi-Fi 與行動網路都會使用。</li>
+    <li>上傳失敗時，Pro 會自動重試；免費版會顯示紅色驚嘆號，點一下按「重試」即可重傳。檔案列表每一列右側的雲端圖示代表該筆已備份到哪幾個雲端。</li>
   </ul>
 </details>
 
@@ -98,7 +143,7 @@
     <li><strong>空心彩色</strong>：這個檔案只在該雲端上，本機沒有。這一列會標示「雲端」並顯示下載鍵。</li>
     <li><strong>淡灰色</strong>：該雲端上沒有這個檔案（尚未備份到這個雲端）。</li>
   </ul>
-  <p>只在雲端的錄音（例如換了手機、刪過本機檔案，或在其他裝置錄的），<strong>點一下該列或下載鍵</strong>即可下載回裝置，之後就能播放。</p>
+  <p>只在雲端的錄音（例如換了手機、刪過本機檔案，或在其他裝置錄的），<strong>點一下該列或下載鍵</strong>即可下載回裝置，之後就能播放（下載需要隨手錄 Pro；免費版會顯示鎖頭）。</p>
   <p>在 App 內刪除本機的錄音<strong>不會</strong>刪除雲端上的備份；雲端上的檔案請到各雲端服務自行管理。</p>
   <p>離線時，列表會顯示上次連線時取得的雲端清單，並在上方註明是幾點的紀錄。</p>
   <p><strong>Google Drive</strong>：受 Google 的權限限制（本 App 只能存取自己建立的檔案），你從 Google Drive 網頁或其他 App 手動放進 <code>Recorder</code> 資料夾的檔案，App 看不到。如果用網頁放入與 App 相同檔名的檔案，App 上傳時會出現同名的兩份（Google Drive 允許同名檔案並存）；建議只透過 App 上傳到 Google Drive。其他雲端則會列出備份資料夾中的所有音訊檔。</p>
@@ -168,6 +213,10 @@
     <li><strong>Disconnect a cloud</strong> — Settings → the cloud’s section → Disconnect. iCloud Drive (iOS) follows your system Apple Account settings (Settings → Apple Account → iCloud → iCloud Drive) and has no disconnect button in the app.</li>
     <li><strong>Background recording (iOS)</strong> — a phone call pauses the recording; it resumes automatically when the system allows, otherwise the screen shows that the recording is paused by the call — tap Stop and save, and everything recorded so far is kept.</li>
     <li><strong>Listen with the screen locked</strong> — playback continues when you lock the screen or switch apps; use the lock screen (and the notification on Android) to pause, scrub, or skip 15 seconds back/forward. Playback pauses for phone calls or when headphones are unplugged, and stops when you start a new recording.</li>
+    <li><strong>Free vs. Recorder Pro</strong> — Recording, playback, search and manual upload to the default cloud (iCloud Drive on iOS, Google Drive on Android) are free. Pro (monthly, yearly with a 7-day free trial, or a one-time lifetime purchase) adds downloading cloud-only recordings, other clouds and multi-cloud backup, auto backup, automatic retry, Wi-Fi-only upload and renaming in the cloud.</li>
+    <li><strong>Restore / cancel</strong> — Settings → Recorder Pro → Restore Purchases, with the same Apple ID / Google account. Cancel in iOS Settings → your name → Subscriptions (or Settings → Recorder Pro → Manage Subscription in the app), or Google Play → Payments &amp; subscriptions, at least 24 hours before the period ends. On iOS, subscriptions support Family Sharing; the lifetime purchase does not.</li>
+    <li><strong>Purchases are per platform</strong> — a purchase on Android does not unlock Pro on iPhone and vice versa; the app has no accounts or servers to sync them.</li>
+    <li><strong>When Pro ends</strong> — nothing is deleted. Other clouds stay connected but pause, pending uploads resume when you get Pro again, and auto backup / Wi-Fi-only keep your settings but stop applying.</li>
     <li><strong>Replay the tour</strong> — Settings → About → Replay tour.</li>
     <li><strong>Synology</strong> — QuickConnect required; accounts with 2-step verification are not supported yet.</li>
   </ul>
