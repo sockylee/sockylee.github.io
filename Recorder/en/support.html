@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Quick Recorder</title>
+<meta name="description" content="FAQ, cloud backup setup and contact for Quick Recorder (iOS / Android).">
+<meta name="theme-color" content="#0F766E">
+<link rel="icon" href="../icon.png" type="image/png">
+<link rel="alternate" hreflang="zh-Hant" href="https://sockylee.github.io/Recorder/support.html">
+<style>
+  :root { --teal:#0F766E; --ink:#1E2A38; --muted:#5f6b78; --line:#d7e7e4; --bg:#f8fcfb; --card:#fff; --th:#e9f5f3; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 96px; }
+  header { display:flex; gap:16px; align-items:center; border-bottom:3px solid var(--teal); padding-bottom:20px; margin-bottom:28px; }
+  header img { width:64px; height:64px; border-radius:15px; }
+  h1 { margin:0 0 4px; font-size:28px; color:var(--teal); }
+  .sub { color:var(--muted); font-size:15px; }
+  h2 { margin:44px 0 12px; font-size:21px; border-left:5px solid var(--teal); padding-left:12px; }
+  h3 { margin:28px 0 8px; font-size:17px; }
+  ul { padding-left:22px; } li { margin:6px 0; }
+  code { background:var(--th); padding:1px 6px; border-radius:5px; font-size:14px; }
+  details { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:10px 0; }
+  details summary { cursor:pointer; font-weight:600; }
+  details p { margin:12px 0 2px; color:var(--muted); }
+  details ul { color:var(--muted); margin:10px 0 2px; }
+  .tag { display:inline-block; font-size:12px; font-weight:700; padding:1px 8px; border-radius:999px; margin-right:6px; }
+  .ios { background:#eff6ff; color:#2563eb; } .android { background:#f0fdf4; color:#16a34a; }
+  .cta { background:var(--teal); color:#fff; display:inline-block; padding:12px 22px; border-radius:10px; text-decoration:none; font-weight:600; margin-top:8px; }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:20px 0; }
+  .key { font-weight:700; color:var(--teal); }
+  .platform, .updated { font-size:14px; color:var(--muted); margin:0 0 20px; }
+  a { color:var(--teal); }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:15px; background:var(--card); display:block; overflow-x:auto; }
+  th, td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; min-width:7em; }
+  td:nth-child(2) { min-width:13em; }
+  th { background:var(--th); font-size:14px; }
+  .back { display:inline-block; margin-bottom:24px; font-size:14px; text-decoration:none; }
+  footer { margin-top:64px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e8f0ee; --muted:#9fb1ad; --line:#24403c; --bg:#0b1417; --card:#13201f; --th:#173230; --teal:#2DD4BF; }
+    .cta { color:#0a3f3b; }
+    .ios { background:#1e2a44; color:#93c5fd; } .android { background:#16301f; color:#86efac; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="back" href="../index.html">← Quick Recorder</a> · <a class="back" href="../support.html" lang="zh-Hant">繁體中文</a>
+
+<header>
+  <img src="../icon.png" alt="">
+  <div>
+    <h1>Quick Recorder · Support</h1>
+    <div class="sub">iOS / Android</div>
+  </div>
+</header>
+
+<p>Quick Recorder is a simple voice recorder: open it and record, with a live waveform, a built-in player, and backup to your own cloud accounts. We run <strong>no servers</strong>, so your recordings never pass through us.</p>
+
+<h2>FAQ</h2>
+
+<details>
+  <summary>What’s free, and what does Quick Recorder Pro add?</summary>
+  <table>
+    <tr><th>Feature</th><th>Free</th><th>Pro</th></tr>
+    <tr><td>Recording (unlimited length), background recording, playback, search, rename, delete</td><td>✅</td><td>✅</td></tr>
+    <tr><td>Manual upload to the default cloud (<span class="tag ios">iOS</span>iCloud Drive, <span class="tag android">Android</span>Google Drive), with manual retry after a failure</td><td>✅</td><td>✅</td></tr>
+    <tr><td>See cloud-only recordings in the Files list</td><td>✅</td><td>✅</td></tr>
+    <tr><td>Download recordings that are only in the cloud</td><td>—</td><td>✅</td></tr>
+    <tr><td>Connect other clouds (Dropbox, OneDrive, Synology Drive, plus Google Drive on iOS) and back up to several at once</td><td>—</td><td>✅</td></tr>
+    <tr><td>Auto backup after saving, auto retry failed uploads, upload on Wi-Fi only</td><td>—</td><td>✅</td></tr>
+    <tr><td>Rename files in the cloud when you rename a recording</td><td>—</td><td>✅</td></tr>
+  </table>
+  <p>Pro comes as a monthly subscription, a yearly subscription (7-day free trial for first-time subscribers) or a one-time lifetime purchase; all three unlock the same features. Prices are shown in the app’s upgrade screen. Upgrade in Settings › Quick Recorder Pro.</p>
+</details>
+
+<details>
+  <summary>How do I restore my purchase on a new phone or after reinstalling?</summary>
+  <p>Go to Settings › Quick Recorder Pro and tap Restore Purchases, using the same <span class="tag ios">iOS</span>Apple Account / <span class="tag android">Android</span>Google account you bought with.</p>
+  <p><span class="tag ios">iOS</span>The monthly and yearly subscriptions support Family Sharing: family members get Pro automatically when they open the app (the lifetime purchase doesn’t support Family Sharing).</p>
+</details>
+
+<details>
+  <summary>How do I cancel my subscription?</summary>
+  <p><span class="tag ios">iOS</span>In the app, Settings › Quick Recorder Pro › Manage Subscription, or iPhone Settings › your name › Subscriptions.</p>
+  <p><span class="tag android">Android</span>Google Play › Payments &amp; subscriptions › Subscriptions.</p>
+  <p>Cancel <strong>at least 24 hours before</strong> the current period ends, or it will renew. You keep Pro until the period ends. Cancelling during the yearly plan’s 7-day trial means you won’t be charged. Refunds are requested from Apple or Google.</p>
+</details>
+
+<details>
+  <summary>Why doesn’t Pro bought on Android work on my iPhone?</summary>
+  <p>Purchases on iOS and Android are handled by Apple and Google separately and can’t be shared; the app has no accounts or servers to sync purchases. Each platform needs its own purchase.</p>
+</details>
+
+<details>
+  <summary>What happens to my recordings and settings when Pro ends?</summary>
+  <ul>
+    <li>Local recordings and files already backed up in the cloud are <strong>never deleted</strong>.</li>
+    <li>Clouds other than the default stay connected but show “Paused (Pro required)” and stop uploading. The Files list still shows their recordings, but downloading is locked.</li>
+    <li>Unfinished uploads are kept and continue automatically when you get Pro again.</li>
+    <li>Auto backup after saving and Upload on Wi-Fi only keep your settings but stop applying; they work as before when you get Pro again.</li>
+    <li>Renaming only renames the recording on your device; cloud file names stay the same.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Where are my recordings stored?</summary>
+  <p>Recordings stay on your device by default (in the app’s private storage, which other apps can’t read). They’re sent <strong>directly</strong> from your device to a cloud account you connected only when you tap Upload or turn on Auto backup after saving.</p>
+</details>
+
+<details>
+  <summary>Which clouds are supported, and which folder is used?</summary>
+  <table>
+    <tr><th>Cloud</th><th>Platform</th><th>Backup location</th></tr>
+    <tr><td>Dropbox</td><td>iOS / Android</td><td>The “Apps › 隨手錄” folder</td></tr>
+    <tr><td>Google Drive</td><td>iOS / Android</td><td>The <code>Recorder</code> folder in My Drive</td></tr>
+    <tr><td>OneDrive</td><td>iOS / Android</td><td>The app’s own folder inside “Apps”</td></tr>
+    <tr><td>Synology Drive</td><td>iOS / Android</td><td><code>/home/Drive/Recorder</code> (via QuickConnect)</td></tr>
+    <tr><td>iCloud Drive</td><td>iOS only</td><td>The “隨手錄” folder in iCloud Drive</td></tr>
+  </table>
+  <p>Folder names are the same in every language, so changing the app language never creates a new folder. Uploaded files are named “<code>recording name_date time.m4a</code>”, so you can tell them apart on the cloud website.</p>
+  <p>The free version can use the default cloud (<span class="tag ios">iOS</span>iCloud Drive, <span class="tag android">Android</span>Google Drive); other clouds require Quick Recorder Pro.</p>
+</details>
+
+<details>
+  <summary>How do I back up recordings? Can it be automatic?</summary>
+  <ul>
+    <li><strong>Single upload</strong>: from the Files list, uploads to every connected cloud that doesn’t have the recording yet (the free version uploads only to the default cloud; if you’re offline, connect first).<br><span class="tag ios">iOS</span>Swipe left on a recording and tap Upload, or touch and hold and choose Upload to Cloud.<br><span class="tag android">Android</span>Tap “⋮” next to a recording and choose Upload to cloud (swiping left deletes).</li>
+    <li><strong>Auto backup</strong> (Pro): turn on Auto backup after saving in Settings › Backup to upload every recording after you save it.</li>
+    <li><strong>Upload on Wi-Fi only</strong> (Pro, on by default): turn it off to allow cellular uploads. In the free version, tapping Upload uses Wi-Fi or cellular data.</li>
+    <li>If an upload fails, Pro retries automatically; in the free version a red exclamation mark appears — tap it and choose Retry. The cloud icons on each row show where that recording is backed up.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Why do I see recordings that are in the cloud but not on my device?</summary>
+  <p>The Files list shows your local recordings together with the audio files in the backup folders of your connected clouds. Each row has one icon per connected cloud:</p>
+  <ul>
+    <li><strong>Filled, in color</strong>: the recording is on your device and in that cloud (backed up).</li>
+    <li><strong>Outlined, in color</strong>: the file is only in that cloud. The row is labeled “Cloud” and has a download button.</li>
+    <li><strong>Light gray</strong>: that cloud doesn’t have the file (not backed up there yet).</li>
+  </ul>
+  <p>For a cloud-only recording (for example after changing phones, deleting the local file, or recording on another device), <strong>tap the row or the download button</strong> to download it, then play it (downloading requires Quick Recorder Pro; the free version shows a lock).</p>
+  <p>Deleting a recording in the app does <strong>not</strong> delete its cloud backups; manage cloud files with each cloud service.</p>
+  <p>When you’re offline, the list shows the cloud list from your last connection and notes when it was taken.</p>
+  <p><strong>Google Drive</strong>: because of Google’s permission rules (the app can access only files it created), files you add to the <code>Recorder</code> folder from the Google Drive website or other apps aren’t visible in the app. If you add a file with the same name as one from the app, uploading from the app creates a second file with the same name (Google Drive allows duplicate names); we recommend uploading to Google Drive only from the app. Other clouds list every audio file in the backup folder.</p>
+</details>
+
+<details>
+  <summary>Synology Drive won’t connect</summary>
+  <ul>
+    <li>Make sure <strong>QuickConnect</strong> and <strong>Synology Drive Server</strong> are enabled on your NAS and the account may use Synology Drive.</li>
+    <li>Accounts with <strong>2-step verification (2FA)</strong> aren’t supported yet; use an account without 2FA.</li>
+    <li>Enter only the QuickConnect ID itself (for example <code>mynas</code>), not the full address.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>OneDrive shows “unverified”, or my work account can’t authorize</summary>
+  <p>Personal Microsoft accounts authorize normally. If you use a work or school account, your organization may restrict third-party apps; ask your IT administrator or use a personal account.</p>
+</details>
+
+<details>
+  <summary>How do I disconnect a cloud?</summary>
+  <p>In Settings, tap Disconnect in that cloud’s section; the app deletes the credentials stored on your device. You can also revoke Quick Recorder’s access in each cloud service’s account security settings. Uploaded files are not deleted.</p>
+  <p><span class="tag ios">iOS</span>iCloud Drive follows your Apple Account settings and has no disconnect button in the app. To stop backing up to iCloud, turn off Quick Recorder in iOS Settings › Apple Account › iCloud › iCloud Drive.</p>
+</details>
+
+<details>
+  <summary>Does recording stop when I switch apps or lock the screen?</summary>
+  <p>No, it keeps recording.</p>
+  <p><span class="tag android">Android</span>A persistent “Recording” notification is shown while recording. Recording still works if you deny notification permission; you just won’t see the notification.</p>
+  <p><span class="tag ios">iOS</span>The status bar shows the microphone indicator while recording. A phone call pauses the recording; it resumes automatically when the system allows, otherwise the screen shows that recording is paused — tap Stop and save, and everything recorded so far is kept.</p>
+</details>
+
+<details>
+  <summary>Can I keep listening with the screen locked or in another app?</summary>
+  <p>Yes. Playback continues when you lock the screen or switch apps, and you can pause, scrub, or skip 15 seconds back or forward from the lock screen (and the notification on Android). Playback pauses for phone calls or when headphones are unplugged, and stops when you start a new recording.</p>
+</details>
+
+<details>
+  <summary>Tapping record does nothing / the app asks for microphone access</summary>
+  <p><span class="tag ios">iOS</span>Settings › Quick Recorder › Microphone, then turn it on.</p>
+  <p><span class="tag android">Android</span>Settings › Apps › Quick Recorder › Permissions › Microphone › Allow.</p>
+</details>
+
+<details>
+  <summary>Are my recordings kept when I change phones or delete the app?</summary>
+  <p>Deleting the app also deletes its local recordings.</p>
+  <p><span class="tag ios">iOS</span>Recordings are included in your iPhone’s iCloud or computer backup; restore that backup to your new phone to get them back.</p>
+  <p><span class="tag android">Android</span>Recordings are <strong>not</strong> included in Google’s automatic backup (system backups have a size limit that recordings easily exceed). Upload them to your cloud before changing phones.</p>
+  <p>Files already uploaded to your cloud are not affected and can be downloaded anytime.</p>
+</details>
+
+<details>
+  <summary>How do I change the app language?</summary>
+  <p>The app follows your device language and shows English for languages it doesn’t support.</p>
+  <p><span class="tag ios">iOS</span>Settings › About › Language in the app opens iOS Settings for Quick Recorder, where you can choose its language.</p>
+  <p><span class="tag android">Android</span>Settings › About › Language in the app. On Android 13 or later it opens the system App languages setting; on Android 10–12 choose a language (or “Follow system”) in the app.</p>
+</details>
+
+<details>
+  <summary>I want to see the tour again</summary>
+  <p>Settings › About › Replay Tour (same on iOS and Android).</p>
+</details>
+
+<h2>Contact</h2>
+<p>Questions, suggestions or bug reports are welcome (English or Chinese):</p>
+<a class="cta" href="mailto:socky.lee@gmail.com?subject=Quick%20Recorder%20support">socky.lee@gmail.com</a>
+<p style="font-size:14px;color:var(--muted);margin-top:16px">When reporting a problem, including your <strong>device model, system version (iOS / Android), app version and the cloud you use</strong> helps us find the cause faster.</p>
+
+<footer>
+  <a href="privacy.html">Privacy Policy (iOS)</a> · <a href="privacy-android.html">Privacy Policy (Android)</a> · <a href="terms.html">Terms of Use</a> · © 2026 Shuo Chi Lee
+</footer>
+
+</div>
+</body>
+</html>
