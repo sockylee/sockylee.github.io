@@ -41,7 +41,7 @@
 
 <header>
   <h1>隱私權政策</h1>
-  <div class="sub">垃圾車雷達 · iOS 版 · 最後更新：2026 年 10 月 22 日</div>
+  <div class="sub">垃圾車雷達 · iOS 版 · 最後更新：2026 年 11 月 5 日</div>
 </header>
 
 <p class="platform">這是 <strong>iOS 版</strong>的隱私權政策。Android 版請見<a href="privacy-android.html">這裡</a>。</p>
@@ -49,18 +49,19 @@
 <p>感謝你使用「垃圾車雷達」（以下稱「本 App」）。本文件說明本 App 如何處理你的資料。</p>
 
 <div class="box">
-  <p class="key" style="margin:0">簡短版本：我們沒有帳號系統、沒有自建伺服器，你的收藏、提醒與位置都留在你的裝置上。但本 App 內建 Google 提供的服務——廣告（AdMob）、使用分析（Firebase Analytics）、當機回報（Crashlytics）與推播（Firebase Cloud Messaging）——這些服務會取得裝置層級的技術資料。安裝後前七天不顯示廣告；我們不要求追蹤許可，只投放非個人化廣告，你也可以一次性購買「移除廣告」永久停止廣告。</p>
+  <p class="key" style="margin:0">簡短版本：我們自己不蒐集、不儲存、也不傳送任何可識別你個人身分的資料；你的收藏、提醒與位置都留在你的裝置上。安裝後前七天完全沒有廣告；之後 App 內顯示的廣告由 Google AdMob 提供，該服務會取得裝置層級的技術資料以投放廣告——我們不要求追蹤許可，只投放非個人化廣告。你可以一次性購買「移除廣告」來停止這部分。</p>
 </div>
 
 <h2>1. 我們自己不蒐集的資料</h2>
 <p>本 App 的開發者<strong>沒有</strong>下列任何一項：</p>
 <ul>
   <li>帳號系統、登入或註冊機制</li>
-  <li>雲端同步、會員資料庫或任何自建的後端伺服器</li>
+  <li>自建的分析工具、當機回報或使用行為追蹤</li>
+  <li>雲端同步、會員資料庫或任何後端伺服器</li>
   <li>蒐集你的姓名、電子郵件、電話或任何聯絡資訊的機制</li>
 </ul>
-<p>我們沒有自己的伺服器，因此無法從伺服器端得知你是誰、你住在哪裡，或你收藏了哪些點位。</p>
-<p><strong>但請注意</strong>：本 App 內建數項由 Google 提供的第三方服務，它們會蒐集裝置層級的技術資料，其中<strong>分析與當機回報的結果我們看得到</strong>（以彙總或去識別化的形式）。詳見第 <a href="#ads">5</a>、<a href="#analytics">6</a> 節。這些服務在你第一次開啟 App 時就會初始化，<strong>與七天免廣告期間無關</strong>。</p>
+<p>我們沒有伺服器，因此無法得知你是誰、你住在哪裡、你收藏了哪些點位，或你何時使用本 App。</p>
+<p><strong>唯一的例外是廣告</strong>：本 App 使用 Google AdMob 顯示廣告，該第三方服務會取得投放廣告所需的技術資料。詳見第 <a href="#ads">5</a> 節。</p>
 
 <h2>2. 位置資訊</h2>
 <p>本 App 會在你進入「地圖」頁時，請求「使用 App 期間」的位置權限。</p>
@@ -74,20 +75,10 @@
 <p>權限可隨時變更：iOS「設定 → 隱私權與安全性 → 定位服務 → 垃圾車雷達」。</p>
 
 <h2>3. 通知</h2>
-<p>本 App 的通知分成兩種，機制不同：</p>
-
-<h3>3.1 到站提醒（裝置本機通知）</h3>
+<p>本 App 會請求傳送通知的權限，用於在你收藏的清運點位有垃圾車即將抵達時提醒你。</p>
 <ul>
-  <li>你收藏清運點位並設定提醒後，通知為 <strong>iOS 本機排程通知</strong>（<code>UNUserNotificationCenter</code>），由你的裝置自行在指定時間觸發，內容不經過任何伺服器。</li>
-</ul>
-
-<h3>3.2 遠端推播（Firebase Cloud Messaging）</h3>
-<ul>
-  <li>本 App 內建 <strong>Firebase Cloud Messaging（FCM）</strong>，用於在必要時發送與服務相關的通知，例如政府清運排程異動、資料來源中斷、或重要的版本公告。</li>
-  <li>FCM 會為你的這次安裝產生一組<strong>註冊 token</strong>（registration token）。這是一組隨機字串，用來把訊息送到這台裝置；它<strong>不包含你的姓名、電子郵件或帳號</strong>，我們也無法用它反推你的身分。</li>
-  <li>token 由 Google 與 Apple 推播通知服務（APNs）共同處理並保管。我們不會將它與任何個人資料連結，也不會提供給第三方。</li>
-  <li>我們<strong>不會</strong>用推播發送商業廣告。</li>
-  <li>刪除本 App 即會失效。</li>
+  <li>所有通知皆為 <strong>iOS 本機排程通知</strong>（<code>UNUserNotificationCenter</code>），由你的裝置自行在指定時間觸發，內容不經過任何伺服器。</li>
+  <li>本 App <strong>沒有推播伺服器</strong>，不會註冊遠端推播、不會產生或上傳裝置 token。</li>
 </ul>
 <p>你可以隨時在 iOS「設定 → 通知 → 垃圾車雷達」中關閉通知，或在 App 內取消個別點位的提醒。</p>
 
@@ -112,7 +103,7 @@
 </ul>
 
 <h2 id="ads">5. 廣告</h2>
-<p>本 App 免費提供。<strong>安裝後前七天完全不顯示廣告</strong>，這段期間<strong>廣告</strong> SDK 不會被初始化，也不會發出任何廣告請求。（請注意：第 6 節的分析與當機回報服務不受此限，App 一啟動就會運作。）</p>
+<p>本 App 免費提供。<strong>安裝後前七天完全不顯示廣告</strong>，這段期間廣告 SDK 不會被初始化，也不會發出任何廣告請求 —— 也就是說，在你第一次看到廣告之前，Google 不會從本 App 取得任何資料。</p>
 <p>七天後，畫面最下方會顯示一條由 <strong>Google AdMob</strong> 提供的橫幅廣告。</p>
 <ul>
   <li><strong>不要求追蹤許可</strong>：本 App <strong>不會</strong>顯示 iOS 的「App 追蹤透明度」（ATT）請求，也<strong>不會</strong>取用廣告識別碼（IDFA）。所有廣告請求都標記為<strong>非個人化廣告</strong>（<code>npa=1</code>），意即不依據你跨 App 或跨網站的行為來選擇廣告。</li>
@@ -125,30 +116,7 @@
 <h3>如何停止廣告</h3>
 <p>在 App 內「設定 → 移除廣告」進行一次性購買，即可永久移除本 App 的所有廣告。購買後廣告 SDK 不會再被初始化，也不會再發出任何廣告請求。</p>
 
-<h2 id="analytics">6. 使用分析與當機回報</h2>
-<p>為了瞭解哪些功能實際被使用、以及在當機時能夠修好，本 App 內建下列 Google 服務。它們在 App 啟動時自動初始化，<strong>不受七天免廣告期間影響</strong>。</p>
-
-<h3>6.1 Firebase Analytics（使用分析）</h3>
-<ul>
-  <li>蒐集<strong>彙總的使用行為</strong>，例如開啟 App、瀏覽了哪個畫面、使用了哪個功能，以及裝置型號、作業系統版本、語言與大致地區（由 IP 推估）。</li>
-  <li>我們看到的是<strong>統計數字</strong>（例如「本週有多少人使用到站提醒」），不是個別使用者的清單。</li>
-  <li>我們<strong>不會</strong>把你的收藏點位、住家地址或精確位置送進分析事件。</li>
-</ul>
-
-<h3>6.2 Firebase Crashlytics（當機回報）</h3>
-<ul>
-  <li>App 當機時，會上傳<strong>當機堆疊、當下的 App 狀態與裝置資訊</strong>，讓我們能定位問題。</li>
-  <li>Crashlytics 會產生一組<strong>安裝識別碼（installation UUID）</strong>，用於計算有多少人受同一個問題影響。它不對應到你的身分。</li>
-</ul>
-
-<h3>6.3 Firebase Installations</h3>
-<ul>
-  <li>上述服務共用一組 <strong>Firebase 安裝 ID（FID）</strong>，這是「這次安裝」的識別碼，不指向特定使用者或實體裝置。刪除 App 後即失效。</li>
-</ul>
-
-<p>若你希望完全停止分析與當機回報，最直接的方式是刪除本 App；我們也歡迎你來信告知，我們會評估在後續版本中提供關閉選項。</p>
-
-<h2>7. 購買</h2>
+<h2>6. 購買</h2>
 <p>「移除廣告」為一次性、非消耗型的 App 內購買，透過 Apple 的 StoreKit 進行。</p>
 <ul>
   <li><strong>付款由 Apple 處理</strong>。我們<strong>看不到也不會取得</strong>你的信用卡號、帳單地址或 Apple ID。</li>
@@ -158,7 +126,7 @@
   <li>退款請求請透過 Apple 的 <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> 提出；我們無法代為退款。</li>
 </ul>
 
-<h2>8. 對外的網路連線</h2>
+<h2>7. 對外的網路連線</h2>
 <p>本 App 會連線到下列位址：</p>
 
 <h3>政府開放資料端點（下載清運排程與即時車輛位置）</h3>
@@ -179,19 +147,10 @@
 <ul>
   <li>App Store / StoreKit 端點，用於取得商品資訊與驗證購買</li>
   <li>地圖圖資由 iOS 內建的 MapKit 提供，適用 Apple 自身的隱私權政策</li>
-  <li>Apple 推播通知服務（APNs），用於傳遞第 3.2 節的遠端推播</li>
-</ul>
-
-<h3>Firebase 服務（App 啟動即連線）</h3>
-<ul>
-  <li><code>firebaseinstallations.googleapis.com</code>（安裝 ID）</li>
-  <li><code>fcmregistrations.googleapis.com</code> 與 FCM 相關端點（推播註冊）</li>
-  <li><code>firebase-settings.crashlytics.com</code>、<code>*.crashlytics.com</code>（當機回報）</li>
-  <li><code>app-measurement.com</code>（使用分析）</li>
 </ul>
 <p>請留意：連線至上述服務時，各該服務可能依其自身政策記錄伺服器存取紀錄（例如 IP 位址）。此部分不在我們的控制範圍，適用各該服務之隱私權政策。</p>
 
-<h2>9. 兒童隱私</h2>
+<h2>8. 兒童隱私</h2>
 <p>本 App 為公共資訊查詢工具，分級為 4+，但<strong>並非以兒童為主要對象</strong>，也未列於 App Store 的「兒童」類別。</p>
 <ul>
   <li>我們自己不會向任何人蒐集個人資料，包含兒童。</li>
@@ -199,7 +158,7 @@
   <li>我們不會刻意向兒童蒐集資料。若你是家長或監護人，認為有需要進一步限制，可在 iOS「螢幕使用時間」中限制 App 使用，或直接購買「移除廣告」停止所有廣告。</li>
 </ul>
 
-<h2>10. 資料來源與免責聲明</h2>
+<h2>9. 資料來源與免責聲明</h2>
 <p>本 App 為<strong>非官方的第三方應用程式</strong>，與臺北市政府、新北市政府、臺中市政府、高雄市政府或其所屬環境保護局均無隸屬、代理或合作關係。</p>
 <p>App 內所有清運時間、路線與車輛資訊均取自各該政府之開放資料，依其開放資料授權條款使用。各資料集於政府資料開放平臺（data.gov.tw）的頁面如下：</p>
 <ul>
@@ -209,13 +168,13 @@
   <li>臺中市垃圾清運及資源回收車動態資訊（臺中市政府環境保護局）：<a href="https://data.gov.tw/dataset/83558" target="_blank" rel="noopener">https://data.gov.tw/dataset/83558</a></li>
   <li>垃圾車及資源回收車動態資訊（高雄市政府環境保護局）：<a href="https://data.gov.tw/dataset/138256" target="_blank" rel="noopener">https://data.gov.tw/dataset/138256</a></li>
 </ul>
-<p>（第 8 節列的是 App 實際連線的 API 網域；本節列的是供查閱的資料集說明頁，兩者不同。）清運時間為排定之排程資料，實際到車時間可能因交通、天候或臨時調度而有差異，請以現場實際狀況為準。</p>
+<p>（第 7 節列的是 App 實際連線的 API 網域；本節列的是供查閱的資料集說明頁，兩者不同。）清運時間為排定之排程資料，實際到車時間可能因交通、天候或臨時調度而有差異，請以現場實際狀況為準。</p>
 <p>因前述誤差所生之責任分配，詳見<a href="terms.html">服務條款第 8 條</a>。本節說明資料的來源與性質，責任範圍不在本政策重複規定。</p>
 
-<h2>11. 本政策的變更</h2>
+<h2>10. 本政策的變更</h2>
 <p>若本 App 未來新增任何涉及資料處理的功能，我們會更新本文件並修改上方的「最後更新日期」。重大變更會在 App 的版本說明中一併告知。</p>
 
-<h2>12. 聯絡我們</h2>
+<h2>11. 聯絡我們</h2>
 <p>對本隱私權政策有任何疑問，歡迎透過下列方式與我們聯繫：</p>
 <p><strong>電子郵件：</strong><a href="mailto:socky.lee@gmail.com">socky.lee@gmail.com</a></p>
 
