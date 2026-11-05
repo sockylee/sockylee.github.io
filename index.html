@@ -609,7 +609,7 @@
               <div class="ci-icon">✉️</div>
               <div>
                 <div class="ci-label">Email</div>
-                <div class="ci-value"><a href="mailto:socky8237@yahoo.com.tw">socky8237@yahoo.com.tw</a></div>
+                <div class="ci-value"><a href="mailto:socky.lee@gmail.com">socky.lee@gmail.com</a></div>
               </div>
             </div>
             <div class="ci-item">
@@ -738,11 +738,11 @@
           form.reset();
         } else {
           const data = await res.json().catch(() => ({}));
-          const msg = data.errors ? data.errors.map(err => err.message).join('\n') : '送出失敗，請稍後再試或直接來信 socky8237@yahoo.com.tw';
+          const msg = data.errors ? data.errors.map(err => err.message).join('\n') : '送出失敗，請稍後再試或直接來信 socky.lee@gmail.com';
           alert(msg);
         }
       } catch (err) {
-        alert('送出失敗，請檢查網路連線，或直接來信 socky8237@yahoo.com.tw');
+        alert('送出失敗，請檢查網路連線，或直接來信 socky.lee@gmail.com');
       } finally {
         btn.disabled = false;
         btn.textContent = original;
