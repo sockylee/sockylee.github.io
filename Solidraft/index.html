@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solidraft — 隨手畫出可列印的 3D 零件</title>
+<meta name="description" content="Solidraft：Mac、iPad、iPhone 上的參數式 3D 建模 App。草圖、擠出、圓角、薄殼，匯出 STL / 3MF 直接送去 3D 列印。">
+<meta property="og:title" content="Solidraft — 參數式 3D 建模">
+<meta property="og:description" content="隨手畫出可列印的 3D 零件。">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#2F6FE0">
+<link rel="icon" href="icon.png" type="image/png">
+<style>
+  :root { --accent:#2F6FE0; --ink:#1E2430; --muted:#5f6876; --line:#dde3ec; --bg:#f7f9fc; --card:#fff; --tint:#eaf0fb; --print:#E8801E; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+  a { color:var(--accent); }
+  .wrap { max-width:960px; margin:0 auto; padding:0 24px; }
+  .hero { background:linear-gradient(160deg,#2a3242,#16181c); color:#fff; }
+  .hero .wrap { display:flex; flex-wrap:wrap; gap:28px; align-items:center; padding:64px 24px; }
+  .hero img { width:120px; height:120px; border-radius:28px; box-shadow:0 12px 30px rgba(0,0,0,.35); }
+  .hero h1 { margin:0 0 6px; font-size:38px; line-height:1.2; }
+  .hero p { margin:0; font-size:18px; opacity:.92; max-width:40ch; }
+  .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+  .btn { display:inline-block; padding:11px 20px; border-radius:10px; text-decoration:none; font-weight:600; }
+  .btn.solid { background:#FF9A3C; color:#1A1206; }
+  .btn.ghost { border:1px solid rgba(255,255,255,.75); color:#fff; }
+  section { padding:56px 0; }
+  h2 { font-size:26px; margin:0 0 20px; }
+  .grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; }
+  .card h3 { margin:0 0 6px; font-size:17px; }
+  .card p { margin:0; color:var(--muted); font-size:15px; }
+  .pro { display:inline-block; font-size:11px; font-weight:700; color:#1A1206; background:#FF9A3C; border-radius:6px; padding:0 6px; margin-left:6px; vertical-align:2px; }
+  .note { background:var(--card); border:1px solid var(--line); border-left:5px solid var(--accent); border-radius:12px; padding:16px 20px; color:var(--muted); }
+  footer { border-top:1px solid var(--line); padding:28px 0 48px; color:var(--muted); font-size:14px; }
+  footer a { margin-right:14px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e8eaed; --muted:#9aa0a8; --line:#2c3038; --bg:#16181c; --card:#1f2228; --tint:#23324d; --accent:#8AB4FF; }
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="wrap">
+    <img src="icon.png" alt="Solidraft App 圖示">
+    <div>
+      <h1>Solidraft</h1>
+      <p>隨手畫出可列印的 3D 零件。Mac、iPad、iPhone 上的參數式建模。</p>
+      <div class="actions">
+        <a class="btn solid" href="support.html">常見問題與支援</a>
+        <a class="btn ghost" href="en/support.html" lang="en">English</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>功能</h2>
+    <div class="grid">
+      <div class="card"><h3>草圖與約束</h3><p>直線、圓、圓弧、矩形、雲形線，尺寸可輸入算式；iPad 支援 Apple Pencil 手繪辨識。</p></div>
+      <div class="card"><h3>參數式建模</h3><p>擠出、旋轉、圓角、倒角、薄殼、掃掠、放樣、陣列、鏡像。改前面的尺寸，整個模型跟著更新。</p></div>
+      <div class="card"><h3>為 3D 列印而生</h3><p>匯出 STL、OBJ、3MF，檢查平台尺寸與置中，依材料預估用料。</p></div>
+      <div class="card"><h3>量測與剖面</h3><p>量邊長、直徑、距離與角度，拖曳剖面看內部結構，釘選文字註記。</p></div>
+      <div class="card"><h3>iCloud 同步<span class="pro">PRO</span></h3><p>在 Mac 設計、iPad 修改、iPhone 檢視，衝突時讓你選擇保留哪一份。</p></div>
+      <div class="card"><h3>進階列印檢查<span class="pro">PRO</span></h3><p>最薄壁厚、懸空面，並自動選擇最適合的底面。</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="note">沒有伺服器、沒有帳號、沒有廣告與追蹤。你的專案只存在你的裝置或你自己的 iCloud 帳號。本 App 使用 Open CASCADE Technology。</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="support.html">支援</a><a href="privacy.html">隱私權政策</a><a href="terms.html">使用條款</a><a href="en/privacy.html" lang="en">Privacy (English)</a><a href="../">開發者首頁</a>
+    <div style="margin-top:10px">© 2026 李碩祈 Shuo Chi Lee</div>
+  </div>
+</footer>
+</body>
+</html>

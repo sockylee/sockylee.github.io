@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Solidraft</title>
+<meta name="description" content="Solidraft privacy policy: no servers and no personal data collection. Your projects stay on your device or in your own iCloud account.">
+<meta name="theme-color" content="#2F6FE0">
+<link rel="icon" href="../icon.png" type="image/png">
+<style>
+  :root { --accent:#2F6FE0; --ink:#1E2430; --muted:#5f6876; --line:#dde3ec; --bg:#f7f9fc; --card:#fff; --th:#eaf0fb; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 96px; }
+  header { display:flex; gap:16px; align-items:center; border-bottom:3px solid var(--accent); padding-bottom:20px; margin-bottom:28px; }
+  header img { width:64px; height:64px; border-radius:15px; }
+  h1 { margin:0 0 4px; font-size:28px; color:var(--accent); }
+  .sub { color:var(--muted); font-size:15px; }
+  h2 { margin:44px 0 12px; font-size:21px; border-left:5px solid var(--accent); padding-left:12px; }
+  h3 { margin:28px 0 8px; font-size:17px; }
+  ul { padding-left:22px; } li { margin:6px 0; }
+  code { background:var(--th); padding:1px 6px; border-radius:5px; font-size:14px; }
+  details { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:10px 0; }
+  details summary { cursor:pointer; font-weight:600; }
+  details p { margin:12px 0 2px; color:var(--muted); }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:20px 0; }
+  .key { font-weight:700; color:var(--accent); margin:0; }
+  a { color:var(--accent); }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:15px; background:var(--card); display:block; overflow-x:auto; }
+  th, td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; min-width:7em; }
+  td:nth-child(2) { min-width:13em; }
+  th { background:var(--th); font-size:14px; }
+  .back { display:inline-block; margin-bottom:24px; font-size:14px; text-decoration:none; }
+  footer { margin-top:64px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e8eaed; --muted:#9aa0a8; --line:#2c3038; --bg:#16181c; --card:#1f2228; --th:#23324d; --accent:#8AB4FF; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="back" href="../index.html">← About the app</a> · <a class="back" href="../privacy.html" lang="zh-Hant">繁體中文</a>
+
+<header>
+  <img src="../icon.png" alt="">
+  <div>
+    <h1>Privacy Policy</h1>
+    <div class="sub">Solidraft · iPhone, iPad, Mac · Last updated: November 23, 2026</div>
+  </div>
+</header>
+
+<p>Thank you for using Solidraft (“the App”). The App is developed and published by independent developer Shuo Chi Lee (“we”, “us”). This policy explains how the App handles your data.</p>
+
+<div class="box">
+  <p class="key">The short version: we have no servers, no account system, and no ads, analytics, or tracking of any kind. Your projects are stored only on your device. If you subscribe to Solidraft Pro and turn on iCloud Sync, they are stored in your own iCloud account, handled by Apple. We cannot access them.</p>
+</div>
+
+<h2>1. Data we do not collect</h2>
+<p>We do <strong>not</strong> have any of the following:</p>
+<ul>
+  <li>Servers, member databases, or account systems of our own</li>
+  <li>Advertising, usage analytics, crash reporting, or any tracking tools</li>
+  <li>Any mechanism that collects your name, email, phone number, location, or other contact information</li>
+</ul>
+<p>As a result, we <strong>cannot</strong> see your projects, models, sketches, or exported files.</p>
+
+<h2>2. Data stored on your device</h2>
+<table>
+  <tr><th>Data</th><th>Where it is stored</th><th>Leaves the device?</th></tr>
+  <tr><td>Projects (<code>.solidraft</code>: features, sketches, dimensions, annotations, thumbnails, and reference meshes you import)</td><td>The App’s private Application Support folder (<code>Projects</code>). Deleted projects move to Recently Deleted and are removed after 30 days.</td><td>No (see section 3 when iCloud Sync is on)</td></tr>
+  <tr><td>Version history (Solidraft Pro: past copies of your projects, kept for 30 days)</td><td>The App’s private Application Support folder (<code>Versions</code>), or the App’s iCloud container when iCloud Sync is on</td><td>No (see section 3 when iCloud Sync is on)</td></tr>
+  <tr><td>Printer profiles and print history (up to 200 entries)</td><td>The App’s private Application Support folder</td><td>No</td></tr>
+  <tr><td>App settings (units, grid, sketch options, material for estimates, whether projects are stored in iCloud)</td><td>iOS / macOS <code>UserDefaults</code></td><td>No</td></tr>
+  <tr><td>Solidraft Pro purchase status (whether Pro is active and its expiration date; no payment or personal data)</td><td><code>UserDefaults</code></td><td>No</td></tr>
+</table>
+<p>Depending on your device settings, this data may be included in <strong>iCloud Backup or computer backups</strong> (handled by Apple). Deleting the App removes this local data.</p>
+
+<h2>3. iCloud Sync (Solidraft Pro, optional)</h2>
+<ul>
+  <li>When you subscribe to Solidraft Pro and turn on iCloud Sync, your projects move to the App’s container in your iCloud Drive (<code>iCloud.com.sockylee.Solidraft</code>) and sync across your Mac, iPad, and iPhone signed in to the same Apple Account.</li>
+  <li>Sync is handled by Apple’s iCloud. Data travels only between your devices and your iCloud account, <strong>never through us</strong>, and we cannot read it. The App does not receive your Apple Account information.</li>
+  <li>If two devices edit the same project at the same time, the App shows the other device’s name (provided by iCloud) and lets you choose which version to keep. Nothing is overwritten silently.</li>
+  <li>You can turn off iCloud Sync at any time in Settings, which moves your projects back to the device. When a subscription ends, sync pauses; projects in iCloud can still be opened and downloaded to the device.</li>
+  <li>Data in iCloud is handled by Apple under its <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Privacy Policy</a>.</li>
+</ul>
+
+<h2>4. Import and export</h2>
+<p>When you import a reference mesh (STL, OBJ, etc.) or a STEP file, the App reads only the file you pick in the file picker and stores its contents in the project. When you export STL, OBJ, 3MF, or STEP, you choose where the file goes or whom to share it with (for example, a slicer). The App does not read any other files.</p>
+
+<h2>5. In-app purchases (Solidraft Pro)</h2>
+<ul>
+  <li><strong>Payments are handled by Apple.</strong> When you buy Solidraft Pro (monthly or yearly subscription), payment takes place entirely in the App Store. We <strong>never</strong> receive your name, Apple Account, card, or any payment details.</li>
+  <li><strong>Purchases are verified on your device.</strong> The App uses Apple’s StoreKit to check Apple-signed purchase records on your device. Purchase records are <strong>not sent to us</strong>.</li>
+  <li>Subscriptions, cancellations, refunds, and Family Sharing are handled by Apple under its terms. See the <a href="terms.html">Terms of Use</a> for plan details.</li>
+</ul>
+
+<h2>6. Permissions and network</h2>
+<ul>
+  <li><strong>Camera (AR placement only, Solidraft Pro)</strong>: When you open AR placement, the system asks for camera access. Camera images are processed in real time on your device by Apple’s ARKit to find a table or floor and place your model. The App <strong>never takes photos, records video, or stores or uploads</strong> any images. You can turn off camera access at any time in the system Settings; other features are not affected.</li>
+  <li>The App does not use the microphone, location, contacts, or photos.</li>
+  <li>The network is used only for iCloud Sync (handled by the system), App Store purchases, and opening web links you tap (such as this page).</li>
+  <li>The App does not ask for tracking permission (App Tracking Transparency) and does not access the advertising identifier (IDFA).</li>
+</ul>
+
+<h2>7. Third-party components</h2>
+<p>The App uses the open-source geometry kernel <strong>Open CASCADE Technology</strong>, along with <strong>OCCTSwift</strong> and <strong>OCCTSwiftViewport</strong> (LGPL-2.1). All of them run on your device, do not connect to the network, and collect no data. See Settings → About → Open Source Licenses in the App. The App includes no advertising, analytics, or crash-reporting SDKs.</p>
+
+<h2>8. Children’s privacy</h2>
+<p>The App is a general-purpose 3D modeling tool and is not directed at children. We do not collect personal data from anyone, including children.</p>
+
+<h2>9. Your rights</h2>
+<p>Because we hold none of your data, you stay in full control: delete projects in the App, turn off iCloud Sync, or delete the App to remove all local data at any time. Data in iCloud can be managed in your system’s iCloud settings.</p>
+
+<h2>10. Changes to this policy</h2>
+<p>If the App adds any feature that processes data, we will update this page and the “Last updated” date above. Significant changes will also be noted in the App Store release notes.</p>
+
+<h2>11. Contact</h2>
+<p>Questions about this policy? Email <a href="mailto:socky.lee@gmail.com">socky.lee@gmail.com</a>.</p>
+
+<footer>
+  <a href="../index.html">Home</a> · <a href="support.html">Support</a> · <a href="terms.html">Terms of Use</a> · © 2026 Shuo Chi Lee
+</footer>
+
+</div>
+</body>
+</html>

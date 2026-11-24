@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>隱私權政策 — Solidraft</title>
+<meta name="description" content="Solidraft 的隱私權政策：沒有伺服器、不蒐集個人資料，專案只存在你的裝置或你自己的 iCloud 帳號。">
+<meta name="theme-color" content="#2F6FE0">
+<link rel="icon" href="icon.png" type="image/png">
+<style>
+  :root { --accent:#2F6FE0; --ink:#1E2430; --muted:#5f6876; --line:#dde3ec; --bg:#f7f9fc; --card:#fff; --th:#eaf0fb; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 96px; }
+  header { display:flex; gap:16px; align-items:center; border-bottom:3px solid var(--accent); padding-bottom:20px; margin-bottom:28px; }
+  header img { width:64px; height:64px; border-radius:15px; }
+  h1 { margin:0 0 4px; font-size:28px; color:var(--accent); }
+  .sub { color:var(--muted); font-size:15px; }
+  h2 { margin:44px 0 12px; font-size:21px; border-left:5px solid var(--accent); padding-left:12px; }
+  h3 { margin:28px 0 8px; font-size:17px; }
+  ul { padding-left:22px; } li { margin:6px 0; }
+  code { background:var(--th); padding:1px 6px; border-radius:5px; font-size:14px; }
+  details { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:10px 0; }
+  details summary { cursor:pointer; font-weight:600; }
+  details p { margin:12px 0 2px; color:var(--muted); }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:20px 0; }
+  .key { font-weight:700; color:var(--accent); margin:0; }
+  a { color:var(--accent); }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:15px; background:var(--card); display:block; overflow-x:auto; }
+  th, td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; min-width:7em; }
+  td:nth-child(2) { min-width:13em; }
+  th { background:var(--th); font-size:14px; }
+  .back { display:inline-block; margin-bottom:24px; font-size:14px; text-decoration:none; }
+  footer { margin-top:64px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e8eaed; --muted:#9aa0a8; --line:#2c3038; --bg:#16181c; --card:#1f2228; --th:#23324d; --accent:#8AB4FF; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="back" href="index.html">← 回 App 介紹</a> · <a class="back" href="en/privacy.html" lang="en">English</a>
+
+<header>
+  <img src="icon.png" alt="">
+  <div>
+    <h1>隱私權政策</h1>
+    <div class="sub">Solidraft · iPhone、iPad、Mac · 最後更新：2026 年 11 月 23 日</div>
+  </div>
+</header>
+
+<p>感謝你使用「Solidraft」（以下稱「本 App」）。本 App 由個人開發者李碩祈（Shuo Chi Lee，以下稱「我們」）開發與發行。本文件說明本 App 如何處理你的資料。</p>
+
+<div class="box">
+  <p class="key">簡短版本：我們沒有伺服器、沒有帳號系統，也沒有任何廣告、分析或追蹤。你的專案只存在你的裝置上；訂閱 Solidraft Pro 並開啟 iCloud 同步時，存在你自己的 iCloud 帳號中，由 Apple 處理，我們無法取得。</p>
+</div>
+
+<h2>1. 我們不蒐集的資料</h2>
+<p>我們<strong>沒有</strong>下列任何一項：</p>
+<ul>
+  <li>自建的伺服器、會員資料庫或帳號系統</li>
+  <li>廣告、使用分析、當機回報或任何追蹤工具</li>
+  <li>蒐集你的姓名、電子郵件、電話、位置或任何聯絡資訊的機制</li>
+</ul>
+<p>因此我們<strong>無法</strong>看到你的專案、模型、草圖或匯出的檔案。</p>
+
+<h2>2. 儲存在你裝置上的資料</h2>
+<table>
+  <tr><th>資料</th><th>存放位置</th><th>是否離開裝置</th></tr>
+  <tr><td>專案（<code>.solidraft</code>：特徵、草圖、尺寸、註記、縮圖、你匯入的參考網格）</td><td>App 私有的 Application Support 資料夾（<code>Projects</code>）；刪除的專案先移到「最近刪除」，30 天後清除</td><td>否（開啟 iCloud 同步時見第 3 節）</td></tr>
+  <tr><td>版本紀錄（Solidraft Pro：專案的歷史複本，保留 30 天）</td><td>App 私有的 Application Support 資料夾（<code>Versions</code>）；開啟 iCloud 同步時在本 App 的 iCloud 容器中</td><td>否（開啟 iCloud 同步時見第 3 節）</td></tr>
+  <tr><td>印表機設定檔、列印紀錄（最多 200 筆）</td><td>App 私有的 Application Support 資料夾</td><td>否</td></tr>
+  <tr><td>App 設定（單位、格點、草圖選項、預估用料的材料、是否存在 iCloud）</td><td>iOS / macOS <code>UserDefaults</code></td><td>否</td></tr>
+  <tr><td>Solidraft Pro 的購買狀態（是否為 Pro、到期日；不含付款或個人資料）</td><td><code>UserDefaults</code></td><td>否</td></tr>
+</table>
+<p>依你的裝置設定，上述資料可能包含在 <strong>iCloud 備份或電腦備份</strong>中（由 Apple 處理）。刪除本 App 時，系統會一併刪除這些本機資料。</p>
+
+<h2>3. iCloud 同步（Solidraft Pro，選用）</h2>
+<ul>
+  <li>訂閱 Solidraft Pro 並開啟「iCloud 同步」後，專案會搬到你的 iCloud 雲碟中本 App 的容器（<code>iCloud.com.sockylee.Solidraft</code>），在你登入同一個 Apple 帳號的 Mac、iPad、iPhone 之間同步。</li>
+  <li>同步由 Apple 的 iCloud 處理，資料只在你的裝置與你的 iCloud 帳號之間傳輸，<strong>不經過我們</strong>，我們也無法讀取。本 App 不會取得你的 Apple 帳號資訊。</li>
+  <li>兩台裝置同時修改產生衝突時，本 App 會顯示另一台裝置的名稱（由 iCloud 提供）讓你選擇要保留的版本，不會無聲覆蓋。</li>
+  <li>你可以隨時在「設定 → iCloud 同步」關閉，專案會搬回這台裝置。訂閱到期後同步會暫停，雲端上的專案仍可開啟與下載到本機。</li>
+  <li>iCloud 上的資料由 Apple 依其<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">隱私權政策</a>處理。</li>
+</ul>
+
+<h2>4. 匯入與匯出</h2>
+<p>匯入參考網格（STL、OBJ 等）或 STEP 檔時，本 App 只讀取你在檔案選擇器中選取的檔案，並把內容存進專案。匯出 STL、OBJ、3MF、STEP 時，檔案由你決定存放位置或分享對象（例如切片軟體）。本 App 不會讀取你未選取的其他檔案。</p>
+
+<h2>5. App 內購買（Solidraft Pro）</h2>
+<ul>
+  <li><strong>付款由 Apple 處理</strong>：購買 Solidraft Pro（月訂閱或年訂閱）時，付款完全在 App Store 進行。我們<strong>不會</strong>取得你的姓名、Apple 帳號、信用卡或任何付款資料。</li>
+  <li><strong>購買狀態只在裝置上驗證</strong>：本 App 使用 Apple 的 StoreKit 在你的裝置上檢查 Apple 簽署的購買紀錄。購買紀錄<strong>不會傳送給我們</strong>。</li>
+  <li>訂閱、取消、退款與家人共享由 Apple 依其條款處理。方案說明見<a href="terms.html">使用條款</a>。</li>
+</ul>
+
+<h2>6. 權限與網路</h2>
+<ul>
+  <li><strong>相機（只有 AR 實景擺放，Solidraft Pro）</strong>：開啟「AR 實景擺放」時，系統會詢問相機權限。相機影像只由 Apple 的 ARKit 在你的裝置上即時處理，用來偵測桌面或地面並放置模型；本 App <strong>不會拍照、錄影、儲存或上傳</strong>任何影像。你可以隨時在系統「設定」中關閉相機權限，其他功能不受影響。</li>
+  <li>本 App 不使用麥克風、位置、聯絡人或相片。</li>
+  <li>網路僅用於 iCloud 同步（由系統處理）、App Store 購買，以及開啟你點選的網頁連結（例如本頁）。</li>
+  <li>本 App 不要求追蹤許可（App 追蹤透明度），也不取用廣告識別碼（IDFA）。</li>
+</ul>
+
+<h2>7. 第三方元件</h2>
+<p>本 App 使用開放原始碼的幾何核心 <strong>Open CASCADE Technology</strong>，以及 <strong>OCCTSwift</strong>、<strong>OCCTSwiftViewport</strong>（LGPL-2.1 授權），全部在你的裝置上執行，不連網、不蒐集資料。授權內容見 App 內「設定 → 關於 → 開放原始碼授權」。本 App 未內建任何廣告、分析或當機回報 SDK。</p>
+
+<h2>8. 兒童隱私</h2>
+<p>本 App 為一般用途的 3D 建模工具，並非以兒童為對象。我們不向任何人蒐集個人資料，包含兒童。</p>
+
+<h2>9. 你的權利</h2>
+<p>由於我們不持有你的任何資料，你的資料完全由你掌控：可隨時在 App 內刪除專案、關閉 iCloud 同步，或刪除 App 清除所有本機資料；iCloud 上的資料可在系統的 iCloud 設定中管理。</p>
+
+<h2>10. 本政策的變更</h2>
+<p>若本 App 新增任何涉及資料處理的功能，我們會更新本頁並修改上方的「最後更新」日期，重大變更會在 App Store 的版本說明中一併告知。</p>
+
+<h2>11. 聯絡我們</h2>
+<p>對本隱私權政策有任何疑問，歡迎來信：<a href="mailto:socky.lee@gmail.com">socky.lee@gmail.com</a></p>
+
+<footer>
+  <a href="index.html">首頁</a> · <a href="support.html">支援</a> · <a href="terms.html">使用條款</a> · © 2026 李碩祈 Shuo Chi Lee
+</footer>
+
+</div>
+</body>
+</html>

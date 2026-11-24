@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Solidraft</title>
+<meta name="description" content="Solidraft FAQ and contact information.">
+<meta name="theme-color" content="#2F6FE0">
+<link rel="icon" href="../icon.png" type="image/png">
+<style>
+  :root { --accent:#2F6FE0; --ink:#1E2430; --muted:#5f6876; --line:#dde3ec; --bg:#f7f9fc; --card:#fff; --th:#eaf0fb; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 96px; }
+  header { display:flex; gap:16px; align-items:center; border-bottom:3px solid var(--accent); padding-bottom:20px; margin-bottom:28px; }
+  header img { width:64px; height:64px; border-radius:15px; }
+  h1 { margin:0 0 4px; font-size:28px; color:var(--accent); }
+  .sub { color:var(--muted); font-size:15px; }
+  h2 { margin:44px 0 12px; font-size:21px; border-left:5px solid var(--accent); padding-left:12px; }
+  h3 { margin:28px 0 8px; font-size:17px; }
+  ul { padding-left:22px; } li { margin:6px 0; }
+  code { background:var(--th); padding:1px 6px; border-radius:5px; font-size:14px; }
+  details { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:10px 0; }
+  details summary { cursor:pointer; font-weight:600; }
+  details p { margin:12px 0 2px; color:var(--muted); }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:20px 0; }
+  .key { font-weight:700; color:var(--accent); margin:0; }
+  a { color:var(--accent); }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:15px; background:var(--card); display:block; overflow-x:auto; }
+  th, td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; min-width:7em; }
+  td:nth-child(2) { min-width:13em; }
+  th { background:var(--th); font-size:14px; }
+  .back { display:inline-block; margin-bottom:24px; font-size:14px; text-decoration:none; }
+  footer { margin-top:64px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e8eaed; --muted:#9aa0a8; --line:#2c3038; --bg:#16181c; --card:#1f2228; --th:#23324d; --accent:#8AB4FF; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="back" href="../index.html">← About the app</a> · <a class="back" href="../support.html" lang="zh-Hant">繁體中文</a>
+
+<header>
+  <img src="../icon.png" alt="">
+  <div>
+    <h1>Support</h1>
+    <div class="sub">Solidraft · FAQ and contact</div>
+  </div>
+</header>
+
+<div class="box">
+  <p class="key">Can’t find an answer? Email <a href="mailto:socky.lee@gmail.com?subject=Solidraft">socky.lee@gmail.com</a> with your device model, OS version, and app version (Settings → About → Version).</p>
+</div>
+
+<h2>Modeling</h2>
+<details><summary>How do I make my first part?</summary>
+<p>Tap “+” on the home screen and choose a template or a blank project. In the workspace, tap Sketch and pick a plane, draw a profile, tap Done, then use Extrude to make it solid. On iPad you can draw freehand with Apple Pencil; strokes are recognized as lines, circles, and rectangles.</p></details>
+<details><summary>If I change an earlier dimension, do later features update?</summary>
+<p>Yes. Solidraft is a parametric modeler that records every feature in order. When you change a sketch dimension, the model rebuilds from that step.</p></details>
+<details><summary>A feature shows as failed?</summary>
+<p>Usually a fillet radius or shell thickness is larger than the neighboring faces allow. Try a smaller value or different edges or faces. Steps after a failed feature are skipped for now, and the model stops at the previous step.</p></details>
+
+<h2>3D printing</h2>
+<details><summary>Which formats can I export?</summary>
+<p>STL, OBJ, and 3MF. With Solidraft Pro you can also import and export STEP to exchange files with other CAD apps. The export screen lets you pick your printer’s build volume and checks whether the model fits and is centered.</p></details>
+<details><summary>How accurate is the material estimate?</summary>
+<p>It multiplies the model volume by the material density (PLA 1.24, PETG 1.27, ABS 1.04 g/cm³) assuming a solid part, so it is an upper bound. Actual usage depends on your slicer’s infill and wall settings.</p></details>
+
+<h2>Sync and subscription</h2>
+<details><summary>How do I sync between Mac, iPad, and iPhone?</summary>
+<p>Subscribe to Solidraft Pro, then turn on Settings → iCloud Sync. Each device must be signed in to the same Apple Account with iCloud Drive turned on in system settings.</p></details>
+<details><summary>What does “Conflict” mean?</summary>
+<p>Two devices edited the same project before syncing. When you open it, choose to keep this device’s version, the other device’s version, or both (the other one is saved as a copy).</p></details>
+<details><summary>Pro is missing on my new device?</summary>
+<p>Go to Settings → Plan and tap Restore Purchases. Make sure you use the Apple Account you purchased with.</p></details>
+<details><summary>How do I cancel?</summary>
+<p>In your device’s Settings → Apple Account → Subscriptions, or in the App under Settings → Plan → Manage Subscription. You keep access until the end of the current period, and your projects are never deleted.</p></details>
+
+<footer>
+  <a href="../index.html">Home</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a> · © 2026 Shuo Chi Lee
+</footer>
+
+</div>
+</body>
+</html>
