@@ -1,0 +1,55 @@
+/* 隨時記 Jotverse 網站共用樣式（首頁、隱私權政策、使用條款、支援；繁中與英文共用） */
+:root { --accent:#4F5BD5; --ink:#1E2430; --muted:#5f6876; --line:#e3e1dc; --bg:#f8f7f3; --card:#fff; --tint:#eef0fb; --sticky:#FFD966; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink);
+       font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; }
+a { color:var(--accent); }
+
+/* 首頁 */
+.home .wrap { max-width:960px; margin:0 auto; padding:0 24px; }
+.hero { background:radial-gradient(70% 90% at 10% 0%, #fff3c4 0%, rgba(255,243,196,0) 70%),
+                   radial-gradient(60% 80% at 95% 10%, #ffd6e2 0%, rgba(255,214,226,0) 70%),
+                   linear-gradient(180deg, #f3f1ff, var(--bg)); }
+.hero .wrap { padding:72px 24px 56px; }
+.hero h1 { margin:0 0 8px; font-size:40px; line-height:1.2; }
+.hero p { margin:0; font-size:19px; color:var(--muted); max-width:42ch; }
+.actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+.btn { display:inline-block; padding:11px 20px; border-radius:10px; text-decoration:none; font-weight:600; }
+.btn.solid { background:var(--accent); color:#fff; }
+.btn.ghost { border:1px solid var(--accent); color:var(--accent); }
+section { padding:48px 0; }
+section h2 { font-size:26px; margin:0 0 20px; }
+.grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+.card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; }
+.card h3 { margin:0 0 6px; font-size:17px; }
+.card p { margin:0; color:var(--muted); font-size:15px; }
+.pro { display:inline-block; font-size:11px; font-weight:700; color:#fff; background:var(--accent); border-radius:6px; padding:0 6px; margin-left:6px; vertical-align:2px; }
+.note { background:var(--card); border:1px solid var(--line); border-left:5px solid var(--sticky); border-radius:12px; padding:16px 20px; color:var(--muted); }
+.home footer { border-top:1px solid var(--line); padding:28px 0 48px; color:var(--muted); font-size:14px; }
+.home footer a { margin-right:14px; }
+
+/* 文件頁（隱私權政策、使用條款、支援） */
+.doc .wrap { max-width:760px; margin:0 auto; padding:48px 24px 96px; }
+.doc header { border-bottom:3px solid var(--accent); padding-bottom:20px; margin-bottom:28px; }
+.doc h1 { margin:0 0 4px; font-size:28px; color:var(--accent); }
+.doc .sub { color:var(--muted); font-size:15px; }
+.doc h2 { margin:44px 0 12px; font-size:21px; border-left:5px solid var(--accent); padding-left:12px; }
+.doc ul { padding-left:22px; } .doc li { margin:6px 0; }
+code { background:var(--tint); padding:1px 6px; border-radius:5px; font-size:14px; }
+details { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:10px 0; }
+details summary { cursor:pointer; font-weight:600; }
+details p { margin:12px 0 2px; color:var(--muted); }
+.box { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:20px 0; }
+.key { font-weight:700; color:var(--accent); margin:0; }
+table { width:100%; border-collapse:collapse; margin:14px 0; font-size:15px; background:var(--card); display:block; overflow-x:auto; }
+th, td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; min-width:7em; }
+td:nth-child(2) { min-width:13em; }
+th { background:var(--tint); font-size:14px; }
+.back { display:inline-block; margin-bottom:24px; font-size:14px; text-decoration:none; }
+.doc footer { margin-top:64px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+
+@media (prefers-color-scheme: dark) {
+  :root { --ink:#e8eaed; --muted:#9aa0a8; --line:#2c3038; --bg:#16181c; --card:#1f2228; --tint:#262b45; --accent:#9AA5FF; }
+  .hero { background:linear-gradient(180deg, #23263a, var(--bg)); }
+  .btn.solid { color:#16181c; }
+}
